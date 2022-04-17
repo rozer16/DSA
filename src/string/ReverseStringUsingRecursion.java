@@ -1,4 +1,4 @@
-package misc;
+package string;
 
 public class ReverseStringUsingRecursion {
     public static void main(String[] args) {
