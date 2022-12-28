@@ -1,4 +1,7 @@
-package mathematical;/*
+package mathematical;
+
+
+/*
  * 1. A number n is not prime if its divisible by 2 to n-1
  * 2. A number n is not prime if multiplication of 2 numbers a * b = n
  * 3. a <= b
@@ -6,7 +9,7 @@ package mathematical;/*
  * 5. a square <= n => if n is divisible by any no less than root n then return false
  * 
  * 
- * 2,3,5,(6k+-i && (n%2 != 0 || n%3 !=0) are prime no
+ * 2,3,5,(6k+-i && (n%2 != 0 || n%3 !=0 ) are prime no
  * */
 
 

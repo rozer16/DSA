@@ -2,7 +2,7 @@ package mathematical;
 
 import java.util.Arrays;
 
-public class SieveOfEratosthenes {
+public class PrimeNoUptoN {
 
 	public static boolean[] getPrimeNoUptoN(int n) {
 		boolean[] nos = new boolean[n];
@@ -11,7 +11,7 @@ public class SieveOfEratosthenes {
 		
 		
 		for(int i =2 ;i<=(n/2); i++) {
-			if(inPrime(i)) {
+			if(nos[i] != false && inPrime(i)) {
 				for(int j = (i*2); j<n; j=(j+i)) {
 					nos[j]=false;
 				}
@@ -41,7 +41,7 @@ public class SieveOfEratosthenes {
 	}
 	
 	public static void main(String[] args) {
-		int i = 10000;
+		int i = 100;
 		boolean [] aa = getPrimeNoUptoN(i);
 		for(int x = 1 ; x<i;x++) {
 			if(aa[x] == true)

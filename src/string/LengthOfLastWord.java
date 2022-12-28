@@ -1,4 +1,4 @@
-package mathematical;
+package string;
 
 public class LengthOfLastWord {
 
