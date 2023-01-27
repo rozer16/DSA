@@ -17,7 +17,7 @@ class GFG
  2 c
  
  
- b can be relaced by a , c can be replaced by b
+ b can be replaced by a , c can be replaced by b
  * */
 //Function to print the required string
 static String printString(String s)
@@ -68,5 +68,3 @@ public static void main(String[] args)
 	System.out.println(printString(str));
 }
 }
-
-/* This code contributed by PrinciRaj1992 */
