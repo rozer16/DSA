@@ -43,12 +43,12 @@ public class PrimeFactorization {
 			return;
 		}
 		for(int i = 0;i<=len; i++) {
-			System.out.println(f[i]+" * "+expo[i]);
+			System.out.println(f[i]+" ^ "+expo[i]);
 		}
 	}
 	
 	public static void main(String[] args) {
-		primeFacrtor(10000);
+		primeFacrtor(1000);
 		
 	}
 }

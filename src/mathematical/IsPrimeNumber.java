@@ -41,6 +41,7 @@ public class IsPrimeNumber {
 		// This is checked so that we can skip
         // middle five numbers in below loop
 		// Forming (6k +- i)
+		// starting with i=5 and checking i+2
 		for(int i=5; i*i < no ; i = i+6) {
 			if(no % i == 0 || no % (i+2) == 0)
 				return false;

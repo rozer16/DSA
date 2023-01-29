@@ -8,6 +8,12 @@ public class FibbonaciUsingRecursion {
         System.out.println(getFibboNaci(5));
     }
 
+    /*
+    f[0] = 0;
+    f[1] = 1;
+    f[n] = f[n-1] + f[n-2]
+
+    * */
     public static  int getFibboNaci(int no) {
     	System.out.println("Fibbonaci : "+no);
         if (no < 2) {
