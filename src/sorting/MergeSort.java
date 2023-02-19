@@ -20,7 +20,7 @@ public class MergeSort {
         * Keep splitting until all arrays have only one element each.
     * Sorting
         * Merge array into sorted
-        * Repeat untill you have a single sorted array
+        * Repeat until you have a single sorted array
 
     *  Not in place.Uses temporary array.
 
@@ -35,7 +35,7 @@ public class MergeSort {
     *
     */
 
-    private static void mergeSort(int[] a, int startIndex, int endIndex) {
+    public static void mergeSort(int[] a, int startIndex, int endIndex) {
         if(endIndex-startIndex < 2){
             return;
         }
@@ -47,7 +47,7 @@ public class MergeSort {
     }
     //1 2 3 4 5 6
     public static void merge(int [] array, int startIndex, int midIndex, int endIndex){
-        if(array[midIndex -1] <= array[endIndex]){
+        if(array[midIndex -1] <= array[midIndex]){
             return;
         }
 
@@ -67,3 +67,4 @@ public class MergeSort {
 
 
 }
+
