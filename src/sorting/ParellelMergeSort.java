@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class ParellelMergeSort {
+
+
     public static void main(String[] args) {
         int len = 1000000;
         int[] a = createArray(len);
@@ -116,12 +118,7 @@ public class ParellelMergeSort {
         merge(a,low,middleIndex,high);;
     }
     private static Thread createThread(int [] a, int startIndex, int lastIndex, int noOfThread){
-        return new Thread(){
-            @Override
-            public void run() {
-                parellelMergeSort(a,startIndex,lastIndex,noOfThread/2);
-            };
-        };
+        return new Thread(() -> parellelMergeSort(a,startIndex,lastIndex,noOfThread/2));
     }
 
 
