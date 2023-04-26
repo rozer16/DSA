@@ -48,7 +48,7 @@ public class PrimeFactorization {
 	}
 	
 	public static void main(String[] args) {
-		primeFacrtor(1000);
+		primeFacrtor(100);
 		
 	}
 }

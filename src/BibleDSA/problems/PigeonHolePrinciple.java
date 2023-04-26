@@ -1,4 +1,4 @@
-package mathematical;
+package BibleDSA.problems;
 
 /*
  * Problem : Given an integer n, find a number consisting only of 0 and 1 which is divisible by n

@@ -1,4 +1,4 @@
-package mathematical;
+package BibleDSA.problems.a_maths;
 
 
 /*
@@ -13,7 +13,7 @@ package mathematical;
  * */
 
 
-public class IsPrimeNumber {
+public class A_IsPrimeNumber {
 
 	
 	
