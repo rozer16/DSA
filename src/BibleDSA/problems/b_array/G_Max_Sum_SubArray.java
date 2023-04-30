@@ -67,14 +67,16 @@ public class G_Max_Sum_SubArray {
     * */
     public int maxSumSubArray_Greedy(int [] arr){
         int current_sum = 0;
-        int max_sum = arr[0];
+        int max_sum = Integer.MIN_VALUE;
 
 
-        for(int i=1;i<arr.length;i++){
-            current_sum += arr[i];
-            if(current_sum < 0)
+        for(int i=0;i<arr.length;i++){
+
+            if(current_sum < 0 && arr[i] >= current_sum)
                 current_sum = 0;
 
+
+            current_sum += arr[i];
             if(current_sum > max_sum)
                 max_sum = current_sum;
         }
