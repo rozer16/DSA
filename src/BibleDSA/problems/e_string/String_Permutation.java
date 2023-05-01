@@ -1,4 +1,4 @@
-package BibleDSA.problems.string;
+package BibleDSA.problems.e_string;
 
 
 
