@@ -4,7 +4,8 @@ package string;
 
 
 
-Wendy and Bob play a game where white or black pieces are represented by a string, colors. The string colors can be arranged as follows:
+Wendy and Bob play a game where white or black pieces are represented by a string, colors.
+ The string colors can be arranged as follows:
 Wendy moves first and then they take alternate turns.
 With each move, Wendy may remove a white piece that has two adjacent white pieces on either side.
 Likewise, with each move, Bob may remove any black piece that has two adjacent black pieces on either side.

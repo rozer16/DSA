@@ -1,4 +1,4 @@
-package linkedlist;
+package BibleDSA.problems.g_linkedlist;
 
 public class RemoveNthNodeFromEnd {
 

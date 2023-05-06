@@ -1,4 +1,4 @@
-package BibleDSA.problems.e_string;
+package BibleDSA.problems.i_recursion;
 
 
 
@@ -12,7 +12,7 @@ package BibleDSA.problems.e_string;
 * Complexity : O(N * N!)
 *
 * */
-public class String_Permutation {
+public class C_String_Permutation {
 
     public static void main(String[] args) {
         String str="ABCD";

@@ -1,5 +1,7 @@
 package string;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class LongestUniqueSubsttr {
@@ -22,8 +24,24 @@ public class LongestUniqueSubsttr {
 		}
 		return maxLen;
 	}
-	
-	
+
+	public static int longestUniqueSubstr1(String str) {
+
+		Map<Character,Integer> map = new HashMap<>();
+		int ans=1;
+		int j=0;
+		char [] chars = str.toCharArray();
+		for (int i = 0; i < str.length(); i++) {
+			if(map.containsKey(chars[i])){
+				j=map.get(chars[i]);
+				map.remove(chars[i]);
+			}
+			map.put(chars[i],i+1);
+			if(ans < (i-j+1))
+				ans = i-j+1;
+		}
+		return ans;
+	}
 	
 	
 	/*
@@ -79,6 +97,8 @@ public class LongestUniqueSubsttr {
 	    System.out.println("The length of the longest " +
 	                       "non-repeating character " +
 	                       "substring is " + len);
+
+		System.out.println(longestUniqueSubstr1(str));
 	}
 }
 
