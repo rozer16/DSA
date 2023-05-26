@@ -7,18 +7,20 @@ import java.util.List;
 /*
 
 https://leetcode.com/problems/permutations/submissions/945603703/
+https://youtu.be/f2ic2Rsc9pU?list=PLgUwDviBIf0rQ6cnlaHRMuOp4H_D-7hwP
 
   Input : [1,2,3]
 * [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
-* Complexity : O(N * N!) --> Multiplied by n because to reach last node of tree, it took n steps.
+* Time Complexity : O(N * N!) --> Multiplied by n because to reach last node of tree, it took n steps.
+  Space Complexity :
 *
 * */
-public class C1_IntArray_Permutation {
+public class C2_IntArray_Permutation {
 
     List<List<Integer>> result = new ArrayList<>();
 
     public static void main(String[] args) {
-        C1_IntArray_Permutation test = new C1_IntArray_Permutation();
+        C2_IntArray_Permutation test = new C2_IntArray_Permutation();
         int [] nums = {1,2,3};
         System.out.println(test.permute(nums));
     }

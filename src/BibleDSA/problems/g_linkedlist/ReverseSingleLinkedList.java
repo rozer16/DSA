@@ -2,7 +2,7 @@ package BibleDSA.problems.g_linkedlist;
 
 public class ReverseSingleLinkedList {
 
-    public Node reverseLinkedList(Node head){
+    public Node reverseLinkedList1(Node head){
         Node reverseHead = null;
         if(head == null)
             return null;
@@ -19,6 +19,21 @@ public class ReverseSingleLinkedList {
         }
 
         return reverseHead;
+    }
+
+
+    public Node reverseLinkedList(Node head){
+        Node previous = null;
+        Node current = head;
+
+        while(current != null){
+            Node next = current.getNext();
+            current.setNext(previous);
+            previous = current;
+            current = next;
+        }
+
+        return previous;
     }
     public static void main(String[] args) {
         ReverseSingleLinkedList reverseLinkedList = new ReverseSingleLinkedList();
