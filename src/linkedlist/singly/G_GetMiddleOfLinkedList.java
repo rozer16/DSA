@@ -9,25 +9,16 @@ public class G_GetMiddleOfLinkedList {
 
     int getMiddle(Node head)
     {
-        if(head == null)
-            return 0;
+        Node fastPointer = head;
+        Node slowPointer = head;
 
-        if(head.next == null){
-            return head.data;
-        }
-        Node doubleSpeed=head;
-        Node singleSpeed=head;
-
-        while(doubleSpeed != null && doubleSpeed.next != null){
-
-            doubleSpeed = doubleSpeed.next.next;
-            singleSpeed = singleSpeed.next;
+        while(fastPointer != null && fastPointer.next != null){
+            fastPointer = fastPointer.next.next;
+            slowPointer = slowPointer.next;
         }
 
-        if(doubleSpeed != null && doubleSpeed.next != null)
-            return singleSpeed.next.data;
-        else
-            return singleSpeed.data;
+
+        return slowPointer.data;
     }
 
     public static void main(String[] args) {

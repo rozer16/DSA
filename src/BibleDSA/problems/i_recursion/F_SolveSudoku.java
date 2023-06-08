@@ -4,7 +4,7 @@ package BibleDSA.problems.i_recursion;
 /*
 *
 * 1. Decision : each board[row][column] ∈ [1,9]
-* 2. Constraint : each row,column and subboard has different value
+* 2. Constraint : each row,column and sub board has different value
 *                 Same no should not be there in same row
 *                 Same no should not be there in same column
 *                 Same no should not be there in same grid(3*3)
