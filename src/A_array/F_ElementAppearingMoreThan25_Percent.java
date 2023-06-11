@@ -1,4 +1,4 @@
-package array;
+package A_array;
 
 public class F_ElementAppearingMoreThan25_Percent {
 

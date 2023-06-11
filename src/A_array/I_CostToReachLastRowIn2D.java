@@ -1,11 +1,7 @@
-package array;
+package A_array;
 import java.util.*;
 
-
- import java.io.*;
- import java.util.*;
-
- public class I_CostToReachLastRowIn2D {
+public class I_CostToReachLastRowIn2D {
 	 
 	 public static int getMinAdj(List<Integer> list, int aboveRowXIndex,int maxXIndex) {
 		 //Initially keeping min as same column of above row. 

@@ -3,7 +3,7 @@ package sorting;
 import java.util.Arrays;
 import java.util.Random;
 
-public class ParellelMergeSort {
+public class D_ParellelMergeSort {
 
 
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package array;
+package A_array;
 
 public class M_ElementAtIthIndex {
 	public static void main(String[] args) {

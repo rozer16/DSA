@@ -35,7 +35,7 @@ import java.util.Arrays;
 -22 -15 -7 1 20 35 55
 
 * */
-public class BubbleSort {
+public class B_BubbleSort {
     public static void main(String[] args) {
         int [] a = new int[]{20 ,35, -15, 7, 55, 1, -22};
         bubbleSort(a);

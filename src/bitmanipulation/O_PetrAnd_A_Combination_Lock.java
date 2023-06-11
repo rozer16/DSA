@@ -65,7 +65,7 @@ public class O_PetrAnd_A_Combination_Lock {
         List<List<Integer>> result = new ArrayList<>();
         for (int i = 0; i < (1<<arr.length);i++) {
             List<Integer> temp = new ArrayList<>();
-            int sum = 0;Er
+            int sum = 0;
             for (int j = 0; j < arr.length; j++) {
                 if(this.isIthBitSet(i,j)){
                     sum+= arr[j];

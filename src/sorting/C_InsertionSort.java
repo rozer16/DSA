@@ -2,7 +2,7 @@ package sorting;
 
 import java.util.Arrays;
 
-public class InsertionSort {
+public class C_InsertionSort {
     public static void main(String[] args) {
         int[] a = new int[]{20, 35, -15, 7, 55, 1, -22};
         insertionSort(a);
