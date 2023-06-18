@@ -1,7 +1,7 @@
 package j_stack;
 import java.util.*;
 
-public class BalanceBracket {
+public class G_BalanceBracket {
 	
 	public static void main(String[] args) {
 		 String s1 = "][(])";
@@ -37,9 +37,9 @@ public class BalanceBracket {
 		}
 	
 	*/
-	private static boolean validateStr1(String s1) {
+	private static boolean validateStr1(String s) {
 		  boolean result  = true;
-		  char [] chars = s1.toCharArray();
+		  char [] chars = s.toCharArray();
 		  List<Character> Openingbrackets = Arrays.asList('[','{','(');
 		  List<Character> closingbrackets = Arrays.asList(']','}',')');
 		  Stack<Character> charStack = new Stack<>();
@@ -62,6 +62,6 @@ public class BalanceBracket {
 		    }
 		    
 		  } 
-		  return result;
+		  return result & charStack.isEmpty();
 		}
 }

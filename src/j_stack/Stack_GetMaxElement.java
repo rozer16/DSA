@@ -5,7 +5,7 @@ import java.util.Stack;
 
 
 
-class CustomStack<T extends Comparable<T>>{
+class Stack_GetMaxElement<T extends Comparable<T>>{
 	Stack<T> stack = new Stack<>();
 	Stack<T> stackBkp = new Stack<>();
 	
@@ -38,12 +38,12 @@ class CustomStack<T extends Comparable<T>>{
 	}
 	
 	public static void main(String[] args) {
-		 CustomStack<Integer> stack = new CustomStack<Integer>();
+		 Stack_GetMaxElement<Integer> stack = new Stack_GetMaxElement<Integer>();
 		 stack.push(1);
 		 stack.push(5);
 		 stack.push(4);
 		 stack.pop();
-		 stack.peekMax();
+		System.out.println(stack.peekMax());
 		 stack.push(2);
 		 System.out.println(stack.stack);
 		 System.out.println(stack.stackBkp);

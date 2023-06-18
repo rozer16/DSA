@@ -75,22 +75,22 @@ public class A_SelectionSort {
      * First sort small
      *
      * */
-    private static void selectionSort1(int [] a){
-        int len = a.length;
+    private static void selectionSort1(int [] nums){
+        int len = nums.length;
         int firstSmallestIndex = 0;
         int minEle = len-1;
 
-        for (int i = 0; i < a.length-1; i++) {
+        for (int i = 0; i < nums.length-1; i++) {
             for (int j = len-2; j >= firstSmallestIndex ; j--) {
-                if(a[j] < a[minEle]){
+                if(nums[j] < nums[minEle]){
                     minEle = j;
                 }
             }
 
             if(minEle != firstSmallestIndex){
-                int temp = a[minEle];
-                a[minEle] = a[firstSmallestIndex];
-                a[firstSmallestIndex]  =temp;
+                int temp = nums[minEle];
+                nums[minEle] = nums[firstSmallestIndex];
+                nums[firstSmallestIndex]  =temp;
             }
             firstSmallestIndex++;
             minEle = len-1;
