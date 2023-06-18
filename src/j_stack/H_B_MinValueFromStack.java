@@ -25,17 +25,32 @@ push -3 ==> min = -3 & push ((2*-3)-(-2))
 * ==>        = 2*min-(2*min-prevMin) ==> -6+4
 *            = prevMin               ==> -2
 *
+
+TC : O(N)
+SC : O(N)
 * */
-public class H_MinValueFromStack {
-    Stack<Integer> stack ;
-    int min;
-    public H_MinValueFromStack(){
+
+
+
+/*
+Input : ["MinStack","push","push","push","top","pop","getMin","pop","getMin","pop","push","top","getMin","push","top","getMin","pop","getMin"]
+[[],[2147483646],[2147483646],[2147483647],[],[],[],[],[],[],[2147483647],[],[],[-2147483648],[],[],[],[]]
+
+output   : [null,null,null,null,2147483647,null,2147483646,null,2147483646,null,null,2147483647,2147483647,null,-2147483647,-2147483648,null,-2147483648]
+Expected : [null,null,null,null,2147483647,null,2147483646,null,2147483646,null,null,2147483647,2147483647,null,-2147483648,-2147483648,null,2147483647]
+
+
+* */
+public class H_B_MinValueFromStack {
+    Stack<Long> stack ;
+    Long min = 0l;
+    public H_B_MinValueFromStack(){
         stack = new Stack<>();
     }
 
 
     public static void main(String[] args) {
-        H_MinValueFromStack test = new H_MinValueFromStack();
+        H_B_MinValueFromStack test = new H_B_MinValueFromStack();
         test.push(-2);
         test.push(0);
         System.out.println(test.stack);
@@ -47,29 +62,38 @@ public class H_MinValueFromStack {
     }
 
     public void push(int val){
+        Long val1 = Long.valueOf(val);
         if(stack.isEmpty()){
-            min = val;
-            stack.push(val);
+            min = val1;
+            stack.push(val1);
             return;
         }
         if(val<min){
             stack.push(2*val-min);
-            min = val;
+            min = val1;
             return;
         }
-        stack.push(val);
+        stack.push(val1);
     }
 
-    public int pop(){
+    public void pop(){
         if(stack.isEmpty())
-            return -1;
+            return ;
         if(stack.peek() < min){
-            int temp = min;
+            long temp = min;
             min = (2*min)-stack.peek();
             stack.pop();
-            return min;
+            return ;
         }
-        return stack.pop();
+        stack.pop();
+    }
+
+    public int top() {
+        if(stack.peek() < min){
+            long min1 = (2*min)-stack.peek();
+            return (int)((2*min)-stack.peek());
+        }
+        return stack.peek().intValue();
     }
 
 
