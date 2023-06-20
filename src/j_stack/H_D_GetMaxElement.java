@@ -5,7 +5,7 @@ import java.util.Stack;
 
 
 
-class Stack_GetMaxElement<T extends Comparable<T>>{
+class H_D_GetMaxElement<T extends Comparable<T>>{
 	Stack<T> stack = new Stack<>();
 	Stack<T> stackBkp = new Stack<>();
 	
@@ -38,7 +38,7 @@ class Stack_GetMaxElement<T extends Comparable<T>>{
 	}
 	
 	public static void main(String[] args) {
-		 Stack_GetMaxElement<Integer> stack = new Stack_GetMaxElement<Integer>();
+		 H_D_GetMaxElement<Integer> stack = new H_D_GetMaxElement<Integer>();
 		 stack.push(1);
 		 stack.push(5);
 		 stack.push(4);

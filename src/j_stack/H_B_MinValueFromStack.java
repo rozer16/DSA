@@ -43,7 +43,9 @@ Expected : [null,null,null,null,2147483647,null,2147483646,null,2147483646,null,
 * */
 public class H_B_MinValueFromStack {
     Stack<Long> stack ;
-    Long min = 0l;
+    Long min=Long.MAX_VALUE;
+
+
     public H_B_MinValueFromStack(){
         stack = new Stack<>();
     }
@@ -51,14 +53,18 @@ public class H_B_MinValueFromStack {
 
     public static void main(String[] args) {
         H_B_MinValueFromStack test = new H_B_MinValueFromStack();
-        test.push(-2);
-        test.push(0);
-        System.out.println(test.stack);
+        int x = -2147483648;
+        System.out.println(x);
+        test.push(2147483647);
+        System.out.println("Min val : "+test.peek());
         System.out.println("Min val : "+test.min);
-        test.push(-3);
+        test.push(-2147483648);
+        System.out.println("peek val : "+test.peek());
         System.out.println("Min val : "+test.min);
         test.pop();
         System.out.println("Min val : "+test.min);
+
+
     }
 
     public void push(int val){
@@ -69,7 +75,7 @@ public class H_B_MinValueFromStack {
             return;
         }
         if(val<min){
-            stack.push(2*val-min);
+            stack.push((2*val1)-min);
             min = val1;
             return;
         }
@@ -83,15 +89,16 @@ public class H_B_MinValueFromStack {
             long temp = min;
             min = (2*min)-stack.peek();
             stack.pop();
+            if(stack.isEmpty())
+                min = Long.MAX_VALUE;
             return ;
         }
         stack.pop();
     }
 
-    public int top() {
+    public int peek() {
         if(stack.peek() < min){
-            long min1 = (2*min)-stack.peek();
-            return (int)((2*min)-stack.peek());
+            return min.intValue();
         }
         return stack.peek().intValue();
     }
