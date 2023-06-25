@@ -35,15 +35,25 @@ public class T_AsteroidCollision {
         Deque<Integer> stack = new ArrayDeque<>();
         stack.push(asteroids[0]);
         for (int i = 1; i < asteroids.length; i++) {
+            //If value is positive then always push to stack
             if(asteroids[i] > 0){
                 stack.push(asteroids[i]);
             }else{
+                //If value is negative
+
+
+                //Keep popping from stack if newly encountered asteroid is greater than prev
+                //if newly encountered asteroid is smaller than stack top then ignore
                 while(!stack.isEmpty() && stack.peek() > 0 && stack.peek() < Math.abs(asteroids[i]))
                     stack.pop();
 
+                //if newly encountered asteroid and stack top are equal then pop
                 if(!stack.isEmpty() && stack.peek() == Math.abs(asteroids[i])) {
                     stack.pop();
                 }else {
+                    //Push newly encountered asteroid if stack is empty or top of stack is negative
+                    //Control wont go inside and if elements in stack are positive and newly encountered asteroid is negative
+                    //since we need to ignore
                     if(stack.isEmpty() || stack.peek() < 0)
                         stack.push(asteroids[i]);
                 }

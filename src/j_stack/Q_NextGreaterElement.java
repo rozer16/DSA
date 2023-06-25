@@ -5,9 +5,33 @@ import java.util.Arrays;
 
 /*
 *
-Next Greater Element III
+*
+*
+* Next Greater Element III
 https://leetcode.com/problems/next-greater-element-iii/description/
+*
+*
+*
+Given a positive integer n, find the smallest integer
+which has exactly the same digits existing in the integer n and is greater in value than n.
+If no such positive integer exists, return -1.
 
+Note that the returned integer should fit in 32-bit integer,
+if there is a valid answer but it does not fit in 32-bit integer, return -1.
+*
+*
+Input: n = 12
+Output: 21
+*
+*
+*
+Input: n = 21
+Output: -1
+*
+Input: n = 6537421
+Output: 6541237
+*
+*
 At first, lets look at the edge cases -
 
 If all digits sorted in descending order, then output is always “Not Possible”. For example, 4321.
@@ -15,14 +39,27 @@ If all digits are sorted in ascending order, then we need to swap last two digit
 For other cases, we need to process the number from rightmost side (why? because we need to find the smallest of all greater numbers)
 Now the main algorithm works in following steps -
 
-I) Traverse the given number from rightmost digit, keep traversing till you find a digit which is smaller than the previously traversed digit. For example, if the input number is “534976”, we stop at 4 because 4 is smaller than next digit 9. If we do not find such a digit, then output is “Not Possible”.
+I) Traverse the given number from rightmost digit, keep traversing
+   till you find a digit which is smaller than the previously traversed digit.
+    For example, if the input number is “534976”,
+    we stop at 4 because 4 is smaller than next digit 9. If we do not find such a digit, then output is “Not Possible”.
 
-II) Now search the right side of above found digit ‘d’ for the smallest digit greater than ‘d’. For “534976″, the right side of 4 contains “976”. The smallest digit greater than 4 is 6.
+II) Now search the right side of above found digit ‘d’ for the smallest digit greater than ‘d’.
+   For “534976″, the right side of 4 contains “976”. The smallest digit greater than 4 is 6.
 
 III) Swap the above found two digits, we get 536974 in above example.
 
-IV) Now sort all digits from position next to ‘d’ to the end of number. The number that we get after sorting is the output. For above example, we sort digits in bold 536974. We get “536479” which is the next greater number for input 534976.
+IV) Now sort all digits from position next to ‘d’ to the end of number.
+* The number that we get after sorting is the output.
+*  For above example, we sort digits in bold 536974. We get “536479” which is the next greater number for input 534976.
 
+*
+//534976 ==> 4 is no which is less than its next no
+//534976 ==> 6 is smallest no which is greater than 4
+//536974 ==> swap 3 and 4
+//536479 ==> sort all no after 6
+//536479 ==> next greater element after 534976
+*
 * */
 public class Q_NextGreaterElement {
 
