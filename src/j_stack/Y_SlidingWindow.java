@@ -105,7 +105,7 @@ public class Y_SlidingWindow {
     * 2) loop i=k --> nums.length
     *           Keep removing element from front of queue if its index is <= i-k
     * 3) Add in queue ==> new Pair(nums[i],i)
-    * 4) res[i-k]+1 = pq.peek().num;
+    * 4) res[i-k+1] = pq.peek().num;
     *
     * */
     public int[] maxSlidingWindowPQ(int[] nums, int k) {
