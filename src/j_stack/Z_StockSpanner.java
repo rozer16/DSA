@@ -63,9 +63,9 @@ public class Z_StockSpanner {
 
         System.out.println(stockSpanner.next(31));  // return 1
         System.out.println(stockSpanner.next(41));  // return 1
-        System.out.println(stockSpanner.next(48));  // return 1
-        System.out.println(stockSpanner.next(59));  // return 1
-        System.out.println(stockSpanner.next(79));  // return 1
+        System.out.println(stockSpanner.next(48));  // return 2
+        System.out.println(stockSpanner.next(59));  // return 3
+        System.out.println(stockSpanner.next(79));  // return 4
 
     }
 
@@ -78,7 +78,7 @@ public class Z_StockSpanner {
         while(!stack.isEmpty() && list.get(stack.peek()) <= price)
             stack.pop();
 
-        int result = list.size()-(stack.isEmpty()? -1 : stack.peek());
+        int result = list.size()-(stack.isEmpty()? 0 : stack.peek());
         stack.push(list.size());
         list.add(price);
         return result;
