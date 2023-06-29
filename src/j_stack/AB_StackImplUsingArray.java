@@ -1,18 +1,18 @@
 package j_stack;
 
-public class A_StackImplUsingArray {
+public class AB_StackImplUsingArray {
     int len = 0;
     int arr [] ;
     int front = -1;
 
-    public A_StackImplUsingArray(int len){
+    public AB_StackImplUsingArray(int len){
         this.len = len;
         arr = new int[50];
     }
 
 
     public static void main(String[] args) {
-        A_StackImplUsingArray test = new A_StackImplUsingArray(50);
+        AB_StackImplUsingArray test = new AB_StackImplUsingArray(50);
         test.push(5);
         test.push(4);
         test.push(3);
