@@ -1,0 +1,78 @@
+Reference : https://www.scaler.com/topics/difference-between-subarray-subset-and-subsequence/
+
+
+* An array is a linear collection of values stored at contiguous memory locations.
+* A subarray is nothing but a slice of these contiguous memory locations of the actual array
+    or we can say that a subarray is nothing but any contiguous part of a given array.
+* A subset is often confused with subarray and subsequence but a subset is nothing but any possible combination of the original array
+    (or a set).
+
+* Now, a subsequence is a sequence of the elements of the array obtained by deleting some elements of the array.
+The subsequence should not be confused with the subarray or substring. The subarray or substring is contiguous but a subsequence need not be contiguous.
+
+
+/*
+*
+*                 Order       Contiguous    No_Of_Elements
+* SubArray          Y             Y            n * (n+1)/2 (Non-empty subarrays of an array.)
+
+* SubSequence       Y             N
+
+* SubSet            N             N            2^n
+*
+* Arr : {1,2,3,4}
+* SubArray(n(n+1)/2)    : {1},{2},{3},{4},{1,2},{2,3},{3,4},{1,2,3},{2,3,4}.,{1,2,3,4}
+* SubSequence(2^n - 1) : {1},{2},{3},{4},{1,2},{1,3},{1,4},{2,3},{2,4},{3,4},{1,2,3},{1,3,4},{2,3,4}.,{1,2,3,4},{}
+* SubSet      : Any combination 2^n
+*
+*
+* */
+
+
+Difference Between Subarray, Subset and Subsequence
+
+Definition of Subarray and Example
+    As we know that an array is a linear collection of values stored at contiguous memory locations.
+    * So, what is subarray? Well, a subarray is nothing but a slice of these contiguous memory locations of the actual array.
+    * In simpler terms, a subarray is nothing but any contiguous part of a given array.
+    * The subarray has the same sequence of elements (order of the elements) as it is in the array.
+    * subarray is also known as a contiguous subarray. Although a subarray is contiguous (continuous) in nature.
+
+    * Example: Let the array be: arr = [1, 2, 3] Then one subarray of arr can be: subarray = [1, 2] All the sub-arrays of arr are:
+
+    [1]
+    [2]
+    [3]
+    [1, 2]
+    [2, 3]
+    [1, 2, 3]
+    So, we conclude that the size of the subarray can range from 1 to the size of the actual array.
+
+
+
+* Definition of Subset and Example
+    A subset is often confused with subarray and subsequence but a subset is nothing but any possible combination of the original array (or a set).
+    For example, the subsets of array arr = [1, 2, 3, 4, 5] can be:
+
+    [3, 1]
+    [2, 5]
+    [1, 2], etc.
+    So, we can conclude that subset is the superset of subarrays i.e. all the subarrays are subsets but vice versa is not true.
+
+
+* Definition of Subsequence and Example
+    * As the name suggests, a subsequence is a sequence of the elements of the array obtained by deleting some elements of the array.
+    * One important thing related to the subsequence is that even after deleting some elements,
+      the sequence of the array elements is not changed. Both the string and arrays can have subsequences.
+
+    * The subsequence should not be confused with the subarray or substring.
+      The subarray or substring is contiguous but a subsequence need not to be contiguous.
+
+        For example, the subsequences of the array arr : [1, 2, 3, 4] can be:
+
+        [1, 3]
+        [2, 3, 4]
+        [1, 2, 3, 4], etc.
+
+    * Note: A subarray is a subsequence, a subsequence is a subset but the reverse order is not correct.
+
