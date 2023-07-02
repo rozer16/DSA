@@ -21,14 +21,19 @@ public class D_SubArrayMaxSum {
         int a2 [] = {-10,1,9,4,-3,5};
         System.out.println(getMaxSumSubArray(a2));//Index : 1-5
 
+        int [] a4 = {-2,-4,-6,-1,-5,-4};
+        System.out.println(getMaxSumSubArray(a4));//Index : 1-5
+
     }
 
     /*
-     * Kadan's algorithm
+     * Kadane's algorithm
      *
-     *
-     *
-     *
+     * Step 1 : Initialize two vars, currentSum, maxSum
+     * Step 2 : Iterate from i=0 to n-1 and repeat step 3 to 5
+     * Step 3 : Add arr[i] to currentSum
+     * Step 4 : set maxSum = Math.max(currentSum, maxSum)
+     * Step 5 : if currentSum < 0 ==> set currentSum = 0
      * */
 
     public static int getMaxSumSubArray(int [] arr){
@@ -46,10 +51,15 @@ public class D_SubArrayMaxSum {
             if(current_sum > max_sum)
                 max_sum = current_sum;*/
 
+            //Below condition is only for index,  not sum
             if(current_sum == 0){
                 startIndex = i;
             }
+
+
             current_sum += arr[i];
+
+
             if(current_sum > max_sum) {
                 max_sum = current_sum;
 
