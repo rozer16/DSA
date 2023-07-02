@@ -13,12 +13,12 @@ The subsequence should not be confused with the subarray or substring. The subar
 
 /*
 *
-*                 Order       Contiguous    No_Of_Elements
-* SubArray          Y             Y            n * (n+1)/2 (Non-empty subarrays of an array.)
+*                 Order       Contiguous    No_Of_Elements          Complexity
+* SubArray          Y             Y            n * (n+1)/2
 
-* SubSequence       Y             N
+* SubSequence       Y             N             2^n
 
-* SubSet            N             N            2^n
+* SubSet            N             N            2^n                  N(no of loop)*N!(branches)
 *
 * Arr : {1,2,3,4}
 * SubArray(n(n+1)/2)    : {1},{2},{3},{4},{1,2},{2,3},{3,4},{1,2,3},{2,3,4}.,{1,2,3,4}

@@ -21,7 +21,7 @@ public class M_LongestSubArrayHavingSumK {
     public static void main(String[] args) {
         M_LongestSubArrayHavingSumK test = new M_LongestSubArrayHavingSumK();
         int [] arr = {1,2,3,1,1,1,1,4,2,3}; // 3 {3,4,5}
-        System.out.println(test.findLongestSubArrayHavingSumk(arr,3));
+        System.out.println(test.findLongestSubArrayHavingSumk(arr,6));
 
 
         int [] arr1 = {2,0,0,3}; // 3 {1,2,3}
@@ -31,39 +31,29 @@ public class M_LongestSubArrayHavingSumK {
 
     /*
     *
-    * Optimal
+    * Optimal : Only for positive, for negative use below one only.
     *
     * Intuition : Two pointer
     *
     * */
     private int findLongestSubArrayHavingSumk(int[] arr,int k) {
         int maxLen = 0;
-        int sum = 0;
+        int sum = arr[0];
         int p1 = 0, p2 = 0;
         int n = arr.length;
 
         while(p2 <n){
-            sum += arr[p2];
-
+            while(sum > k && p1 <= p2) {
+                sum -= arr[p1];
+                p1++;
+            }
             if(sum == k){
-                if(p1 == p2)
-                    maxLen = Math.max(maxLen,1);
-                else
                     maxLen = Math.max(maxLen,p2-p1+1);
             }
 
-            while(sum > k && p1< p2) {
-                sum -= arr[p1];
-                p1++;
-                if (sum == k) {
-                    if (p1 == p2)
-                        maxLen = Math.max(maxLen, 1);
-                    else
-                        maxLen = Math.max(maxLen, p2 - p1 + 1);
-                }
-
-            }
             p2++;
+            if(p2 < n)
+                sum += arr[p2];
         }
 
 
@@ -71,7 +61,8 @@ public class M_LongestSubArrayHavingSumK {
     }
 
     /*
-    * Better
+    * Better : For negative and positive both works
+    *
     * Prefix sum and hashmap
     * TC : O(n) since iterating all elements through array
     * SC : O(n) since storing sum in hashmap
