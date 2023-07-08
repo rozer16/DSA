@@ -38,6 +38,9 @@ public class D_CheckIfArrayIsSortedAndRotated {
         int count=0;
         for(int i=0;i<nums.length;i++)
         {
+            //For last element of an array we put nums[(i+1)%nums.length]
+            //For e.g. {6,7,1,2,3,4,5}, len = 7
+            //i= 6 ==> (6+1)%7 ==> 7%7 ==> 0
             if(nums[i]>nums[(i+1)%nums.length])
                 count++;
         }

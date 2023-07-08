@@ -22,7 +22,7 @@ public class B_SecondLargestElementInArray {
     }
 
     //TC : O(n)
-    //Hint : Take first element as largenst and -1 as second largest and iterate elements
+    //Hint : Take first element as largest and -1 as second largest and iterate elements
     public int optimalSolution(int [] arr,int len){
         int largest = arr[0];
         int sLargest = -1;

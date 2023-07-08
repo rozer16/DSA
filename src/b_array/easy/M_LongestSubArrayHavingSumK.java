@@ -21,11 +21,11 @@ public class M_LongestSubArrayHavingSumK {
     public static void main(String[] args) {
         M_LongestSubArrayHavingSumK test = new M_LongestSubArrayHavingSumK();
         int [] arr = {1,2,3,1,1,1,1,4,2,3}; // 3 {3,4,5}
-        System.out.println(test.findLongestSubArrayHavingSumk(arr,6));
+        System.out.println(test.findLongestSubArrayHavingSumk3(arr,6));
 
 
         int [] arr1 = {2,0,0,3}; // 3 {1,2,3}
-        System.out.println(test.findLongestSubArrayHavingSumk(arr1,3));
+        System.out.println(test.findLongestSubArrayHavingSumk3(arr1,3));
     }
 
 
@@ -76,6 +76,12 @@ public class M_LongestSubArrayHavingSumK {
     * Step 5 : if map.containsKey(sum-k) ==> calculate len = i-map.get(sum-k)
     * Step 6 : if len > maxLen then set maxLen = len
     *
+    *
+    * For e.g.
+    * arr :    1 2 3 1 1 1 1 4 2 3
+    * prefix : 1 3 6 7 8 9 10 14 16 19
+    *
+    * for i= 2, we get sum=6 ==> 6-k = 6-3 = 3 ==> from map we will get (3,1) entry so
     * */
     private int findLongestSubArrayHavingSumk3(int[] arr,int k) {
         int maxLen = 0, sum = 0;
@@ -83,6 +89,8 @@ public class M_LongestSubArrayHavingSumK {
 
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
+            if(sum == k)
+                maxLen = Math.max(i+1,maxLen);
             if(prefix.containsKey(sum-k)){
                 maxLen = Math.max(maxLen, i-prefix.get(sum-k));
             }

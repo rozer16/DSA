@@ -42,7 +42,25 @@ public class L_FindMissingNumberInArray {
     public static void main(String[] args) {
         L_FindMissingNumberInArray test = new L_FindMissingNumberInArray();
         int [] arr = {3,0,1};
-        System.out.println(test.missingNumber(arr)); //2
+        System.out.println(test.missingNumber1(arr,3)); //2
+        System.out.println(-2^-1^0^1^2);
+        System.out.println(-2>>31);
+        System.out.println(2>>31);
+        System.out.println(Integer.toBinaryString(-2));
+
+
+    }
+
+    /*XOR doesnt work for negative */
+    public int missingNumber1(int[] nums,int n) {
+        int xor2 = 0;
+        int xor1 = 0;
+        for (int i = 0; i < n-1; i++) {
+            xor2 = xor2^nums[i];
+            xor1 = xor1^(i+1);
+        }
+        xor1 = xor1^n;
+        return xor1^xor2;
     }
     public int missingNumber(int[] nums) {
 
@@ -58,4 +76,6 @@ public class L_FindMissingNumberInArray {
         return result.intValue();
     }
 
+
 }
+
