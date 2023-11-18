@@ -49,7 +49,7 @@ public class P_BoundaryTraversalOfBTClockWise {
     }
 
     private static void getLeafNodesFromRightSide(A1_Node root, List<Integer> result) {
-        if(!isLeaf(root)){
+        if(isLeaf(root)){
             result.add(root.getVal());
             return;
         }
