@@ -29,10 +29,10 @@ Children
 * Balanced BT : Height of tree at max log base 2 (N), N = no of nodes
     For every node : Abs(height(left) - height(right)) <= 1
 
-    N = 8 ==> log base 2 (8) = 3 ==> For 8 nodes, max hight of any leaf AANode should not be more than 3.
+    N = 8 ==> log base 2 (8) = 3 ==> For 8 nodes, max height of any leaf AANode should not be more than 3.
 
 
-* Degenerate BT : Every AANode has single child
+* Degenerate BT : Every Node has single child
 
 
 ==================
