@@ -1,6 +1,6 @@
 package l_BST;
 
-public class FindMinMax {
+public class F_FindMinMax {
     public static void main(String[] args) {
         Node node = Node.getBST();
         System.out.println(findMin(node));
