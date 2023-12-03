@@ -1,4 +1,4 @@
-package L_BST;
+package l_BST;
 
 class Node {
     int data;
