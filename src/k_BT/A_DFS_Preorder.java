@@ -20,7 +20,7 @@ public class A_DFS_Preorder {
         displayInorderByIteration(root);
     }
 
-    private static void displayInorderByRecursion(A1_Node AANode) {
+    public static void displayInorderByRecursion(A1_Node AANode) {
         if(AANode == null)
             return;
 

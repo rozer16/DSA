@@ -14,7 +14,7 @@ public class N_ISBTIdentical {
         if(root1 == null || root2 == null)
             return root1 == root2;
 
-        return root1.getVal() == root2.getVal() && isTreeIdentical(root1.getLeft(),root1.getLeft()) && isTreeIdentical(root1.getRight(),root1.getRight());
-    }
+         return root1.getVal() == root2.getVal() && isTreeIdentical(root1.getLeft(),root1.getLeft()) && isTreeIdentical(root1.getRight(),root1.getRight());
+         }
 
-}
+         }

@@ -9,7 +9,8 @@ Children
              2              3
          4      5       6       7
 
-* Complete BT : All levels are completely filled except leaf, last level  has all nodes in left as poss
+* Complete BT : All levels except the last one are completely filled. The last level may or may not be completely filled.
+                Nodes in the last level are as left as possible.
                     1
              2              3
          4      5       6       7
