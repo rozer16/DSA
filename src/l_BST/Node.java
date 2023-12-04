@@ -44,6 +44,18 @@ class Node {
     }
 
     public static Node getBST(){
+
+
+        /*
+        *                   8
+        *              5            12
+        *           4       7|10            14
+        *               6           13
+        *
+        *
+        *
+        *
+        * */
         Node root = new Node(8);
         root . left = new Node(5);
         root . left . left = new Node(4);
