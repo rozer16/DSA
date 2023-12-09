@@ -16,8 +16,10 @@ package l_BST;
 *
 *   To improve the complexity we can think on below intuition
 *           We are given PreOrder BST
-*           Left sub part of BST should be less than node val
-*           Right subpart of BST can be value of its parent node so we need to reach to most upper parent untill we find node val whose upper bound is greater tha node
+*           Left sub part of BST should be less than node val of parent node
+*           Right subpart of BST can be  upper bound value of its parent node
+*           if new value from preorder array is greater than curr node upper bound then
+*               we need to traverse towards upper parent until we find node val whose upper bound is greater tha node val
 *
 *
 *           For e.g.   PreOrder : 8 5 1 7 10 12
@@ -65,8 +67,7 @@ package l_BST;
  *
  *          To check left bound : Take node value
  *          To check right bound : Take parent node UB
- * */
-public class L_ConstructBSTFromPreOrderTranversal {
+ * */public class L_ConstructBSTFromPreOrderTranversal {
 
     public static void main(String[] args) {
         int [] preorder = {8, 5, 1, 7, 10, 12};
