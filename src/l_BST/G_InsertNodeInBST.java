@@ -1,5 +1,8 @@
 package l_BST;
-
+/*
+* https://leetcode.com/problems/insert-into-a-binary-search-tree/
+*
+* */
 public class G_InsertNodeInBST {
     public static void main(String[] args) {
         Node node = Node.getBST();

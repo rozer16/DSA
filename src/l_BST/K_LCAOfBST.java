@@ -4,6 +4,18 @@ package l_BST;
 
 
 *https://youtu.be/cX_kPV_foZc
+https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+
+Find Lowest Common Ancestor of a Binary Search Tree
+Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.
+                    6
+              2             8
+          0     4          7  9
+              3   5
+
+  For 2,8 LCA is 6
+  For 3,2 LCA is 2
+
 
  Characteristics of BST :
 *    All nodes on left side of given node will have smaller value
@@ -41,8 +53,8 @@ public class K_LCAOfBST {
             // Both node on left side of current node(Both node's value are less than the curr node value)
             if(curr > pval && curr > qval)
                 return getLCAOfBST(node.left,p,q);
+            // Both node on right side of current node(Both node's value are greater than the curr node value)
             if(curr< pval && curr < qval)
-                // Both node on right side of current node(Both node's value are greater than the curr node value)
                 return getLCAOfBST(node.right,p,q);
 
             //Current node's value is equal to one of the node

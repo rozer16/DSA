@@ -3,6 +3,7 @@ package l_BST;
 
 /*
 * https://www.youtube.com/watch?v=UmJT3j26t1I
+* https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
 *
 *  Inorder traversal of binary tree always gives  nodes in ascending order ==> Ascending order of node = Inorder traversal of BST
 *  If you have Preorder binary tree and we sort it we will get inorder traversal of BST
@@ -15,7 +16,7 @@ package l_BST;
 *   But this complexity is  much.
 *
 *   To improve the complexity we can think on below intuition
-*           We are given PreOrder BST
+*           We are given PreOrder BST[Hint : We need to think ]
 *           Left sub part of BST should be less than node val of parent node
 *           Right subpart of BST can be  upper bound value of its parent node
 *           if new value from preorder array is greater than curr node upper bound then
@@ -74,6 +75,8 @@ package l_BST;
         Node node = createBSTTree(preorder,Integer.MAX_VALUE,new int[]{0});
     }
 
+
+    //indexOfPreOrder is to maintain index of an array
     private static Node createBSTTree(int[] preorder, int upperBound, int[] indexOfPreOrder) {
         if(indexOfPreOrder[0] == preorder.length || preorder[indexOfPreOrder[0]] > upperBound)
                 return null;
