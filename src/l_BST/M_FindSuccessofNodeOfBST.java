@@ -24,7 +24,7 @@ package l_BST;
             if current node value is less than or equal searchVal then curr = curr.left
             if current node value is greater than searchVal then set successor = currNode.val and currNode = currNode.left
 
-
+    Pending : Find Predecessor ?
 */
 public class M_FindSuccessofNodeOfBST {
     public static void main(String[] args) {
