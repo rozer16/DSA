@@ -1,4 +1,33 @@
+What is a tree data structure?
 
+
+There are two major types of data structures:
+
+Linear
+Non-Linear
+Tree is a Non-linear data structure where as Arrays,
+LinkedList are linear data structures.
+What makes tree a non-linear data structure is, the information or data is not stored in a sequential fashion, same is for traversal or retrieval.
+Unlike, in arrays, we know that elements are stored at contiguous memory locations,
+however, it is not the same with trees. The nodes in a tree can be stored at random memory locations
+and can be linked to each other using pointers to define the structure of the tree.
+
+
+Why is tree data structure important?
+To understand why tree? Think about why we created other data structures. In order to do that, link every data structure to some real world entity and see where it fit’s well.
+
+Will you use an array to store information of your family’s hierarchy? No right, what do you visualise this hierarchy as? I visualise it as a tree.
+
+That is it, tree is used and important to store hierarchical data.
+
+Tree data structure in C, C++, Java, Python
+However, no data-structure is bound by any programming language.
+You can choose any of the above popular programming language and implement all possible trees in it.
+But, we highly recommend to go with any one of C++, Java or Python. These are object oriented language with a good number of inbuilt library functions.
+
+
+
+Terms :
 Root
 Ancestor
 Leaf AANode
@@ -49,3 +78,7 @@ BFS :
 DFS :
     Depth First Search
         Traversing all nodes of tree level by level.
+
+
+
+
