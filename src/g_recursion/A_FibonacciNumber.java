@@ -3,6 +3,12 @@ package g_recursion;
 import java.util.Arrays;
 import java.util.Date;
 
+
+/*
+* Fibonacci series starts with 0 1 1 2 3 5 8 12
+*
+*
+* */
 public class A_FibonacciNumber {
 
     public  static long iterativeNthFibonacciNo(int n){
