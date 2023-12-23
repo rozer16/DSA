@@ -1,4 +1,4 @@
-package g_recursion;
+package g_recursion.basic;
 
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ than sum of digits on right of it) and don't have digit 1.
 *
 *
 * */
-public class B3_GoodNumber {
+public class E_GoodNumber {
 
     public static void main(String[] args) {
         int no1 = 410;

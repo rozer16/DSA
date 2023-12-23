@@ -1,4 +1,4 @@
-package g_recursion;
+package g_recursion.extra;
 
 /*
  Problem : Given no of element find possible combination with k elements

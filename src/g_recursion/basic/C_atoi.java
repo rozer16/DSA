@@ -1,4 +1,4 @@
-package g_recursion;
+package g_recursion.basic;
 
 /*
 Problem :
@@ -18,14 +18,45 @@ Return the integer as the final result.
 *
 *
 * */
-public class B1_atoi {
+public class C_atoi {
 
     public static void main(String[] args) {
+        String str = "   -32";
+        System.out.println(myAtoiIterative(str));
+        System.out.println(myAtoiRecursive(str,false,0,0));
+    }
+
+    public static Integer myAtoiRecursive(String str,boolean isNegative, Integer result,int charIndex){
+        if(str == null || str.isEmpty())
+            return result;
+        if(charIndex >= str.length())
+            return result != 0 ? isNegative ? -1*result : result :0;
+        if(result == 0 && str.charAt(charIndex) == ' ')
+            return  myAtoiRecursive(str,false,result,charIndex+1);
+
+        if(str.charAt(charIndex) == '-' && result == 0)
+            return  myAtoiRecursive(str,true,result,charIndex+1);
+
+        if(str.charAt(charIndex) == '+' && result == 0)
+            return  myAtoiRecursive(str,false,result,charIndex+1);
+
+        if(isDigit(str.charAt(charIndex))){
+            int digit = str.charAt(charIndex) - '0';
+            if (result > (Integer.MAX_VALUE / 10) || (result == (Integer.MAX_VALUE / 10) && digit > 7)){
+                return isNegative ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+            }
+
+            // adding digits at their desired place-value
+            result = (result * 10) + digit;
+            return  myAtoiRecursive(str,isNegative,result,charIndex+1);
+        }else {
+            return result;
+        }
+
 
 
     }
-
-    public int myAtoiIterative(String str) {
+    public static int myAtoiIterative(String str) {
 
         final int len = str.length();
 
@@ -107,7 +138,7 @@ public class B1_atoi {
         return isNegative ? -result : result;
     }
 
-    private boolean isDigit(char ch) {
+    private static boolean isDigit(char ch) {
         return ch >= '0' && ch <= '9';
     }
 }

@@ -1,4 +1,4 @@
-package g_recursion;
+package g_recursion.extra;
 
 import java.io.PrintStream;
 import java.util.Arrays;

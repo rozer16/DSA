@@ -1,4 +1,4 @@
-package g_recursion;
+package g_recursion.basic;
 
 /*
 *https://leetcode.com/problems/powx-n/solutions/
@@ -22,7 +22,7 @@ Explanation: 2-2 = 1/22 = 1/4 = 0.25
 * Complexity : O(log base 2 N)
 *
 * */
-public class B2_Power {
+public class D_Power {
 
     public static void main(String[] args) {
         //System.out.println(myPow(0.00001, 2147483647));

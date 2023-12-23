@@ -1,0 +1,111 @@
+Recursion  basic :
+
+
+Terms :
+
+base condition
+stack overflow
+recursion tree
+
+https://www.youtube.com/watch?v=yVdKa8dnKiE&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9
+https://www.youtube.com/watch?v=yVdKa8dnKiE&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=2
+
+https://takeuforward.org/recursion/introduction-to-recursion-understand-recursion-by-printing-something-n-times/
+
+---------------------
+
+
+Recursion and backtracking example :
+
+
+https://www.youtube.com/watch?v=un6PLygfXrA&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=2
+
+Recursion :
+
+1) Base condition
+2) business logic
+3) Recursion
+
+--> Keeps executing logic until base condition is met.
+--> so first business logic is executed and then stack trace or calls itself
+
+
+Back tracking :
+
+
+1) Base condition
+2) Recursion
+3) business logic
+
+--> starts executing logic once base condition is met.
+--> so first stack trace or recursion and then business logic. i.e. business logic will be executed after base condtion is met
+
+
+
+https://takeuforward.org/recursion/introduction-to-recursion-understand-recursion-by-printing-something-n-times/
+https://takeuforward.org/recursion/print-name-n-times-using-recursion/
+https://takeuforward.org/recursion/print-1-to-n-using-recursion/
+https://takeuforward.org/recursion/print-n-to-1-using-recursion/
+
+
+----------------------
+
+
+Recursion types : Parameterized recursion and function recursion
+
+
+https://youtu.be/69ZCDFy-OUo?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9
+
+
+Parameterized :
+
+fn(i,sum){
+    if( i< 1){
+        print sum;
+        return;
+    }
+
+    fn(i-1, sum+i)
+}
+
+
+call fn(n,0)
+
+Recursion tree :
+
+                    fn(3,0) --> This will keep waiting until f(2,3) is not completed and returns value
+                fn(2,3) --> This will keep waiting until f(1,5) is not completed and returns value
+            fn(1,5) --> This will keep waiting until f(0,6) is not completed and returns value
+        fn(0,6)
+
+
+As you can see in recursion tree we played around parameter so its called parameterized recursion
+
+
+
+Function recursion
+
+In case we want function to return a value and not print
+
+for e.g. n =3 then I can do return n+fn(n-1)
+
+
+Example 1 : sum of first n no : https://takeuforward.org/data-structure/sum-of-first-n-natural-numbers/
+
+
+fnSum (n){
+if(n<= 0)
+    return 0;
+
+ return n + fnSum(n-1)
+}
+
+
+Example 2 : multiplication/factorial of first n no : https://takeuforward.org/data-structure/factorial-of-a-number-iterative-and-recursive/
+
+fnMultiply (n){
+if(n == 1)
+    return `0`;
+
+ return n * fnSum(n-1)
+}
