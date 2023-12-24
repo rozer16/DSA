@@ -48,7 +48,7 @@ All elements of candidates are distinct.
 *
 *
 * Intuition : arr : {2,3,6,7} , sum : 7
-*   Whenever problem is about picking element from an array, first thought that comes to mind is pick and not pick
+*   Whenever problem is about combination of element from an array, first thought that comes to mind is pick and not pick
 *   so possible subarray is 2,2,3 i.e. 001
 *   Another possible subarray is 7 ie 0001
 *   So in our function can have arr, index,sum , List
