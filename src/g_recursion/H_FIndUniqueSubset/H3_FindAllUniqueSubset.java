@@ -1,4 +1,4 @@
-package g_recursion;
+package g_recursion.H_FIndUniqueSubset;
 
 
 import java.util.*;
@@ -33,7 +33,7 @@ Output: [[],[0]]
 * 1) Using take and not take technique find all subset with complexity of 2^n
 * 2) Once we have all subset, put them in set and remove duplicate and again put it into list with complexity : 2^n log 2^n
 * */
-public class E3_FindAllUniqueSubset {
+public class H3_FindAllUniqueSubset {
 
 
     public static void main(String[] args) {

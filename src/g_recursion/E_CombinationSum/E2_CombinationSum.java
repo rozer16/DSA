@@ -1,4 +1,4 @@
-package g_recursion;
+package g_recursion.E_CombinationSum;
 
 
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ All elements of candidates are distinct.
 *   SC : k(Avg Len)* x(combination) --> Hypothetical
 *
 * */
-public class B2_CombinationSum {
+public class E2_CombinationSum {
 
     public static void main(String[] args) {
         int arr [] = {2,3,6,7};

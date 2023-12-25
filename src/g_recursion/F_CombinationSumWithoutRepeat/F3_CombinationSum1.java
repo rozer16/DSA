@@ -1,4 +1,4 @@
-package g_recursion;
+package g_recursion.F_CombinationSumWithoutRepeat;
 
 
 import java.util.*;
@@ -52,7 +52,7 @@ Output:
 *
 *
 * */
-public class C2_CombinationSum1 {
+public class F3_CombinationSum1 {
 
 
     public static void main(String[] args) {

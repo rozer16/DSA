@@ -1,4 +1,4 @@
-package g_recursion;
+package g_recursion.G_SumOfAllSubset;
 
 
 import java.util.*;
@@ -35,7 +35,7 @@ so the sums we get will be  0,1,2,3,3,4,5,6
 *
 *
 * */
-public class D_SumOfAllSubset {
+public class G_SumOfAllSubset {
 
     public static void main(String[] args) {
         int [] arr= {3,2,1};
