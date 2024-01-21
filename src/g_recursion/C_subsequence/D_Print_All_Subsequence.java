@@ -23,7 +23,7 @@ Thought process :
 2) I need to iterate elements in an array so in function one of the param will be index
 3) I need to add curr index element to list so in function one of the param will be
 4) if current index is greater or equal to size of an array then need to add to result so in function one of the param will be List<List<Integer>>
-5) And ofcource one of the param will be an array
+5) And of cource one of the param will be an array
 
 
 *
@@ -54,7 +54,8 @@ public class D_Print_All_Subsequence {
 
     public void printAllSubsequence(List<Integer> nos, int index,List<Integer> subArr,List<List<Integer>> result){
             if(index >= nos.size()){
-                result.add(subArr);
+                //Do not add n directly to result since its reference and it will be changed for not take
+                result.add(new ArrayList<>(subArr));
                 return;
             }
 

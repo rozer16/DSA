@@ -37,21 +37,39 @@ public class E_GoodNumber {
 
     //Time Complexity: O((l-r) * log10 n) , takes O(log10 n) time to check if a number is a good number
     //Auxiliary Space: O(1)
-    private static List<Integer> findGoodNos(int i, int i1,int d) {
+
+    private static List<Integer> findGoodNosRec(int leftRange, int rightRange,int d) {
         List<Integer> gonos = new ArrayList<>();
-        for (int j = i; j <= i1 ; j++) {
-            if(isGoodNum(j,d))
+        for (int j = leftRange; j <= rightRange ; j++) {
+
+            if(j%10 != d && isGoodNumRec(j/10,d,j%10))
                 gonos.add(j);
         }
 
         return gonos;
     }
 
-    private static List<Integer> findGoodNosRec(int i, int i1,int d) {
+    public static boolean isGoodNumRec(int n,int d,int sum){
+        // Get last digit and initialize sum from right side
+        int digit = n%10;
+
+        if(n <= 0)
+            return true;
+
+        // If last digit is d, return
+        if (digit == d)
+            return false;
+
+        if(sum >= digit)
+            return false;
+
+        return isGoodNumRec(n/10,d,sum+digit);
+
+    }
+    private static List<Integer> findGoodNos(int i, int i1,int d) {
         List<Integer> gonos = new ArrayList<>();
         for (int j = i; j <= i1 ; j++) {
-
-            if(j%10 != d && isGoodNumRec(j/10,d,j%10))
+            if(isGoodNum(j,d))
                 gonos.add(j);
         }
 
@@ -89,22 +107,5 @@ public class E_GoodNumber {
         return true;
     }
 
-    public static boolean isGoodNumRec(int n,int d,int sum){
-        // Get last digit and initialize sum from right side
-        int digit = n%10;
-
-        if(n <= 0)
-            return true;
-
-        // If last digit is d, return
-        if (digit == d)
-            return false;
-
-        if(sum >= digit)
-            return false;
-
-        return isGoodNumRec(n/10,d,sum+digit);
-
-    }
 
 }
