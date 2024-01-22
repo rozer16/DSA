@@ -1,7 +1,9 @@
 package g_recursion.G_SumOfAllSubset;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /*
 * Subset Sum : Sum of all Subsets
@@ -35,7 +37,7 @@ so the sums we get will be  0,1,2,3,3,4,5,6
 *
 *
 * */
-public class G_SumOfAllSubset {
+public class G1_SumOfAllSubsetUsingPowerSet {
 
     public static void main(String[] args) {
         int [] arr= {3,2,1};
@@ -55,15 +57,6 @@ public class G_SumOfAllSubset {
     //For every index pick and not pick so TC : 2^n
     // SC : 2^nlon2n for sorting result
     public static void subOfAllSubset(int arr[] , int index, List<Integer> ele, List<Integer> result){
-        if(index >= arr.length){
-            int sum = ele.stream().reduce(0,Integer::sum);
-            result.add(sum);
-            return;
-        }
 
-        ele.add(arr[index]);
-        subOfAllSubset(arr,index+1,ele,result);
-        ele.remove(ele.size()-1);
-        subOfAllSubset(arr,index+1,ele,result);
     }
 }
