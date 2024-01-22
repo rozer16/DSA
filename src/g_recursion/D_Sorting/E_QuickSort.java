@@ -9,17 +9,18 @@ public class E_QuickSort {
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void quickSort(int [] arr, int low, int high){
+    public static void quickSort(int[] arr, int low, int high) {
         //recursion will continue until the range becomes 1.
-        if(low >= high)
-            return;;
+        if (low >= high)
+            return;
+        ;
 
-         // given array should be broken down into subarrays.
+        // given array should be broken down into subarrays.
         // Get the index(where the pivot should be placed after sorting)
-         int pIndex = partition(arr,low, high);
+        int pIndex = partition(arr, low, high);
 
-         quickSort(arr,low,pIndex-1);
-         quickSort(arr,pIndex+1,high);
+        quickSort(arr, low, pIndex - 1);
+        quickSort(arr, pIndex + 1, high);
     }
 
 

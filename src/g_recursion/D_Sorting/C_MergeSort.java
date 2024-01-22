@@ -25,7 +25,7 @@ public class C_MergeSort {
     public static void mergeSort(int [] arr,int low, int high){
         if(low == high)
             return;
-        int mid = (high+low)/2;
+        int mid = (high+low)/2; //  ( or use mid = low + (high-low)/2 to avoid overflow)
 
         mergeSort(arr,low,mid);
         mergeSort(arr,mid+1,high);
@@ -48,7 +48,7 @@ public class C_MergeSort {
             temp[index++] = arr[left++];
         while(right <= high)
             temp[index++] = arr[right++];
-
+        //src, srcPos, dest,destPos, length
         System.arraycopy(temp,0,arr,low,temp.length);
     }
 }
