@@ -1,0 +1,74 @@
+https://takeuforward.org/data-structure/m-coloring-problem/
+https://www.geeksforgeeks.org/problems/m-coloring-problem-1587115620/1
+
+
+Problem Statement: Given an undirected graph and a number m, determine if the graph can be colored with at most m colors such that no two adjacent vertices of the graph are colored with the same color.
+
+Examples:
+
+Example 1:
+Input:
+N = 4
+M = 3
+E = 5
+Edges[] = {
+  (0, 1),
+  (1, 2),
+  (2, 3),
+  (3, 0),
+  (0, 2)
+}
+
+Output: 1
+
+Explanation: It is possible to colour the given graph using 3 colours.
+
+Example 2:
+
+Input:
+N = 3
+M = 2
+E = 3
+Edges[] = {
+  (0, 1),
+  (1, 2),
+  (0, 2)
+}
+
+Output: 0
+
+
+Explanation: It is not possible to color.
+Solution
+Disclaimer: Don’t jump directly to the solution, try it out yourself first.
+
+Solution 1: Backtracking
+
+Approach:
+
+Basically starting from vertex 0 color one by one the different vertices.
+
+Base condition:
+
+If I have colored all the N nodes return true.
+
+Recursion:
+
+Trying every color from 1 to m with the help of a for a loop.
+
+Is safe function returns true if it is possible to color it with that color i.e none of the adjacent nodes have the same color.
+
+In case this is an algorithm and follows a certain intuition, please mention it.
+
+Color it with color i then call the recursive function for the next node if it returns true we will return true.
+
+And If it is false then take off the color.
+
+Now if we have tried out every color from 1 to m and it was not possible to color it with any of the m colors then return false.
+
+
+Output: 1
+
+Time Complexity: O( N^M) (n raised to m)
+
+Space Complexity: O(N)
