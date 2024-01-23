@@ -109,3 +109,28 @@ if(n == 1)
 
  return n * fnSum(n-1)
 }
+
+
+================
+
+/*
+*
+*                 Order       Contiguous    NoOfEl
+* SubArray          Y             Y           n(n+1)/2
+
+* SubSequence       Y             N           (2^n)
+
+* SubSet            N             N           2^n
+*
+* Arr : {1,2,3,4}
+* SubArray   : {1},{2},{3},{4},{1,2},{2,3},{3,4},{1,2,3},{2,3,4}.,{1,2,3,4}
+* SubSequence : {1},{2},{3},{4},{1,2},{1,3},{1,4},{2,3},{2,4},{3,4},{1,2,3},{1,3,4},{2,3,4}.,{1,2,3,4},{}
+* SubSet      : Any combination 2^n can be solved using power set(2^n *n), recursive(2^n)
+*
+
+Subarray can be subsequnce
+subsequence can be subset
+
+Complexity : O(2^n)
+
+* */

@@ -39,7 +39,7 @@ public class J9_N_QueenProblem {
             if (validate(board, row, col)) {
                 board[row][col] = 'Q';
                 dfs(col + 1, board, res);
-                board[row][col] = '.';
+                board[row][col] = '.'; //BackTracking resetting for next recursion
             }
         }
     }
