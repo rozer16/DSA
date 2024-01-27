@@ -1,5 +1,6 @@
 package a_sorting;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class D_MergeSort {
@@ -8,8 +9,7 @@ public class D_MergeSort {
         mergeSort(a,0,a.length);
         System.out.println(Arrays.toString(a));
     }
-
-    /*
+  /*
     *
     * Divide and conquer algo(Two phase : splitting and merging)
     * Recursive Algo
@@ -35,35 +35,55 @@ public class D_MergeSort {
     *
     */
 
-    public static void mergeSort(int[] a, int startIndex, int endIndex) {
-        if(endIndex-startIndex < 2){
-            return;
-        }
-
-        int midIndex = (startIndex + endIndex) / 2;
-        mergeSort(a,startIndex,midIndex);
-        mergeSort(a,midIndex,endIndex);
-        merge(a,startIndex,midIndex,endIndex);
+    public static void mergeSort(int[] arr, int low, int high) {
+        if (low >= high) return;
+        int mid = (low + high) / 2 ;  // mid = low+((high-low)/2)
+        mergeSort(arr, low, mid);  // left half
+        mergeSort(arr, mid + 1, high); // right half
+        merge(arr, low, mid, high);  // merging sorted halves
     }
-    //1 2 3 4 5 6
-    public static void merge(int [] array, int startIndex, int midIndex, int endIndex){
-        if(array[midIndex -1] <= array[midIndex]){
-            return;
+
+
+
+    private static void merge(int[] arr, int low, int mid, int high) {
+        ArrayList<Integer> temp = new ArrayList<>(); // temporary array
+        int left = low;      // starting index of left half of arr
+        int right = mid + 1;   // starting index of right half of arr
+
+        //storing elements in the temporary array in a sorted manner//
+
+        while (left <= mid && right <= high) {
+            if (arr[left] <= arr[right]) {
+                temp.add(arr[left]);
+                left++;
+            } else {
+                temp.add(arr[right]);
+                right++;
+            }
         }
 
-        int i = startIndex;
-        int j = midIndex;
-        int k = endIndex;
+        // if elements on the left half are still left //
 
-        int tempArray [] = new int[endIndex-startIndex];
-        int tempIndex = 0;
-
-        while(i< midIndex && j < endIndex ){
-            tempArray[tempIndex++] = array[i] < array[j] ? array[i++] : array[j++];
+        while (left <= mid) {
+            temp.add(arr[left]);
+            left++;
         }
-        System.arraycopy(array,i,array,startIndex+tempIndex,midIndex-i);
-        System.arraycopy(tempArray,0,array,startIndex,tempIndex);
+
+        //  if elements on the right half are still left //
+        while (right <= high) {
+            temp.add(arr[right]);
+            right++;
+        }
+
+        // transfering all elements from temporary to arr //
+        for (int i = low; i <= high; i++) {
+            arr[i] = temp.get(i - low);
+        }
     }
+
+
+
+
 
 
 }
