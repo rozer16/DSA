@@ -1,7 +1,7 @@
 package k_BT;
 
 /*
-*       https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes/
+    https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes/
 *               1
 *           2       3
 *       4       5|6     7

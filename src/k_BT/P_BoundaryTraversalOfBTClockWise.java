@@ -1,3 +1,9 @@
+
+/*
+
+https://takeuforward.org/data-structure/boundary-traversal-of-a-binary-tree/
+*/
+
 package k_BT;
 
 import org.xml.sax.ext.Attributes2;
@@ -6,6 +12,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+
+/*
+* Problem Statement: BoundaryTraversal of a binary tree.
+* Write a program for the Anti-Clockwise Boundary traversal of a binary tree.
+
+
+*                       1
+*               2               7
+*           3                       8
+*               4               9
+*           5       6       10      11
+ *
+*   O/P : 1 7 8 9 11 10 6 5 4 3 2 1
+*
+* */
 public class P_BoundaryTraversalOfBTClockWise {
 
     public static void main(String[] args) {

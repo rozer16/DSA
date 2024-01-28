@@ -5,6 +5,9 @@ package k_BT;
 
 
 /*
+A symmetrical binary tree is a tree that forms a mirror of itself around the center.
+ In other words, every node in the left subtree will have a mirror image in the right subtree.
+
 
 https://takeuforward.org/data-structure/check-for-symmetrical-binary-tree/
 *               1

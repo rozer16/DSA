@@ -1,3 +1,5 @@
+
+//https://takeuforward.org/data-structure/boundary-traversal-of-a-binary-tree/
 package k_BT;
 
 
@@ -37,87 +39,89 @@ import java.util.*;
 *
 *
 *  We can use two data structure to get verticals
-*   Queue : (Node,Vertical_Axis_Value, Level)
-*   Map   : Vertical_Asix_Value -> Lavel -> Node
+*  TreeMap<Vertical, TreeMap<Level, PriorityQueue<Integer>>> map;
 * */
 public class Q_VerticalOrderTraversalOfTree {
+    public static void main(String args[]) {
 
-    public static void main(String[] args) {
-        A1_Node root = A1_Node.createTree();
-        List<List<Integer>> verticalOrderNodes = getVerticalOrderNodesFromBT(root);
-    }
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(10);
+        root.left.left.right = new TreeNode(5);
+        root.left.left.right.right = new TreeNode(6);
+        root.right = new TreeNode(3);
+        root.right.left = new TreeNode(9);
+        root.right.right = new TreeNode(10);
 
-    private static List<List<Integer>> getVerticalOrderNodesFromBT(A1_Node root) {
-        Queue<Tuple> queue = new LinkedList<>();
-        Map<Integer, Map<Integer, PriorityQueue<Integer>>> tupleMap= new TreeMap<>();
+        List < List < Integer >> list = new ArrayList < > ();
+        list = findVertical(root);
 
-        queue.offer(new Tuple(0,0,root));
-
-        while(!queue.isEmpty()){
-            Tuple tuple = queue.poll();
-            A1_Node node = tuple.getNode();
-            int x = tuple.getVertical();
-            int y = tuple.getLevel();
-
-            if(!tupleMap.containsKey(x))
-                tupleMap.put(x, new TreeMap<>());
-            if(!tupleMap.get(x).containsKey(y))
-                tupleMap.get(x).put(y,new PriorityQueue<>());
-
-            tupleMap.get(x).get(y).offer(node.getVal());
-
-            if(node.getLeft() != null)
-                queue.offer(new Tuple(x-1,y+1,node.getLeft()));
-            if(node.getRight() != null)
-                queue.offer(new Tuple(x+1,y+1,node.getRight()));
+        System.out.println("The Vertical Traversal is : ");
+        for (List < Integer > it: list) {
+            for (int nodeVal: it) {
+                System.out.print(nodeVal + " ");
+            }
+            System.out.println();
         }
 
-        List<List<Integer>> result = new ArrayList<>();
-        for(Map<Integer, PriorityQueue<Integer>> treeEntry : tupleMap.values()){
-                List<Integer> tempList = new ArrayList<>();
-                for(PriorityQueue<Integer> values : treeEntry.values()){
-                    while (!values.isEmpty())
-                        tempList.add(values.poll());
+    }
+
+    public static List < List < Integer >> findVertical(TreeNode root) {
+        TreeMap < Integer, TreeMap < Integer, PriorityQueue < Integer >>> map = new TreeMap < > ();
+        Queue < Tuple > q = new LinkedList < Tuple > ();
+        q.offer(new Tuple(root, 0, 0));
+        while (!q.isEmpty()) {
+            Tuple tuple = q.poll();
+            TreeNode node = tuple.node;
+            int vertical = tuple.vertical;
+            int level = tuple.level;
+
+
+            if (!map.containsKey(vertical)) {
+                map.put(vertical, new TreeMap < > ());
+            }
+            if (!map.get(vertical).containsKey(level)) {
+                map.get(vertical).put(level, new PriorityQueue < > ());
+            }
+            map.get(vertical).get(level).offer(node.data);
+
+            if (node.left != null) {
+                q.offer(new Tuple(node.left, vertical - 1, level + 1));
+            }
+            if (node.right != null) {
+                q.offer(new Tuple(node.right, vertical + 1, level + 1));
+            }
+        }
+        List < List < Integer >> list = new ArrayList < > ();
+        for (TreeMap < Integer, PriorityQueue < Integer >> ys: map.values()) {
+            list.add(new ArrayList < > ());
+            for (PriorityQueue < Integer > nodes: ys.values()) {
+                while (!nodes.isEmpty()) {
+                    list.get(list.size() - 1).add(nodes.poll());
                 }
-                result.add(tempList);
+            }
         }
-        return result;
+        return list;
     }
 
-
-    static class Tuple{
-        int vertical;
-        int level;
-        A1_Node node;
-
-        public Tuple(int vertical, int level, A1_Node node) {
-            this.vertical = vertical;
-            this.level = level;
-            this.node = node;
-        }
-
-        public int getVertical() {
-            return vertical;
-        }
-
-        public void setVertical(int vertical) {
-            this.vertical = vertical;
-        }
-
-        public int getLevel() {
-            return level;
-        }
-
-        public void setLevel(int level) {
-            this.level = level;
-        }
-
-        public A1_Node getNode() {
-            return node;
-        }
-
-        public void setNode(A1_Node node) {
-            this.node = node;
-        }
+}
+class TreeNode {
+    int data;
+    TreeNode left, right;
+    TreeNode(int data) {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}
+class Tuple {
+    TreeNode node;
+    int vertical;
+    int level;
+    public Tuple(TreeNode _node, int _row, int _col) {
+        node = _node;
+        vertical = _row;
+        level = _col;
     }
 }

@@ -1,3 +1,7 @@
+/*
+
+https://takeuforward.org/data-structure/boundary-traversal-of-a-binary-tree/
+*/
 package k_BT;
 
 import java.util.ArrayList;
@@ -65,9 +69,10 @@ public class P_BoundryTraversalOfBTAntiClock {
     }
 
     private static void getAllLeavesNodes(A1_Node node, List<Integer> result) {
-        if(isLeaf(node))
+        if(isLeaf(node)) {
             result.add(node.getVal());
-
+            return;
+        }
         if(node.getLeft() != null)
             getAllLeavesNodes(node.getLeft(),result);
 

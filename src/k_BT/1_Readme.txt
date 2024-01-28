@@ -1,3 +1,7 @@
+https://takeuforward.org/binary-tree/introduction-to-trees/
+https://takeuforward.org/binary-tree/binary-tree-representation-in-c/
+https://takeuforward.org/binary-tree/binary-tree-representation-in-java/
+
 What is a tree data structure?
 
 
@@ -5,16 +9,20 @@ There are two major types of data structures:
 
 Linear
 Non-Linear
-Tree is a Non-linear data structure where as Arrays,
-LinkedList are linear data structures.
-What makes tree a non-linear data structure is, the information or data is not stored in a sequential fashion, same is for traversal or retrieval.
+Tree is a Non-linear data structure
+where as Arrays,LinkedList are linear data structures.
+
+
+What makes tree a non-linear data structure is, the information or data is not stored in a sequential fashion,
+same is for traversal or retrieval.
 Unlike, in arrays, we know that elements are stored at contiguous memory locations,
 however, it is not the same with trees. The nodes in a tree can be stored at random memory locations
 and can be linked to each other using pointers to define the structure of the tree.
 
 
 Why is tree data structure important?
-To understand why tree? Think about why we created other data structures. In order to do that, link every data structure to some real world entity and see where it fit’s well.
+To understand why tree? Think about why we created other data structures.
+ In order to do that, link every data structure to some real world entity and see where it fit’s well.
 
 Will you use an array to store information of your family’s hierarchy? No right, what do you visualise this hierarchy as? I visualise it as a tree.
 
@@ -30,7 +38,7 @@ But, we highly recommend to go with any one of C++, Java or Python. These are ob
 Terms :
 Root
 Ancestor
-Leaf AANode
+Leaf Node
 Children
 
 * Full BT : All nodes have 0 or 2 children
