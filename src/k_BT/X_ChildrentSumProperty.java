@@ -2,8 +2,8 @@ package k_BT;
 
 
 /*
-* https://takeuforward.org/data-structure/check-for-children-sum-property-in-a-binary-tree/
-* https://youtu.be/fnmisPM6cVo
+ https://takeuforward.org/data-structure/check-for-children-sum-property-in-a-binary-tree/
+ https://youtu.be/fnmisPM6cVo
 *
 *
 * */
