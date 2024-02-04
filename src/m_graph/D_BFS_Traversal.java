@@ -3,7 +3,7 @@ package m_graph;
 import java.util.*;
 public class D_BFS_Traversal {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         ArrayList < ArrayList < Integer >> adj = new ArrayList < > ();
         for (int i = 0; i < 5; i++) {
@@ -22,8 +22,6 @@ public class D_BFS_Traversal {
         *   2 = {1}
         *   3 = {1}
         *   4 = {0}
-        *
-        *
         * */
         adj.get(0).add(1);
         adj.get(1).add(0);
