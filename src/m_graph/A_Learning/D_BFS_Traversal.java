@@ -1,4 +1,4 @@
-package m_graph;
+package m_graph.A_Learning;
 
 import java.util.*;
 public class D_BFS_Traversal {
@@ -44,7 +44,7 @@ public class D_BFS_Traversal {
     /*
         Time Complexity: O(N) + O(2E), Where N = Nodes, 2E is for total degrees as we traverse all adjacent nodes(while loop).
 
-        Space Complexity: O(3N) ~ O(N), Space for queue data structure visited array and an adjacency list
+        Space Complexity:Queue size  N + visited array N + storing result N :  O(3N) ~ O(N), Space for queue data structure visited array and an adjacency list
     *
     * */
     private ArrayList<Integer> bfsOfGraph(int noOfNodes, ArrayList<ArrayList<Integer>> adj) {
