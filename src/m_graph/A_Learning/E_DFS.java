@@ -44,10 +44,14 @@ public class E_DFS {
 
     // Function to return a list containing the DFS traversal of the graph.
     //Time Complexity:
-                //  For an undirected graph, O(N) + O(2E),
+                //  For an undirected graph, O(N) + O(2E)  --> degree of undirected graph,
                 //  For a directed graph, O(N) + O(E),
-    // Because for every node we are calling the recursive function once, the time taken is O(N)
+    // Because for ev
     // and 2E is for total degrees as we traverse for all adjacent nodes.
+
+    //SC :
+    // O(n) for storing n nodes in result + O(n) for visited array + O(n) for recursive stack trace for skew tree
+    // = O(3n) = O(n)
     public ArrayList<Integer> dfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
         //boolean array to keep track of visited vertices
         boolean vis[] = new boolean[V+1];
