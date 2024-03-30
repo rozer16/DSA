@@ -37,6 +37,8 @@ public class A_NumberOfProviances {
         return cnt;
     }
 
+
+    //By Adj Matrix
     public void dfsByAdjMatrix(int node, boolean[] isVisited, int[][] adj) {
         isVisited[node] = true;
         /*
@@ -94,8 +96,6 @@ public class A_NumberOfProviances {
                 dfs(tempNode, isVisited, adj);
             }
         }
-
-
     }
 
 
