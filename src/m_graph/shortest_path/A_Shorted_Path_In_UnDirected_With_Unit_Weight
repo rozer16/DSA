@@ -1,0 +1,30 @@
+    https://youtu.be/C4gxoTaI71U?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn
+    https://takeuforward.org/data-structure/shortest-path-in-undirected-graph-with-unit-distance-g-28/
+
+
+Problem :
+Given an Undirected Graph having unit weight, find the shortest path from the source to all other nodes in this graph.
+In this problem statement, we have assumed the source vertex to be ‘0’.
+If a vertex is unreachable from the source node, then return -1 for that vertex.
+
+Input :
+int [][] graph
+n : no of nodes
+m = no of edges
+src
+
+Steps :
+
+1) Create a adj list from adj matrix
+2) Initialize
+        int [] distance with infinity value(1e9)
+        Queue<Integer> for BFS
+
+3) Put src node into queue and mark its distance[src] = 0 into distance array
+4) Run below steps until queue is not empty
+
+    4.1) Pop a node from queue and store into  variable node
+    4.2) Iterate through adj nodes of node popped from queue.
+    4.3) if node from adjList's distance distance[adjNode] > distance[node]+1 then set distance[adjNode] = distance[node]+1 and push node to queue
+
+5) Run a loop in distance array and set value = -1 if its infinity(1e9)
