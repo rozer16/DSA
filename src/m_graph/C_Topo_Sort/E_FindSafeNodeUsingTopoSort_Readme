@@ -1,0 +1,21 @@
+https://leetcode.com/problems/find-eventual-safe-states/
+https://youtu.be/2gtg3VsDGyc?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn
+https://takeuforward.org/data-structure/find-eventual-safe-states-dfs-g-20/
+
+
+
+Problem Statement: A directed graph of V vertices and E edges is given in the form of an adjacency list adj.
+Each node of the graph is labeled with a distinct integer in the range 0 to V - 1.
+A node is a terminal node if there are no outgoing edges.
+A node is a safe node if every possible path starting from that node leads to a terminal node.
+You have to return an array containing all the safe nodes of the graph.
+ The answer should be sorted in ascending order.
+
+
+
+A terminal node is a node without any outgoing edges(i.e outdegree = 0).
+Now a node is considered to be a safe node if all possible paths starting from it lead to a terminal node.
+Here we need to find out all safe nodes and return them sorted in ascending order.
+
+If we closely observe, all possible paths starting from a node are going to end at some terminal node unless there exists a cycle
+and the paths return back to themselves. Let’s understand it considering the below graph:

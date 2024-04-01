@@ -48,13 +48,15 @@ public class B_Kahns_Algo {
         }
 
 
-        //There would be atleast one node in graph which will have indegree 0
+        //There would be least one node in graph which will have indegree 0
         for (int i = 0; i < v; i++) {
             if(inDegreeArr[i] == 0){
                 queue.offer(i);
             }
         }
 
+        //TODO : Is there always a case after removing link between node, there always be a node having indegree zero
+        // and it will be added to queue.
         List<Integer> result = new ArrayList<>(v);
         while (!queue.isEmpty()){
             int node = queue.poll();
