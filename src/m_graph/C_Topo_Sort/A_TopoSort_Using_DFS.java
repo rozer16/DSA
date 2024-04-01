@@ -8,7 +8,10 @@ import java.util.Stack;
 //In topological sorting, node u will always appear before node v
 // if there is a directed edge from node u towards node v(u -> v).
 //Only valid on DAG (Directed Acyclic Graph)
-public class A_TopoSort {
+
+//Depth First Search, DFS is a traversal technique where we visit a node and then continue visiting its adjacent nodes until we reach the end point,
+//i.e., it keeps on moving in the depth of a particular node and then backtracks when no further adjacent nodes are available.
+public class A_TopoSort_Using_DFS {
 
 
     public static void main(String[] args) {

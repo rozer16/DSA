@@ -6,7 +6,7 @@ import java.util.*;
 
 //In topological sorting, node u will always appear before node v if there is a directed edge from node u towards node v(u -> v).
 //Only valid on DAG (Directed Acyclic Graph)
-public class B_Kahns_Algo {
+public class B_Kahns_Algo_For_TopoSort {
     public static void main(String[] args) {
         int V = 6;
         List<List<Integer>> adj = new ArrayList<>();
