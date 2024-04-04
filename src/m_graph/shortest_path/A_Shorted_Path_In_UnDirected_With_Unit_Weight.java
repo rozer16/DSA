@@ -24,6 +24,8 @@ public class A_Shorted_Path_In_UnDirected_With_Unit_Weight {
     public static int[] shortestPath(int[][] graph, int noOfNodes, int noOfEdges, int src){
 
         //1) Create a adj list from adj matrix
+
+
         List<List<Integer>> adjList = new ArrayList<>(noOfNodes);
         for (int i = 0; i < noOfNodes; i++) {
             adjList.add(new ArrayList<>());

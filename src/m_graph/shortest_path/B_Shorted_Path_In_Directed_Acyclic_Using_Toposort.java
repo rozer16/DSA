@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
-public class B_Shorted_Path_In_Directed_Acyclic {
+public class B_Shorted_Path_In_Directed_Acyclic_Using_Toposort {
 
     public static void main(String[] args) {
         int n = 6, m = 7;
@@ -19,13 +19,22 @@ public class B_Shorted_Path_In_Directed_Acyclic {
     N = no of nodes
     M = no of edges
     edges = [a,b,c] : a -> b with c weight
+
+    0 : {[1,2], [4,1]}
+    1 : {[2,3]}
+    2 : {[3,6]}
+    3 : {}
+    4 : {[[5,4],[2,2]]}
+    5 : {[3,1]}
+
+
     * */
     public static int[] shortestPath(int N, int M, int[][] edges) {
 
         //1. Create a adj list from input
         /*
-                0 : { Pair(1,3), Pair(2,4) }
-                1 : { Pair(1,3), Pair(2,4) }
+                0 : { Pair(1,2), Pair(4,1) }
+                1 : { Pair(2,3)) }
         * */
         List<List<Pair>> adj = new ArrayList<>();
         for (int i = 0; i < N; i++) {
