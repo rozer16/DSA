@@ -1,4 +1,4 @@
-package m_graph.shortest_path;
+package m_graph.D_shortest_path;
 
 import java.util.ArrayList;
 import java.util.Arrays;
