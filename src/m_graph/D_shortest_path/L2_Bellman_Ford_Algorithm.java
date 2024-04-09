@@ -21,7 +21,7 @@ public class L2_Bellman_Ford_Algorithm {
             }
         };
 
-        System.out.println(Arrays.toString(new L2_Bellman_Ford_Algorithm().bellman_ford(V,edges,S)));
+        System.out.println(Arrays.toString(new L2_Bellman_Ford_Algorithm().bellman_ford(V,edges,S))); //[0, 5, 3, 3, 1, 2]
     }
 
     // V x E
@@ -32,12 +32,18 @@ public class L2_Bellman_Ford_Algorithm {
         Arrays.fill(distanace, Integer.MAX_VALUE);
         distanace[S] = 0;
 
-        for (int i = 0; i < V-1; i++) {
-            if(distanace[edges.get(i).get(0)] != Integer.MAX_VALUE
-                &&  distanace[edges.get(i).get(1)]  > distanace[edges.get(i).get(0)] + edges.get(i).get(2)
-            ){
-                distanace[edges.get(i).get(1)] = distanace[edges.get(i).get(0)] + edges.get(i).get(2);
+        for (int j = 0; j < V-1; j++) {
+            for (int i = 0; i < edges.size(); i++) {
+                int source = edges.get(i).get(0);
+                int dest = edges.get(i).get(1);
+                int weight = edges.get(i).get(2);
+                if(distanace[source] != Integer.MAX_VALUE
+                        &&  distanace[dest]  > distanace[source] + weight
+                ){
+                    distanace[dest] = distanace[source] + weight;
+                }
             }
+
         }
 
         for (int i = 0; i < edges.size(); i++) {
