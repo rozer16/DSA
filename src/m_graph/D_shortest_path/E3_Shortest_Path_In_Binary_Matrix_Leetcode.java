@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class E1_Shortest_Path_In_Binary_Matrix_Leetcode {
+public class E3_Shortest_Path_In_Binary_Matrix_Leetcode {
 
 
     public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class E1_Shortest_Path_In_Binary_Matrix_Leetcode {
             Arrays.fill(distance[i],Integer.MAX_VALUE);
         }
 
-        //Here we dont need PQ since all nodes/adc cell are with dist 1. so we will travel first all nodes with dis 1 and then 2 and so on
+        //Here we dont need PQ since all nodes/adc cell are with dist I2_No_Of_Ways_To_Arrive_Destination. so we will travel first all nodes with dis I2_No_Of_Ways_To_Arrive_Destination and then 2 and so on
         //If dist is not unit then we would have used PQ
 
         // Create a queue for storing cells with their distances from source

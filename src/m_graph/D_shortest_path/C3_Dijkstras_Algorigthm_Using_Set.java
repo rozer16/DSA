@@ -2,7 +2,7 @@ package m_graph.D_shortest_path;
 
 import java.util.*;
 
-public class C_Dijkstras_Algorigthm_Using_Set {
+public class C3_Dijkstras_Algorigthm_Using_Set {
 
     public static void main(String[] args) {
         int V = 6, E = 3, S = 0;
@@ -54,7 +54,7 @@ public class C_Dijkstras_Algorigthm_Using_Set {
             for (PairB p : adj.get(pair.getVertex())) {
                 int vertex = p.getVertex();
                 int weight = p.getDistance();
-
+                //Relaxing all edges
                 if(pair.getDistance() + weight < distance[vertex]){
                     set.remove(new PairB(vertex,distance[vertex]));
                     distance[vertex] = pair.getDistance()+weight;

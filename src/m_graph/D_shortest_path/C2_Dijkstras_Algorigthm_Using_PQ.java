@@ -2,7 +2,7 @@ package m_graph.D_shortest_path;
 
 import java.util.*;
 
-public class C_Dijkstras_Algorigthm_Using_PQ {
+public class C2_Dijkstras_Algorigthm_Using_PQ {
 
     public static void main(String[] args) {
         int V = 6, E=3, S=0;
@@ -63,6 +63,7 @@ public class C_Dijkstras_Algorigthm_Using_PQ {
                 int adjWeight = adjPair.getWeight();
 
 
+                //Relaxing all edges
                 if(distance[adjNode] > weight+adjWeight){
                     distance[adjNode    ] = weight+adjWeight;
                     priorityQueue.offer(new Pair(adjNode,weight+adjWeight));

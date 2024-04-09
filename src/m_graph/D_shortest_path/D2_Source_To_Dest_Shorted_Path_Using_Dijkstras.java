@@ -2,7 +2,7 @@ package m_graph.D_shortest_path;
 
 import java.util.*;
 
-public class D_Source_To_Dest_Shorted_Path_Using_Dijkstras {
+public class D2_Source_To_Dest_Shorted_Path_Using_Dijkstras {
 
     public static void main(String[] args) {
         int V = 5, E = 6;
@@ -57,6 +57,7 @@ public class D_Source_To_Dest_Shorted_Path_Using_Dijkstras {
                 // Check if the previously stored distance value is
                 // greater than the current computed value or not,
                 // if yes then update the distance value.
+                //Relaxing all edges
                 if(parentWeight + pair1.getDistance() < distance[pair1.getVertex()]){
                     distance[pair1.getVertex()] = parentWeight + pair1.getDistance();
                     pq.offer(new Pair(pair1.getVertex(),parentWeight + pair1.getDistance()));
@@ -71,7 +72,7 @@ public class D_Source_To_Dest_Shorted_Path_Using_Dijkstras {
         // Store the final path in the ‘path’ array.
         List<Integer> path = new ArrayList<>();
 
-        // If distance to a node could not be found, return an array containing -1.
+        // If distance to a node could not be found, return an array containing -I2_No_Of_Ways_To_Arrive_Destination.
         if(distance[n] == Integer.MAX_VALUE) {
             path.add(-1);
             return path;
@@ -122,7 +123,7 @@ public class D_Source_To_Dest_Shorted_Path_Using_Dijkstras {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            C_Dijkstras_Algorigthm_Using_Set.PairB pairB = (C_Dijkstras_Algorigthm_Using_Set.PairB) o;
+            C3_Dijkstras_Algorigthm_Using_Set.PairB pairB = (C3_Dijkstras_Algorigthm_Using_Set.PairB) o;
             return vertex == pairB.vertex && distance == pairB.distance;
         }
 

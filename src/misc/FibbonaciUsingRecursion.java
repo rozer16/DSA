@@ -10,8 +10,8 @@ public class FibbonaciUsingRecursion {
 
     /*
     f[0] = 0;
-    f[1] = 1;
-    f[n] = f[n-1] + f[n-2]
+    f[I2_No_Of_Ways_To_Arrive_Destination] = I2_No_Of_Ways_To_Arrive_Destination;
+    f[n] = f[n-I2_No_Of_Ways_To_Arrive_Destination] + f[n-2]
 
     * */
     public static  int getFibboNaci(int no) {
