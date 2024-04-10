@@ -2,7 +2,7 @@ package m_graph.D_shortest_path;
 
 import java.util.Arrays;
 
-public class M2_Floyd_Warshall_Algorithm_Readme {
+public class M2_Floyd_Warshall_Algorithm {
 
     public static void main(String[] args) {
         int V = 4;
@@ -22,7 +22,7 @@ public class M2_Floyd_Warshall_Algorithm_Readme {
         matrix[3][2] = 4;
 
 
-        M2_Floyd_Warshall_Algorithm_Readme solution = new M2_Floyd_Warshall_Algorithm_Readme();
+        M2_Floyd_Warshall_Algorithm solution = new M2_Floyd_Warshall_Algorithm();
         solution.shortest_distance(matrix);
         for (int i = 0; i < matrix.length; i++) {
             System.out.println(Arrays.toString(matrix[i]));

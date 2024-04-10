@@ -2,7 +2,9 @@ https://takeuforward.org/data-structure/floyd-warshall-algorithm-g-42/
 https://youtu.be/YbY8cVwWAvw
 
 
-Problem Statement: The problem is to find the shortest distances between every pair of vertices in a given edge-weighted directed graph. The graph is represented as an adjacency matrix of size n*n. Matrix[i][j] denotes the weight of the edge from i to j. If Matrix[i][j]=-1, it means there is no edge from i to j.
+Problem Statement: The problem is to find the shortest distances between every pair of vertices in a given edge-weighted directed graph.
+The graph is represented as an adjacency matrix of size n*n.
+Matrix[i][j] denotes the weight of the edge from i to j. If Matrix[i][j]=-1, it means there is no edge from i to j.
 
 Do it in place.
 
@@ -36,7 +38,8 @@ is already given (if it exists).
 
 
 Solution:
-In this article, we will be discussing Floyd Warshall Algorithm which is very much different from the two which we have previously learned: Dijkstra's Shortest Path algorithm and the Bellman-Ford algorithm.
+In this article, we will be discussing Floyd Warshall Algorithm which is very much different from the two which we have previously learned:
+ Dijkstra's Shortest Path algorithm and the Bellman-Ford algorithm.
 
 Dijkstra's Shortest Path algorithm and Bellman-Ford algorithm are single-source shortest path algorithms where we are given a single source node and are asked to find out the shortest path to every other node from that given source. But in the Floyd Warshall algorithm, we need to figure out the shortest distance from each node to every other node.
 
