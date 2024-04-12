@@ -1,0 +1,41 @@
+https://takeuforward.org/data-structure/disjoint-set-union-by-rank-union-by-size-path-compression-g-46/
+https://youtu.be/aBxjDBC4M1U
+
+
+1) Initialize
+    int rank [n+1] with 0 value
+    int parennt[n+1]  with parent[i] = i;
+
+
+2) fn int findUltimateParenet(Node n)
+    if(parent[n] == n)
+        return n;
+
+    //Path Compression
+    parent[n] = findUltimateParent(parent[n))
+    return parent[n];
+
+
+    //We will not reduce rank when doing path compression because there could be other child of ultimate parent
+    //and it might have that rank so reducing rank will lead to incorrect result.
+
+3) fn void unionByRank( Node u, node v)
+    int upu =  findUltimateParenet(u);
+    int upv =  findUltimateParenet(v);
+
+    //If u & v are of same component no need to perform union
+    if upu == upv
+        return
+
+    //rank will lower node will be connected to rank with higher node
+    //If rank of u is grater than rank of v then v will be connected to u
+    if(rank[upu] > rank[upv]){
+        parent[upv] = parent[upu]
+     //If rank of v is grater than rank of u then u will be connected to v
+    }else if(rank[upu] < rank[upv]){
+        parent[upu] = parent[upv]
+    //If rank of u & v are equal then any one can connect to anyone and final parent rank will be increased by one.
+    }else{
+        parent[upu] = parent[upv]
+        rank[upv]++;
+    }
