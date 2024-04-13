@@ -27,7 +27,7 @@ public class C2_DisjointSet_UnionByRank {
         return parent.get(node);
     }
 
-    public void union(int nodeU, int nodeV){
+    public void unionByRank(int nodeU, int nodeV){
         int ultimateParentOfU = findUltimateParent(nodeU);
         int ultimateParentOfV = findUltimateParent(nodeV);
 
@@ -48,12 +48,12 @@ public class C2_DisjointSet_UnionByRank {
     public static void main(String[] args) {
             C2_DisjointSet_UnionByRank solution = new C2_DisjointSet_UnionByRank(7);
 
-            solution.union(1,2);
-            solution.union(2,3);
-            solution.union(4,5);
+            solution.unionByRank(1,2);
+            solution.unionByRank(2,3);
+            solution.unionByRank(4,5);
 
-            solution.union(6,7);
-            solution.union(5,6);
+            solution.unionByRank(6,7);
+            solution.unionByRank(5,6);
 
             if(solution.findUltimateParent(3) == solution.findUltimateParent(7)){
                 System.out.println("Same");
@@ -61,7 +61,7 @@ public class C2_DisjointSet_UnionByRank {
                 System.out.println("Not same");
             }
 
-            solution.union(3,7);
+            solution.unionByRank(3,7);
 
             if(solution.findUltimateParent(3) == solution.findUltimateParent(7)){
                 System.out.println("Same");
