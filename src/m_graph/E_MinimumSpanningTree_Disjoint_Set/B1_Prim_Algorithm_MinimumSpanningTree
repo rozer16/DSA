@@ -7,9 +7,16 @@ We need another array(MST) as well if we wish to store the edge information of t
 
 The algorithm steps are as follows:
 
-Priority Queue(Min Heap): The priority queue will be storing the pairs (edge weight, node). We can start from any given node. Here we are going to start from node 0 and so we will initialize the priority queue with (0, 0). If we wish to store the mst of the graph, the priority queue should instead store the triplets (edge weight, adjacent node, parent node) and in that case, we will initialize with (0, 0, -1).
+Priority Queue(Min Heap): The priority queue will be storing the pairs (edge weight, node). We can start from any given node.
+                            Here we are going to start from node 0 and so we will initialize the priority queue with (0, 0).
+                            If we wish to store the mst of the graph,
+                            the priority queue should instead store the triplets (edge weight, adjacent node, parent node)
+                             and in that case, we will initialize with (0, 0, -1).
+
 Visited array: All the nodes will be initially marked as unvisited.
+
 sum variable: It will be initialized with 0 and we wish that it will store the sum of the edge weights finally.
+
 MST array(optional): If we wish to store the minimum spanning tree(MST) of the graph, we need this array. This will store the edge information as a pair of starting and ending nodes of a particular edge.
 
 

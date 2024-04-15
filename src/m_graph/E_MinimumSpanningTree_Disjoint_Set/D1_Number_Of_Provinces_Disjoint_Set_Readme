@@ -1,0 +1,16 @@
+https://www.youtube.com/watch?v=ZGr5nX-Gi6Y&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=49
+https://www.geeksforgeeks.org/problems/number-of-provinces/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=number-of-provinces
+
+
+Approach :
+In order to count no of proviances we will follow below steps
+    1) We will iterate through each edges and call union method
+    2) Once we have called union method for all edges, we will have info of who is parent of what
+    3) A node and its parent are same that means it is the top node or boss so its one proviance
+    4) so we will iterate through each element of parent and count
+    5) Return cnt
+
+
+Intuition
+    Using disjoin set we will connect all node and the from parent array we can find how many top nodes are there
+

@@ -25,3 +25,8 @@ Note: There may exist multiple minimum spanning trees for a graph like a graph m
 There are a couple of algorithms that help us to find the minimum spanning tree of a graph.
 One is Prim’s algorithm and the other is Kruskal’s algorithm. We will be discussing all of them in the upcoming articles.
 
+
+
+there are two ways to find the minimum spanning tree for a given weighted and undirected graph.
+    Prim’s algorithm.
+    Kruskal's Algorithm

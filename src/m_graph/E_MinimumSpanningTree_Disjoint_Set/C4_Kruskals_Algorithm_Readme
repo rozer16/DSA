@@ -1,0 +1,62 @@
+https://takeuforward.org/data-structure/kruskals-algorithm-minimum-spanning-tree-g-47/
+https://youtu.be/DMnDM_sxVig
+
+Problem Statement: Given a weighted, undirected, and connected graph of V vertices and E edges.
+ The task is to find the sum of weights of the edges of the Minimum Spanning Tree.
+
+
+A spanning tree :  A tree in which we have N nodes(i.e. All the nodes present in the original graph) and N-1 edges and all nodes are reachable from each other.
+Minimum Spanning Tree : Among all possible spanning trees of a graph, the minimum spanning tree is the one for which the sum of all the edge weights is the minimum.
+
+Example 1:
+
+Input Format:
+V = 5, edges = { {0, 1, 2}, {0, 3, 6}, {1, 2, 3}, {1, 3, 8}, {1, 4, 5}, {4, 2, 7}}
+
+Result: 16
+Explanation: The minimum spanning tree for the given graph is drawn below:MST = {(0, 1), (0, 3), (1, 2), (1, 4)}
+
+
+Solution
+
+We will be implementing Kruskal’s algorithm using the Disjoint Set data structure that we have previously learned.
+
+Disjoint Set provides two methods named
+        findUPar()(This function helps to find the ultimate parent of a particular node)
+        Union(This basically helps to add the edges between two nodes).
+
+The algorithm steps are as follows:
+
+1) First, we need to extract the edge information(if not given already) from the given adjacency list in the format of (wt, u, v)
+    where u is the current node, v is the adjacent node and wt is the weight of the edge between node u and v and we will store the tuples in an array.
+2) Then the array must be sorted in the ascending order of the weights so that while iterating we can get the edges with the minimum weights first.
+
+3) After that, we will iterate over the edge information, and for each tuple, we will apply the  following operation:
+    3.1) First, we will take the two nodes u and v from the tuple and check if the ultimate parents of both nodes are the same or not
+         using the findUPar() function provided by the Disjoint Set data structure.
+    3.2) If the ultimate parents are the same, we need not do anything to that edge as there already exists a path between the nodes
+         and we will continue to the next tuple.
+    3.3) If the ultimate parents are different, we will add the weight of the edge to our final answer(i.e. mstWt variable used in the following code)
+         and apply the union operation(i.e. either unionBySize(u, v) or unionByRank(u, v)) with the nodes u and v.
+         The union operation is also provided by the Disjoint Set.
+
+
+Note: Points to remember if the graph is given as an adjacency list we must extract the edge information first.
+        As the graph contains bidirectional edges we can get a single edge twice in our array (For example, (wt, u, v) and (wt, v, u), (5, 1, 2) and (5, 2, 1)).
+         But we should not worry about that as the Disjoint Set data structure will automatically discard the duplicate one.
+
+     This algorithm mainly contains the Disjoint Set data structure used to find the minimum spanning tree of a given graph.
+     So, we just need to know the data structure.
+
+
+ Time Complexity: O(N+E) + O(E logE) + O(E*4α*2)
+                where N = no. of nodes and E = no. of edges. O(N+E) for extracting edge information from the adjacency list.
+                O(E logE) for sorting the array consists of the edge tuples.
+                Finally, we are using the disjoint set operations inside a loop. The loop will continue to E times.
+                Inside that loop, there are two disjoint set operations like findUPar() and UnionBySize() each taking 4
+                and so it will result in 4*2. That is why the last term O(E*4*2) is added.
+
+ Space Complexity: O(N) + O(N) + O(E) where E = no. of edges and N = no. of nodes. O(E) space is taken by the array that we are using to store the edge information.
+                    And in the disjoint set data structure, we are using two N-sized arrays i.e. a parent and a size array
+                    (as we are using unionBySize() function otherwise, a rank array of the same size if unionByRank() is used)
+                    which result in the first two terms O(N).
