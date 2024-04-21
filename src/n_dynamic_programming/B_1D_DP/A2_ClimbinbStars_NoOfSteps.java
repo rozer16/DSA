@@ -18,6 +18,8 @@ public class A2_ClimbinbStars_NoOfSteps {
     //Top Down approach / Recrusive
 
     public int countStepsRecursive(int n){
+        //From 0 -> 0 no steps
+        // from 1 you can only jump 0 so 1
         if(n <= 1){
             return n;
         }
