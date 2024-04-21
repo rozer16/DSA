@@ -1,0 +1,119 @@
+rog Jump with k Distances (DP 4)"
+
+Problem Statement:  Frog Jump with K Distance/ Learn to write 1D DP
+
+Problem Statement:
+
+This is a follow-up question to “Frog Jump” discussed in the previous article. In the previous question, the frog was allowed to jump either one or two steps at a time. In this question, the frog is allowed to jump up to ‘K’ steps at a time. If K=4, the frog can jump 1,2,3, or 4 steps at every index.
+
+
+
+Algorithm / Intuition
+We will first see the modifications required in the pseudo-code. Once the recursive code is formed, we can go ahead with the memorization and tabulation.
+
+
+Here is the pseudocode from the simple Frog Jump problem.
+
+f(ind, heights){
+    if(ind == 0)
+        return 0;
+
+    left = f(n-1) + Abs(heights[n]-heights[n-1]
+    right = Integer.MAX_HEIGHT;
+    if(n>1)
+        right = f(n-2) + Abs(heights[n-2]-heights[n])
+
+    return min(left, right)
+
+
+ this was the case where we needed to try two options (move a single step and move two steps)
+ in order to try out all the possible ways for the problem.
+ Now, we need to try K options in order to try out all possible ways.
+
+ These are the calls we need to make for K=2, K=3, K=4
+
+ K = 2 ==> f(ind-1), f(ind-2
+ k = 3 ==> f(ind-1),f(ind-2),f(ind-3)
+
+
+ If we generalize, we are making K calls, therefore, we can set a for loop to run from 1 to K, and in each iteration, we can make a function call, corresponding to a step. We will return the minimum step call after the loop.
+
+ The final pseudo-code will be:
+
+ fn(index, height[], k )
+    if ind == 0
+        return 0;
+
+    int minHeight = Integer.MAX_VALUE
+    for j =1 to k
+        if(index-j >=0){
+            jthJumpCost = f(index-j) + Math.abs(height[index]-height[index-k]
+            minHeight = Math.min(minHeight  , jthJumpCost)
+        }
+    return minHeight;
+
+
+Time Complexity: O(N *K)
+    Reason: The overlapping subproblems will return the answer in constant time.
+    Therefore the total number of new subproblems we solve is ‘n’. At every new subproblem,
+    we are running another loop for K times. Hence total time complexity is O(N * K).
+
+Space Complexity: O(N)
+
+    Reason: We are using a recursion stack space(O(N)) and an array (again O(N)).
+    Therefore total space complexity will be O(N) + O(N) ≈ O(N)
+
+
+
+Once we form the recursive solution, we can use the approach told in Dynamic Programming Introduction to convert
+it into a dynamic programming one.
+
+Memoization approach
+
+Steps to convert Recursive code to memoization solution:
+
+Create a dp[n] array initialized to -1.
+Whenever we want to find the answer of a particular value (say n),
+we first check whether the answer is already calculated using the dp array(i.e dp[n] != -1 ).
+If yes, simply return the value from the dp array.
+If not, then we are finding the answer for the given value for the first time,
+we will use the recursive relation as usual but before returning from the function,
+ we will set dp[n] to the solution we get.
+
+
+
+ fn(index, height[], k , dp[])
+    if ind == 0
+        return 0;
+
+     // If the result for this index has been previously calculated, return it.
+      if (dp[ind] != -1)
+                return dp[ind];
+
+    int minHeight = Integer.MAX_VALUE
+    for j =1 to k
+        if(index-j >=0){
+
+            jthJumpCost = f(index-j) + Math.abs(height[index]-height[index-k]
+            minHeight = Math.min(minHeight  , jthJumpCost)
+        }
+
+    dp[index] = minHeight
+    return minHeight;
+
+
+ Time Complexity: O(N *K)
+    Reason: The overlapping subproblems will return the answer in constant time. Therefore the total number of new subproblems we solve is ‘n’. At every new subproblem, we are running another loop for K times. Hence total time complexity is O(N * K).
+
+ Space Complexity: O(N)
+    Reason: We are using a recursion stack space(O(N)) and an array (again O(N)).
+    Therefore total space complexity will be O(N) + O(N) ≈ O(N)
+
+
+
+Tabulation approach
+
+
+Declare a dp[] array of size n.
+First initialize the base condition values, i.e dp[0] as 0.
+Set an iterative loop which traverses the array( from index 1 to n-1) and for every index calculate jumpOne and jumpTwo and set dp[i] = min(jumpOne, jumpTwo).

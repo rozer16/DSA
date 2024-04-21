@@ -67,7 +67,7 @@ public class A2_Tarjans_Algo_Bridges_In_Graph {
                 // node --- it break creates another component?
                 //If adjNode has any adj Node other than parent whose insertion time is less than node's insertion time then it cant create another component
                 //since this node can be reached from that lowest insertion time node
-                if(insertionTime[node] < adjWithLowestInsertionTime[adjNode]){
+                if(adjWithLowestInsertionTime[adjNode] > insertionTime[node]    ){
                     bridges.add(Arrays.asList(node,adjNode));
                 }
 

@@ -1,0 +1,84 @@
+https://takeuforward.org/data-structure/dynamic-programming-introduction/
+
+Problem Statement:  Introduction To Dynamic Programming
+
+In this article, we will be going to understand the concept of dynamic programming.
+
+Dynamic Programming can be described as storing answers to various sub-problems to be used later whenever required to solve the main problem.
+
+The two common dynamic programming approaches are:
+
+Memoization: Known as the “top-down” dynamic programming, usually the problem is solved in the direction of the main problem to the base cases.
+Tabulation: Known as the “bottom-up '' dynamic programming, usually the problem is solved in the direction of solving the base cases to the main problem
+Note: The base case does not always mean smaller input. It depends upon the implementation of the algorithm.
+
+1) Memoization
+    TC
+    SC
+2)Tabulation
+    TC
+    SC
+3) Space Optimization
+
+
+We will be using the example of Fibonacci numbers here. The following series is called the Fibonacci series:
+
+0,1,1,2,3,5,8,13,21,...
+
+We need to find the nth Fibonacci number, where n is based on a 0-based index.
+
+Every ith number of the series is equal to the sum of (i-1)th and (i-2)th number where the first and second number is given as 0 and 1 respectively.
+
+Disclaimer: Don't jump directly to the solution, try it out yourself first.
+
+Pre-req: Recursion
+
+Solution :
+Part - 1: Memoizaton
+
+As every number is equal to the sum of the previous two terms, the recurrence relation can be written as:
+
+f(n) = f(n-1) + f(n-2)
+
+The basic pseudo-code for the problem will be given as:
+
+f(n) {
+    if(n <= 1)
+        return n;
+
+    return f(n-2) + f(n-1)
+
+}
+
+
+If there are two recursive calls inside a function, the program will run the first call, finish its execution and then run the second call. Due to this reason, each and every call in the recursive tree will be executed. This gives the recursive code its exponential time complexity.
+Can we improve on this? The answer is Yes!
+
+
+We want to compute f(2) as the second call from f(4), but in the recursive tree we had already computed f(2) once (in the first recursive call of f(3) ) Similar is the case with f(3), therefore if we somehow store these values, the first time we calculated it then we can simply find its value in constant time whenever we need it. This technique is called Memoization. Here the cases marked in yellow are called overlapping sub-problems and we need to solve them only once during the code execution.
+
+Steps to memoize a recursive solution:
+
+Any recursive solution to a problem can be memoized using these three steps:
+
+Create a dp[n+1] array initialized to -1.
+Whenever we want to find the answer of a particular value (say n), we first check whether the answer is already calculated using the dp array(i.e dp[n]!= -1 ). If yes, simply return the value from the dp array.
+If not, then we are finding the answer for the given value for the first time, we will use the recursive relation as usual but before returning from the function, we will set dp[n] to the solution we get.
+Dry Run:
+
+Declare a dp[] array of size n+1 and initialize it to -1.
+
+
+
+Now, following the recursive code we see that at n=5, the value of dp[5] is equal to -1 therefore we need to compute its value and go to the inner recursive calls. Similar is the case at n=4, n=3, and n=2. For n=2, we hit our two base conditions as the inner recursive calls.
+
+As we traverse back after solving n=2, we update its dp array value to 1 ( the answer we got). Similarly, for the second recursive call for n=3, we again hit a base condition and we get an answer of f(n=3) as 2, we again update the dp array.
+
+
+
+Then for the second recursive call f(n=4), we see that dp[2] is not equal to -1, which means that we have already solved this subproblem and we simply return the value at dp[2] as our answer. Hence we get the answer of f(n=4) as 3(2+1).
+
+Similarly, for the second recursive call f(n=5), we get dp[3] as 2. Then we compute for(n=5) as 5(2+3).
+
+
+
