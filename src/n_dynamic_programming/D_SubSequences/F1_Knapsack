@@ -1,0 +1,23 @@
+https://takeuforward.org/data-structure/0-1-knapsack-dp-19/
+https://www.youtube.com/watch?v=GqOmJHQZivw
+
+
+A thief wants to rob a store.
+He is carrying a bag of capacity W.
+The store has ‘n’ items.
+Its weight is given by the ‘wt’ array and its value by the ‘val’ array.
+He can either include an item in its knapsack or exclude it
+but can’t partially have it as a fraction.
+We need to find the maximum value of items that the thief can steal.
+
+e.g.
+
+N = 4
+W = 5(A bag can have max W= 5)
+
+wt = {1,2,4,5};
+val = {5,4,8,6}
+
+Ans = 13 {5,8}
+A thief can carry max weight = 5 and we can pick item with weight = 1,4
+

@@ -1,0 +1,30 @@
+https://takeuforward.org/data-structure/grid-unique-paths-dp-on-grids-dp8/
+https://www.youtube.com/watch?v=sdE0A2Oxofw
+https://leetcode.com/problems/unique-paths/description/
+
+
+
+Combination problem theory
+ lets say no of rows = n = 2
+          no of cols = m = 3
+
+
+          00    01  02
+          10    11  12
+
+
+ So to reach from 00 to 12 below three paths are possible given we can take only down or right turn
+
+ RRS
+ RDR
+ DRR
+
+
+ Observation 1 : We need to take (n-1)+(m-1)==> (n-m-2) paths to reach from 0,0 to (m-1,n-1)
+ Observation 2 : Total no of right turn we can take n-1 and total no of down turns we can take : m-1
+
+ so if we can find how many  no of combination are there for either
+    placing n-1 into n-m-2 i.e. (n-m-2) C n-1 OR
+    placing m-1 into n-m-2 i.e. (n-m-2) C m-1 ]
+
+we can find total total no of ways to reach 0,0 to n-1, m-1

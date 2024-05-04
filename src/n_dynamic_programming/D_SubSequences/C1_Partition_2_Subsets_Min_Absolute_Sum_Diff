@@ -1,0 +1,26 @@
+
+https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/description/
+
+This question is a slight modification of the problem discussed in the Subset Sum equal to target.
+
+Before discussing the approach for this question,
+it is important to understand what we did in the previous question of the Subset Sum equal to the target.
+There we found whether or not a subset exists in an array with a given target sum. We used a dp array to get to our answer.
+
+
+We used to return dp[n-1][k] as our answer.
+ One interesting thing that is happening is that for calculating our answer for dp[n-1][k],
+ we are also solving multiple sub-problems and at the same time storing them as well. We will use this property to solve the question of this article.
+
+In this question, we need to partition the array into two subsets( say with sum S1 and S2)
+and we need to return the minimized absolute difference of S1 and S2.
+But do we need two variables for it?
+The answer is No. We can use a variable totSum, which stores the sum of all elements of the input array,
+ and then we can simply say S2 = totSum - S1. Therefore we only need one variable S1.
+
+Now, what values can S1 take? Well, it can go anywhere from 0 (no elements in S1) to totSum( all elements in S1).
+If we observe the last row of the dp array which we had discussed above,
+it gives us the targets for which there exists a subset.
+We will set its column value to totSum, to find the answer from 0(smaller limit of S1) to totSum (the larger limit of S1).
+
+Our work is very simple, using the last row of the dp array, we will first find which all S1 values are valid. Using the valid S1 values, we will find S2 (totSum - S1). From this S1 and S2, we will find their absolute difference. We will return the minimum value of this absolute difference as our answer.
