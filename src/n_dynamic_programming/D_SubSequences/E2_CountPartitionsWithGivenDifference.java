@@ -28,6 +28,11 @@ public class E2_CountPartitionsWithGivenDifference {
 
         int D2 = totalSum -D;
 
+
+        //As the array elements are positive integers including zero, we don’t want to find the case when S2 is negative or
+        // we can say that totSum is lesser than D, therefore if totSum<D, we simply return 0.
+
+        //S2 can’t be a fraction, as all elements are integers, therefore if totSum - D is odd, we can return 0.
         if(D2 < 0 || (D2%2) != 0)
             return 0;
 
