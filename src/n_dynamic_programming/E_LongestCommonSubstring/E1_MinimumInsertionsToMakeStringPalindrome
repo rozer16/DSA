@@ -1,0 +1,66 @@
+https://takeuforward.org/data-structure/minimum-insertions-to-make-string-palindrome-dp-29/
+https://www.youtube.com/watch?v=xPBLEj41rFU
+
+
+A palindromic string is a string that is the same as its reverse.
+For example: “nitin” is a palindromic string. Now the question states that we are given a string,
+we need to find the minimum insertions that we can make in that string to make it a palindrome.
+
+
+For e.g
+
+Input: s = "zzazz"
+Output: 0
+Explanation: The string "zzazz" is already palindrome we do not need any insertions.
+Example 2:
+
+Input: s = "mbadm"
+Output: 2
+Explanation: String can be "mbdadbm" or "mdbabdm".
+Example 3:
+
+Input: s = "leetcode"
+Output: 5
+Explanation: Inserting 5 characters the string becomes "leetcodocteel".
+
+
+=========
+
+Intuition:
+
+
+We need to find the minimum insertions required to make a string palindrome.
+ Let us keep the “minimum” criteria aside and think, how can we make any given string palindrome by inserting characters?
+
+The easiest way is to add the reverse of the string at the back of the original string as shown below. This will make any string palindrome.
+
+For e.g. abcaa
+
+Palindromstring :  abcaa + aacba = abcaaaacba
+
+
+Here the number of characters inserted will be equal to n (length of the string). This is the maximum number of characters we can insert to make strings palindrome.
+
+The problem states us to find the minimum of insertions. Let us try to figure it out:
+
+To minimize the insertions, we will first try to refrain from adding those characters again which are already making the given string palindrome.
+For the given example, “aaa”, “aba”,”aca”, any of these are themselves palindromic components of the string.
+We can take any of them( as all are of equal length) and keep them intact. (let’s say “aaa”).
+
+For e.g. keeping aaa intake,
+Now, there are two characters(‘b’ and ‘c’) remaining which prevent the string from being a palindrome.
+ We can reverse their order and add them to the string to make the entire string palindrome.
+
+a bc a cb a
+
+We can do this by taking some other components (like “aca”) as well.
+
+In order to minimize the insertions, we need to find the length of the longest palindromic component or in other words, the longest palindromic subsequence.
+
+Minimum Insertion required = n(length of the string) - length of longest palindromic subsequence.
+
+The algorithm is stated as follows:
+
+We are given a string (say s), store its length as n.
+Find the length of the longest palindromic subsequence ( say k) as discussed in dp - 28
+Return n-k as answer.

@@ -18,7 +18,7 @@ public class D2_CountSubsetsWithSumK {
         }
         System.out.println("Arr : "+Arrays.toString(nums));
         System.out.println("k="+k);
-        System.out.println("No of subset with sum k using recursion: " + solution.countSubsetWithSumK(nums, k, nums.length - 1));
+        System.out.println("No of subset with sum k using recursion: " + solution.countSubsetWithSumKRecursion(nums, k, nums.length - 1));
         System.out.println("No of subset with sum k using memoization: " + solution.countSubsetWithSumKMemoization(nums, k, nums.length - 1, dp));
         System.out.println("No of subset with sum k using tabulation: " + solution.countSubsetWithSumKTabulation(nums, k));
         System.out.println("No of subset with sum k using space optimization: " + solution.countSubsetWithSumKSpaceOptimization(nums, k));
@@ -44,17 +44,17 @@ public class D2_CountSubsetsWithSumK {
     }
 
 
-    public int countSubsetWithSumK(int[] nums, int sum, int index) {
+    public int countSubsetWithSumKRecursion(int[] nums, int sum, int index) {
         if (sum == 0)
             return 1;
 
         if (index == 0)
             return nums[0] == sum ? 1 : 0;
 
-        int notTake = countSubsetWithSumK(nums, sum, index - 1);
+        int notTake = countSubsetWithSumKRecursion(nums, sum, index - 1);
         int take = 0;
         if (sum >= nums[index])
-            take = countSubsetWithSumK(nums, sum - nums[index], index - 1);
+            take = countSubsetWithSumKRecursion(nums, sum - nums[index], index - 1);
 
         return take + notTake;
     }
@@ -71,10 +71,10 @@ public class D2_CountSubsetsWithSumK {
             return dp[index][sum];
 
 
-        int notTake = countSubsetWithSumK(nums, sum, index - 1);
+        int notTake = countSubsetWithSumKRecursion(nums, sum, index - 1);
         int take = 0;
         if (sum >= nums[index])
-            take = countSubsetWithSumK(nums, sum - nums[index], index - 1);
+            take = countSubsetWithSumKRecursion(nums, sum - nums[index], index - 1);
 
         dp[index][sum] = take + notTake;
         return take + notTake;

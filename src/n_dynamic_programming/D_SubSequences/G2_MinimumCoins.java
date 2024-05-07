@@ -20,9 +20,14 @@ public class G2_MinimumCoins {
         System.out.println("Minimum coins using tabulation : "+solution.coinChangeTabulation(coins,amount));
         System.out.println("Minimum coins using space optimization : "+solution.coinChangeTabulationSpaceOptimization(coins,amount));
 
-        int [] coins1 = {3,4,5};
-        int amount1 = 1;
-        System.out.println("Minimum coins using recursion : "+solution.coinChange(coins1,amount1,coins1.length-1));
+
+        /*
+        *
+        * Minimum coins using recursion : 3
+            Minimum coins using Memoization : 3
+            Minimum coins using tabulation : 3
+            Minimum coins using space optimization : 3
+        * */
 
     }
 

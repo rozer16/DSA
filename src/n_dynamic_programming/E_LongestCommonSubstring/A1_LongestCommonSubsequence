@@ -1,0 +1,164 @@
+https://takeuforward.org/data-structure/longest-common-subsequence-dp-25/
+https://www.youtube.com/watch?v=NPZn9jBrX8U&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=26
+https://leetcode.com/problems/longest-common-subsequence/description/
+
+Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.
+
+A subsequence of a string is a new string generated from the original string with some characters (can be none)
+deleted without changing the relative order of the remaining characters.
+
+For example, "ace" is a subsequence of "abcde".
+A common subsequence of two strings is a subsequence that is common to both strings.
+
+
+
+Example 1:
+
+Input: text1 = "abcde", text2 = "ace"
+Output: 3
+Explanation: The longest common subsequence is "ace" and its length is 3.
+Example 2:
+
+Input: text1 = "abc", text2 = "abc"
+Output: 3
+Explanation: The longest common subsequence is "abc" and its length is 3.
+Example 3:
+
+Input: text1 = "abc", text2 = "def"
+Output: 0
+Explanation: There is no such common subsequence, so the result is 0.
+
+
+Constraints:
+
+1 <= text1.length, text2.length <= 1000
+text1 and text2 consist of only lowercase English characters.
+
+
+=================
+
+Thought process
+
+Note: For a string of length n, the number of subsequences will be 2n.
+
+Now we will look at “Longest Common Subsequence”.
+The longest Common Subsequence is defined for two strings. It is the common subsequence that has the greatest length.
+
+
+Algorithm / Intuition
+
+
+We are given two strings, S1, and S2 (suppose of same length n),
+the simplest approach will be to generate all the subsequences and store them, then manually find out the longest common subsequence.
+
+This naive approach will give us the correct answer but to generate all the subsequences,
+we will require exponential ( 2n ) time. Therefore we will try some other approaches.
+
+
+Using Dynamic Programming
+
+We would want to try something that can give us the longest common subsequence on the way of generating all subsequences.
+ To generate all subsequences we will use recursion and in the recursive logic we will figure out a way to solve this problem.
+
+Steps to form the recursive solution:
+
+We will first form the recursive solution by the three points mentioned in Dynamic Programming Introduction.
+
+Step 1: Express the problem in terms of indexes.
+
+        We are given two strings S1 and S2:  adebc ,  dcadbmn
+
+        A single variable can’t express both the strings at the same time, so we will use two variables ind1 and ind2.
+        They mean that we are considering string S1 from index 0 ind1 and string S2 from index 0 to S2.
+        So our recursive function will look like this: fn(ind1, ind2) : Longest common subsequence between str1(0 to ind1) and str2(0 to ind2)
+
+Step 2: Explore all possibilities at a given index
+
+        Intuition for Recursive Logic
+
+        In the function f(ind1,ind2), ind1 and ind2 are representing two characters from strings S1 and S2 respectively.
+        For example: S1 and S2:  adebc <-- ind1 ,  dcadbmn <-- ind2
+
+        Now, there can be two possibilities,
+
+            if(S1[ind1] == S2[ind2]) :  In this case this common element will represent a unit length common subsequence,
+                                        so we can say that we have found one character and we can shrink both the strings by 1
+                                        to find the longest common subsequence in the remaining pair of strings.
+
+            if(S1[ind1] != S2[ind2]) :  In this case we know that the current characters represented by ind1 and ind 2 will be different.
+                `                       So, we need to compare the ind1 character with shrunk S2 and ind2 with shrunk S1.
+                                        But how do we make this comparison ?
+                                        If we make a single recursive call as we did above to f(ind1-1,ind2-1), we may lose some characters of the subsequence.
+                                        Therefore we make two recursive calls:
+                                                f(ind1,ind2-1) (shrinking only S1) and
+                                                f(ind1-1,ind2) (shrinking only S2).
+                                        Then when we return max of both the calls.
+
+Step 3:  Return the maximum of the choices
+
+        In the first case, we have only one choice but in the second case we have two choices, as we have to return the longest common subsequences,
+        we will return the maximum of both the choices in the second case.
+
+
+Base Case:
+
+    For a case like this: S1 = C , S2 = NM, ind1 = 0, ind2 = 1
+
+
+    As S1[ind1] != S2[ind2], We will make a call to f(0-1,1), i.e f(-1,1)
+    but a negative index simply means that there are no more indexes to be explored, so we simply return 0.
+    Same is the case when S1[ind1]==S2[ind2]
+    If (ind1<0 || ind2<0) return 0.
+
+
+Final Pseudocode :
+
+function (index1, index2, str1, str2){
+    if(index1 < 0 || index2 < 0)
+        return 0;
+
+    if(str1[index1] == str2[index2])
+        return 1+ function(index-1, index-2, str1, str2)
+
+    return MAX( function(index1-1, index2, str1, str2) , function(index1, index2-1, str1, str2)
+
+ }
+
+
+ =================
+
+ Steps to memoize a recursive solution:
+
+ As we see there are overlapping subproblems in the recursive tree, we can memorize the recursive code to reduce the time complexity.
+
+ Create a dp array of size [N][M] where N and M are lengths of S1 and S2 respectively.
+ It will store all the possible different states that our recursive function will take.
+ We initialize the dp array to -1.
+ Whenever we want to find the answer of particular parameters (say f(ind1,ind2)),
+ we first check whether the answer is already calculated using the dp array(i.e dp[ind][ind2]!= -1 ).
+ If yes, simply return the value from the dp array.
+ If not, then we are finding the answer for the given value for the first time,
+  we will use the recursive relation as usual but before returning from the function, we will set dp[ind][ind2] to the solution we get.
+
+
+==================
+
+To convert the memoization approach to a tabulation one, create a dp array with the same size as done in memoization.
+
+Initialization: Shifting of indexes
+In the recursive logic, we set the base case to if(ind1<0 || ind2<0) but we can’t set the dp array’s index to -1. Therefore a hack for this issue is to shift every index by 1 towards the right.
+
+Recursive code index : -1 0 1 2 3 4....N
+Shifted index        : 0 1 2 3 4 ......N
+
+
+
+Therefore, now the base case will be if(ind1==0 || ind2==0).
+Similarly, we will implement the recursive code by keeping in mind the shifting of indexes, therefore S1[ind1] will be converted to S1[ind1-1].
+Same for others.
+At last we will print dp[N][M] as our answer.
+
+
+1) call method with n,m
+2) base case : instead of < 0, it will be == 0
+3)

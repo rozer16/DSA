@@ -25,10 +25,7 @@ public class J2_UnboundedKnapsack {
     public int unboundedKnapsackRecursion(int index, int W, int [] wt, int[] val){
 
         if(index == 0){
-            if(W != 0 && wt[0] % W == 0){
-                return (wt[0] / W)*val[0];
-            }
-            return 0;
+            return (W/wt[0])*val[0];
         }
 
         int notTake = unboundedKnapsackRecursion(index-1, W,wt,val);

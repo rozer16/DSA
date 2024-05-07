@@ -19,12 +19,12 @@ These two partitions are different because, in the 1st partition, S1 contains 5 
 
 
 Observation 1)  : TotalSum = S1+S2 ==> S1 = TotalSum-S2
-Observation 2)  : S1-S2 = D
+Observation 2)  :   S1-S2 = D
 
-TotalSum - S2 - S2 = D
-TotalSum-2S2 = D
-TotalSum-D = 2S2
-S2 = (TotalSum-D)/2
+                    TotalSum - S2 - S2 = D
+                    TotalSum-2S2 = D
+                    TotalSum-D = 2S2
+                    S2 = (TotalSum-D)/2
 
 So we need to find no of subset whose sum(target) is (TotalSum-D)/2
 From above e.g.
