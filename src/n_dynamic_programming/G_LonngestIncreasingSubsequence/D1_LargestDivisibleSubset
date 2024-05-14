@@ -1,0 +1,89 @@
+https://takeuforward.org/data-structure/longest-divisible-subset-dp-44/
+https://www.youtube.com/watch?v=gDuZwBW9VvM
+https://leetcode.com/problems/largest-divisible-subset/
+
+
+
+Given a set of distinct positive integers nums, return the largest subset answer such that every pair (answer[i], answer[j]) of elements in this subset satisfies:
+
+answer[i] % answer[j] == 0, or
+answer[j] % answer[i] == 0
+If there are multiple solutions, return any of them.
+
+
+
+Example 1:
+
+Input: nums = [1,2,3]
+Output: [1,2]
+Explanation: [1,3] is also accepted.
+Example 2:
+
+Input: nums = [1,2,4,8]
+Output: [1,2,4,8]
+
+
+Constraints:
+
+1 <= nums.length <= 1000
+1 <= nums[i] <= 2 * 109
+All the integers in nums are unique.
+
+
+
+
+============
+
+
+In a subsequence, the elements need to follow the order of the original array whereas in a subset there is no constraint on the order of the elements.
+
+Divisible Subset
+
+A divisible subset is the one in which if we pick two elements i and j from the subset, then either arr[i]%arr[j] == 0 or arr[j] % arr[i] == 0. For example, [16,8,4] is a divisible subset.
+
+
+Given an array with distinct elements, we need to print its longest divisible subset. We can print any answer.
+
+
+Solution:
+
+Intuition:
+
+ARR : 1 16 7 8 4
+SORTED : 1 4 8 7 16
+As here we are finding the subsets, we can change the order of the original array. Let us sort it out first.
+
+
+Now, we can start thinking in terms of subsequences questions solved earlier.
+
+Let us pick the first index element in an array (say temp) and move to the next index.
+
+
+Now, i = 1 and arr[i] = 4. We can again push this into the array as 4%1 == 0.
+
+
+For i=2, arr[i] = 7. We can’t push it in the temp array as 7%4 != 0 . Now, i = 3 and arr[i] = 8. We can again push this into the array as 8%4 == 0.
+
+
+Now as the elements in the temp array were sorted, we only checked that element 8 was divisible by the last element of the tamp array i.e 4. But we know that 4 is divisible by the first element of the temp array i.e 4%1 == 0. As the array is sorted and 8%4 == 0. And 4%1==0. We can automatically imply that 8%1==0. Hence this temp array formed is a divisible subsequence.
+
+Let us take another case to make it more clear.
+
+As i = 4, arr[i] = 16. Now 16 is divisible by the last element of the temp array which is 8, so we can push 16 into the temp array.
+
+
+To summarize:
+
+Whenever the current index element (arr[i]) is divisible by the last element of the temp array(say temp[last]), we can push that element to the temp array.
+As the temp array formed will always be sorted, and arr[i] is divisible by the temp[last],
+we can say that arr[i] will be divisible by every element before the temp[last] of the temp array.
+Therefore, this temp array will be a divisible subsequence and we just need to find the longest divisible subsequence of the array.
+Approach
+
+The algorithm approach is stated as follows:
+
+First of all sort the array,
+Then find the longest divisible subsequence of the array.
+In order to find the longest divisible subsequence, we will follow the algorithm used to find the longest increasing subsequence discussed in the/** link to dp-42 **/.
+The distinguishing factor between longest increasing subsequence and longest divisible subsequence is that we used to insert the element if arr[i] > arr[prev] but here we will insert the element when arr[i] % arr[prev] == 0.
+At last return the hash array as the answer.

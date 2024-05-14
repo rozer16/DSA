@@ -1,0 +1,25 @@
+https://takeuforward.org/data-structure/evaluate-boolean-expression-to-true-partition-dp-dp-52/
+https://www.youtube.com/watch?v=MM7fXopgyjw
+https://www.naukri.com/code360/problems/problem-name-boolean-evaluation_1214650?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos
+https://leetcode.com/problems/evaluate-boolean-expression/description/
+
+https://leetcode.com/problems/parsing-a-boolean-expression/description/
+
+
+Example 1:
+Input:
+ expression = “T|T&F”
+Output
+: 1
+Explanation:
+ The only way to get the result as true is:
+(T) | (T&F) = T|F = T
+Example 2:
+Input
+: expression = “F|T^F”
+Output
+: 2
+Explanation
+: There are 2 possible ways to get the result as true:
+		i) (F|T) ^ F = T ^ F = T
+		ii) F | (T^F) = F | T = T

@@ -1,0 +1,73 @@
+Few Patterns which can help you in Dynamic Programming..
+
+
+1.Minimum (Maximum) Path to Reach a Target (Distinct Ways):
+
+-Minimum Jumps to Reach Home
+-Robot in a Grid
+-Minimum Steps to Reach End
+-Maximum Gold Coins Collection
+-Most Beautiful Hiking Paths
+
+2.Coin Change:
+
+-Coin Combinations
+-Can You Make the Target Amount?
+-Can You Provide Exact Change?
+-Colorful Coin Combinations
+
+3.Knapsack:
+
+-Maximum Value Heist
+-Optimal Inventory Selection
+-Rod Cutting Problem
+-Maximum Earning Delivery
+-Amino Acid Weight Target
+
+4.DP on Strings:
+
+-Longest Common Subsequence
+-Longest Palindromic Subsequence
+-Minimum Edit Distance
+-Number of Decodings
+-Regular Expression Matching
+
+5.Matrix DP:
+
+-Minimum Path Sum
+-Number of Unique Paths
+-Largest Square in Matrix
+-Boolean Matrix Path
+-Tiling a Rectangle
+
+6.Longest Increasing/Decreasing Subsequence:
+
+-Longest Increasing Subsequence
+-Number of Longest Increasing Subsequences
+-Longest Bitonic Subsequence
+-Maximum Length of a Contiguous Array
+-Minimum Number of Arrows to Burst Balloons
+
+7. House Robber:
+
+-House Robber
+-House Robber II
+-Stock Buy and Sell (Variation 1)
+-Stock Buy and Sell with Cooldown (Variation 2)
+
+
+8.State Machine DP:
+
+-Shortest Well-Formed String
+-Decode Ways
+-Regular Expression Matching (Variation)
+Wildcard Matching
+-Minimum Time to Type Words
+
+9.Tree DP:
+
+-Binary Tree Level Order Traversal (Variation)
+-Minimum Depth of Binary Tree
+-Number of Binary Tree Cameras
+-Maximum Product of Split Trees
+-Coin Path in a Binary Tree
