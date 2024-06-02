@@ -1,4 +1,4 @@
-package b_array.medium.hard;
+package b_array.hard;
 
 
 import java.util.Arrays;

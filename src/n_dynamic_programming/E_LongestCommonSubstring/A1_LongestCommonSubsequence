@@ -39,7 +39,7 @@ text1 and text2 consist of only lowercase English characters.
 
 Thought process
 
-Note: For a string of length n, the number of subsequences will be 2n.
+Note: For a string of length n, the number of subsequences will be 2^n.
 
 Now we will look at “Longest Common Subsequence”.
 The longest Common Subsequence is defined for two strings. It is the common subsequence that has the greatest length.
@@ -52,7 +52,7 @@ We are given two strings, S1, and S2 (suppose of same length n),
 the simplest approach will be to generate all the subsequences and store them, then manually find out the longest common subsequence.
 
 This naive approach will give us the correct answer but to generate all the subsequences,
-we will require exponential ( 2n ) time. Therefore we will try some other approaches.
+we will require exponential ( 2^n ) time. Therefore we will try some other approaches.
 
 
 Using Dynamic Programming

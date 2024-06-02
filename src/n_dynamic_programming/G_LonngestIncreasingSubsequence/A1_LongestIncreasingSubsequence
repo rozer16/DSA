@@ -26,7 +26,7 @@ Output: 1
 
 
 ============
-
+{4,6,2,8}
 We would want to try something that can give us the longest increasing subsequence on the way of generating all subsequences.
 To generate all subsequences we will use recursion and in the recursive logic we will figure out a way to solve this problem.
 
@@ -38,7 +38,8 @@ Step 1: Express the problem in terms of indexes.
 
 Let us take a small example:
 
-Now, We need to think in terms of indexes. One definite parameter is the index of the array which can range from 0 to n-1 (where n is the size of the array). Now, initially let us say we considered the first element 4 in our subsequence, and now we are deciding on the second element 6:
+Now, We need to think in terms of indexes. One definite parameter is the index of the array which can range from 0 to n-1 (where n is the size of the array).
+ Now, initially let us say we considered the first element 4 in our subsequence, and now we are deciding on the second element 6:
 
 To decide for 6, we need to know what is already present in our subsequence. We denote it by a variable prev_index. This variable prev_index tells us the index of the last element of the subsequence in the original array. Now as the prev_index is 0, we know the last element in the subsequence is arr[0] = 4. As 6 is greater than 4, we can consider adding it to our subsequence, therefore the prev_index is updated to 1 ( the index of 6 in the array).
 

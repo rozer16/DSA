@@ -49,4 +49,26 @@ public class A_BinarySearch {
         int [] arr = {1,2,3,4,5,6,7,8};
         System.out.println(test.search(arr,10));
     }
+
+
+    public int findMin(int[] nums) {
+        int ans = Integer.MAX_VALUE;
+        int len = nums.length;
+        int low = 0;
+        int high = len-1;
+
+        while(low <= high){
+            int mid = low + (high-low)/2;
+
+            if(nums[low] <= nums[mid]){
+                ans = Math.min(ans, nums[low]);
+                low = mid+1;
+            }else{
+                ans = Math.min(ans, nums[mid]);
+                high = mid-1;
+            }
+        }
+
+        return ans;
+    }
 }

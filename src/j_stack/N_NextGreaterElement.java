@@ -44,7 +44,7 @@ public class N_NextGreaterElement {
     //[7, -1, 2, 6, 7, 5]
     public static void main(String[] args) {
         N_NextGreaterElement test = new N_NextGreaterElement();
-        int [] arr = {5,7,1,2,6,0};
+        int [] arr = {9,7,1,2,6,10};
         System.out.println(Arrays.toString(test.nextGreaterElements(arr)));
     }
     public  int[] nextGreaterElements(int[] nums) {

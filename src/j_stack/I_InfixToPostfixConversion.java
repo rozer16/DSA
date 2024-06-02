@@ -36,7 +36,7 @@ public class I_InfixToPostfixConversion {
     public static void main(String[] args) {
         I_InfixToPostfixConversion test = new I_InfixToPostfixConversion();
         String infix = "a+b*(c^d-e)^(f+g*h)-i";
-        System.out.println(test.infixToPostfix(infix));
+        System.out.println(test.infixToPostfix(infix)); //abcd^e-fgh*+^*+i-
     }
     public int getPrecedence(char ch){
         switch (ch){

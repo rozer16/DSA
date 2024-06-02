@@ -2,8 +2,8 @@ package j_stack;
 
 
 /*
-* https://leetcode.com/problems/trapping-rain-water/
-* https://youtu.be/m18Hntz4go8
+https://leetcode.com/problems/trapping-rain-water/
+https://youtu.be/m18Hntz4go8
 *
 To look diagram visit link
 
@@ -63,7 +63,7 @@ public class R_TrappingRainWater {
     //height =    [0,1,0,2,1,0,1,3,2,1,2,1]
     //leftPrefix =[0,1,1,2,2,2,2,3,3,3,3,3] // start from left to right(0 --> n-1)
     //rightPrefix=[3,3,3,3,3,3,3,3,2,2,2,1] // start from right to left(n-1 --> 0)
-    //for i=0 -> n-1, sum += Math.min(leftPrefix[i],rightPrefix[i])-height[i];
+        //for i=0 -> n-1, sum += Math.min(leftPrefix[i],rightPrefix[i])-height[i];
     public int prefixSum(int [] height){
         int sum = 0;
         //SC : O(N)

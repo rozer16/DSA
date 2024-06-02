@@ -8,17 +8,14 @@ public class Test{
 
 
     public static void main(String[] args) throws InterruptedException {
-        Deque<String> deque = new ArrayDeque<String>();
-        deque.add("Ravi");
-        deque.add("Vijay");
-        deque.add("Ajay");
+        int [] nums = {3,30,34,5,9};
 
-        Stack<String> stack = new Stack<String>();
-        stack.add("Ravi");
-        stack.add("Vijay");
-        stack.add("Ajay");
-        System.out.println(deque);
+        List<Integer> list = Arrays.stream(nums).sorted().boxed().collect(Collectors.toList());
+
+        System.out.println(list);
     }
+
+
 
 
 
