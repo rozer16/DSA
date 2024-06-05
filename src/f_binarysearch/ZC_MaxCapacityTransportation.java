@@ -30,7 +30,7 @@ import java.util.Arrays;
 * So we can keep left = 7 and right = 20 and apply lower bound concept of binary search.
 *
 * */
-public class C_MaxCapacityTransportation {
+public class ZC_MaxCapacityTransportation {
 
 
     public int getMinimumCapacityToTransportNBoxesUsingKTrip(int arr[], int k){
@@ -98,7 +98,7 @@ public class C_MaxCapacityTransportation {
 
     public static void main(String[] args) {
         int arr[] = {7,3,2,3,1,4};
-        C_MaxCapacityTransportation test = new C_MaxCapacityTransportation();
+        ZC_MaxCapacityTransportation test = new ZC_MaxCapacityTransportation();
         System.out.println(test.getMinimumCapacityToTransportNBoxesUsingKTrip(arr,2));
     }
 }

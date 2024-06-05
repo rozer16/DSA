@@ -1,6 +1,6 @@
 package f_binarysearch;
 
-public class H_MaxConsecutiveOnesIII {
+public class ZH_MaxConsecutiveOnesIII {
 
         //Complexity : O(n)
         public int longestOnes(int [] a, int k){
@@ -42,7 +42,7 @@ public class H_MaxConsecutiveOnesIII {
         return maxCount;
     }
     public static void main(String[] args) {
-        H_MaxConsecutiveOnesIII test = new H_MaxConsecutiveOnesIII();
+        ZH_MaxConsecutiveOnesIII test = new ZH_MaxConsecutiveOnesIII();
         int arr [] = {1,1,1,0,0,0,1,1,1,1,0};
         System.out.println(test.longestOnes(arr,2));
     }

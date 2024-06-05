@@ -7,5 +7,5 @@ package f_binarysearch;
 * First element of any row is greater or equal to last element of previous row
 *
 * */
-public class K_FindElementFromN_CrossN_Matrix {
+public class ZK_FindElementFromN_CrossN_Matrix {
 }

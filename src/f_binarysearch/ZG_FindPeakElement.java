@@ -5,7 +5,7 @@ package f_binarysearch;
 *
 * https://leetcode.com/problems/find-peak-element/description/
 * */
-public class G_FindPeakElement {
+public class ZG_FindPeakElement {
 
     public int recursive_binary_search(int [] nums,int low,int high){
         if(low == high){
@@ -21,7 +21,7 @@ public class G_FindPeakElement {
     }
 
     public static void main(String[] args) {
-        G_FindPeakElement test = new G_FindPeakElement();
+        ZG_FindPeakElement test = new ZG_FindPeakElement();
         int [] arr = {2,2,1,3,2,3,2};
         int [] arr1 = {6,5,4,3,2,1,2};
 

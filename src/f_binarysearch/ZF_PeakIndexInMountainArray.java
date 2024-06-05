@@ -21,7 +21,7 @@ Example 3:
 Input: arr = [0,10,5,2]
 Output: 1
 * */
-public class F_PeakIndexInMountainArray {
+public class ZF_PeakIndexInMountainArray {
 
     public int getPeakIndexInMountainArray(int [] arr){
         int left= 0;
@@ -44,7 +44,7 @@ public class F_PeakIndexInMountainArray {
     }
 
     public static void main(String[] args) {
-        F_PeakIndexInMountainArray test = new F_PeakIndexInMountainArray();
+        ZF_PeakIndexInMountainArray test = new ZF_PeakIndexInMountainArray();
         int arr[] = {0,10,5,2};
 
         System.out.println(test.getPeakIndexInMountainArray(arr));

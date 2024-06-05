@@ -55,7 +55,7 @@ import java.util.Arrays;
 *
 *
 * */
-public class D_MaxNoOfAnimalGroups {
+public class ZD_MaxNoOfAnimalGroups {
 
     /*
     *
@@ -98,7 +98,7 @@ public class D_MaxNoOfAnimalGroups {
 
     public static void main(String[] args) {
         int [] arr = {1,2,3,4,5,6,7};
-        D_MaxNoOfAnimalGroups test = new D_MaxNoOfAnimalGroups();
+        ZD_MaxNoOfAnimalGroups test = new ZD_MaxNoOfAnimalGroups();
         System.out.println(test.getMaxNoOfAnimalGroup(arr,5));
     }
 }

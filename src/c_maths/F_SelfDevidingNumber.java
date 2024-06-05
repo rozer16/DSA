@@ -3,9 +3,9 @@ package c_maths;
 
 import java.util.ArrayList;
 import java.util.List;
-
-//https://leetcode.com/problems/self-dividing-numbers/
-
+/*
+https://leetcode.com/problems/self-dividing-numbers/
+*/
 
 public class F_SelfDevidingNumber {
 

@@ -22,7 +22,7 @@ import java.util.Arrays;
     and they get a profit of [20,20,30,30] separately.
     *
 * */
-public class I_MostProfitAssigningWork {
+public class ZI_MostProfitAssigningWork {
 
 
 
@@ -56,7 +56,7 @@ public class I_MostProfitAssigningWork {
         int [] profit = {10,20,30,40,50};
         int [] worker = {4,5,6,7};
 
-        System.out.println(new I_MostProfitAssigningWork().getMostProfitAssigningWork(difficulty,profit,worker));
+        System.out.println(new ZI_MostProfitAssigningWork().getMostProfitAssigningWork(difficulty,profit,worker));
     }
 
     class Job{

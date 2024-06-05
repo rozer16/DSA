@@ -5,31 +5,56 @@ package f_binarysearch;
 * in the array if there is none then return -1
 *
 * The lower bound is the first element that is greater than or equal to x
+* The upper bound is the first element that is greater than x
 *
 *
+* 3 5 8 15 19
 *
-* 1,2,2,8,10,13,13,21,30
+* x = 8 ==> lb = 2
+* x = 9 ==> lb = 3
+* x = 20 ==> lb= 5
 *
-* Lower bound of 13 is index 5
+ * x = 8 ==> ub = 3
+ * x = 9 ==> lb = 3
+ * x = 20 ==> lb= 5
 *
 * */
 public class B_LowerBound {
     public int getLowerBound(int [] arr,int k){
+        int len = arr.length;
         int left = 0;
         int right = arr.length-1;
-        int ans = -1;
+        int result = -1;
 
         while(left <= right){
             int mid = (right+left)/2;
 
             if(arr[mid] >= k){
-                ans = mid;
+                result = mid;
                 right = mid -1;
             }else{
                 left = mid +1;
             }
         }
-        return ans;
+        return result > 0 ? result : len;
+    }
+
+    public int getUpperBound(int arr[] , int x){
+        int len = arr.length;
+        int high = len-1;
+        int low = 0;
+        int result = -1;
+
+        while(low < high){
+            int mid = low+(high-low)/2;
+            if(arr[mid] > x){
+                result = mid;
+                high = mid-1;
+            }else{
+                low = mid+1;
+            }
+        }
+        return result > 0 ? result : len;
     }
 
     public static void main(String[] args) {

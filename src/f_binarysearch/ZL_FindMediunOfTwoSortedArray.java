@@ -1,6 +1,6 @@
 package f_binarysearch;
 
-public class L_FindMediunOfTwoSortedArray {
+public class ZL_FindMediunOfTwoSortedArray {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int len1 = nums1.length;
