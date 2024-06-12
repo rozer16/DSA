@@ -1,4 +1,4 @@
-package f_binarysearch;
+package f_binarysearch.A_BS_on_1d;
 /*
 *
 * Given a non decreasing array of int and another variable x, find the index of x's lower bound
@@ -28,7 +28,6 @@ public class B_LowerBound {
 
         while(left <= right){
             int mid = (right+left)/2;
-
             if(arr[mid] >= k){
                 result = mid;
                 right = mid -1;

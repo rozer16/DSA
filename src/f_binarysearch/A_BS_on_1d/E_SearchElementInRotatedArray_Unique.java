@@ -1,4 +1,4 @@
-package f_binarysearch;
+package f_binarysearch.A_BS_on_1d;
 
 /*
 https://takeuforward.org/data-structure/search-element-in-a-rotated-sorted-array/
@@ -43,11 +43,11 @@ nums is an ascending array that is possibly rotated.
 -104 <= target <= 104
 * */
 
-public class E_SearchElementInRotatedArray {
+public class E_SearchElementInRotatedArray_Unique {
 
     public static void main(String[] args) {
         int [] arr = {4,5,6,7,0,1,2};
-        E_SearchElementInRotatedArray sol = new E_SearchElementInRotatedArray();
+        E_SearchElementInRotatedArray_Unique sol = new E_SearchElementInRotatedArray_Unique();
         System.out.println(sol.search(arr,0)); //4
         System.out.println(sol.search(new int[]{4,5,6,7,0,1,2},3)); //-1
 

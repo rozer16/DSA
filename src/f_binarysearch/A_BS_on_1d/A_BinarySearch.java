@@ -1,4 +1,4 @@
-package f_binarysearch;
+package f_binarysearch.A_BS_on_1d;
 
 public class A_BinarySearch {
 

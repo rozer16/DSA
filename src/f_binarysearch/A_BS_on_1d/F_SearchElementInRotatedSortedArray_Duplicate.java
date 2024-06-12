@@ -1,4 +1,4 @@
-package f_binarysearch;
+package f_binarysearch.A_BS_on_1d;
 
 
 /*
@@ -36,11 +36,11 @@ Follow up: This problem is similar to Search in Rotated Sorted Array,
  but nums may contain duplicates. Would this affect the runtime complexity? How and why?
 *
 * */
-public class F_SearchElementInRotatedSortedArrayII {
+public class F_SearchElementInRotatedSortedArray_Duplicate {
 
     public static void main(String[] args) {
         int arr [] = {2,5,6,0,0,1,2};
-        F_SearchElementInRotatedSortedArrayII sol = new F_SearchElementInRotatedSortedArrayII();
+        F_SearchElementInRotatedSortedArray_Duplicate sol = new F_SearchElementInRotatedSortedArray_Duplicate();
         System.out.println(sol.search(arr,0));
     }
     public boolean search(int[] arr, int target) {

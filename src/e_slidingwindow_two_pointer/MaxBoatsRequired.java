@@ -1,4 +1,4 @@
-package e_slidingwindow;
+package e_slidingwindow_two_pointer;
 
 
 import java.util.Arrays;
