@@ -18,17 +18,39 @@ What is the maximum number of meetings that can be accommodated in the meeting r
 
 Note: Start time of one chosen meeting can't be equal to the end time of the other chosen meeting.
 
+nput:
+N = 6
+start[] = {1,3,0,5,8,5}
+end[] =  {2,4,6,7,9,9}
+Output:
+4
+Explanation:
+Maximum four meetings can be held with
+given start and end timings.
+The meetings are - (1, 2),(3, 4), (5,7) and (8,9)
+Example 2:
+
+Input:
+N = 3
+start[] = {10, 12, 20}
+end[] = {20, 25, 30}
+Output:
+1
+Explanation:
+Only one meetings can be held
+with given start and end timings.
+
+Your Task :
+You don't need to read inputs or print anything. Complete the function maxMeetings() that takes two arrays start[] and end[] along with their size N as input parameters and returns the maximum number of meetings that can be held in the meeting room.
+
+
+Expected Time Complexity : O(N*LogN)
+Expected Auxilliary Space : O(N)
 
 * */
 public class F_N_Meetings_In_One_Room {
 
-    Comparator<Meeting> meetingComparator = (c1 , c2)-> {
-        if(c1.end > c2.end) return 1;
-        else if (c1.end < c2.end) return -1;
-        else if(c1.index > c2.index) return 1;
-        else return -1;
 
-    };
 
 
     public static void main(String[] args) {
@@ -50,29 +72,45 @@ public class F_N_Meetings_In_One_Room {
 
     public int maxMeetings(int start[], int end[], int n) {
 
+        //Comparator to sort based on ending time of meeting , if ending time is same then index with lower value will come first.
+        Comparator<Meeting> meetingComparator = (c1 , c2)-> {
+            if(c1.end > c2.end) return 1;
+            else if (c1.end < c2.end) return -1;
+            else if(c1.index > c2.index) return 1;
+            else return -1;
+
+        };
+
         int index = 0;
+
+        //Adding meeting details to list to sort them in ascending order of end time
         List<Meeting>  meetings = new ArrayList<>(n);
         while(index < n){
             meetings.add(new Meeting(start[index],end[index],index));
             index++;
         }
 
-        //Soring meeting based on ascending order of end in order to accomodate  maximum meeting
+        //Soring meeting based on ascending order of end in order to accommodate  maximum meeting
         Collections.sort(meetings,meetingComparator);
-        System.out.println(meetings);
+
+        //List to add start meeting timing
         List<Integer> startMeet = new ArrayList<>();
         startMeet.add(meetings.get(0).start);
-        int limit = meetings.get(0).end;
+
+        //Var to track when prev meeting is completing.
+        int prevMeetiingEndTime = meetings.get(0).end;
 
         index = 1;
         while(index < n){
-            if(meetings.get(index).start < limit) {
+            //If prev meeting is already running , move to next meeting.
+            if(meetings.get(index).start < prevMeetiingEndTime) {
                 index++;
                 continue;
             }
 
+            //Prev meeting is completed, next meeting can be started.
             startMeet.add(meetings.get(index).start);
-            limit = meetings.get(index).end;
+            prevMeetiingEndTime = meetings.get(index).end;
             index++;
         }
         System.out.println(startMeet);
