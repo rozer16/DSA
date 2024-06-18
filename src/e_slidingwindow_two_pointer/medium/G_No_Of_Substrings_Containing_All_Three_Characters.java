@@ -1,8 +1,6 @@
-package e_slidingwindow_two_pointer;
+package e_slidingwindow_two_pointer.medium;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 /*
 https://www.youtube.com/watch?v=xtqN4qlgr8s
