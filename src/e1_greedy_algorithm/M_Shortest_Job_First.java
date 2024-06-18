@@ -54,6 +54,7 @@ public class M_Shortest_Job_First {
     }
      int solve(int bt[] ) {
 
+        //Sorting all the jobs based on unit time it takes since all the jobs are available at 0 time.
         Arrays.sort(bt);
         int timer = bt[0];
         int totalWaiting = 0;

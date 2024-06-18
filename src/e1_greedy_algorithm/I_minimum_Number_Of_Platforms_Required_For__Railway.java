@@ -68,7 +68,7 @@ public class I_minimum_Number_Of_Platforms_Required_For__Railway {
         int maxCnt = 0;
 
     while(arrIndex < arr.length && depIndex < dep.length){
-            //After sorting train is arrival then 1 platform would be required to board the train
+            //After sorting train is arrival                               then 1 platform would be required to board the train
             if(arr[arrIndex] <= dep[depIndex]){
                 cnt++;
                 arrIndex++;

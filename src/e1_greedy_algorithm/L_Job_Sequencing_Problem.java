@@ -12,7 +12,7 @@ https://takeuforward.org/data-structure/job-sequencing-problem/
 
 https://www.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1
 
-Given a set of N jobs where each jobi has a deadline and profit associated with it.
+Given a set of N jobs where each job i has a deadline and profit associated with it.
 
 Each job takes 1 unit of time to complete and only one job can be scheduled at a time. We earn the profit associated with job if and only if the job is completed by its deadline.
 

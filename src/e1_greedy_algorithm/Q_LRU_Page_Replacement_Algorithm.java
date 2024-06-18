@@ -18,16 +18,13 @@ Example 1:
 Input: N = 9, C = 4
 pages = {5, 0, 1, 3, 2, 4, 1, 0, 5}
 Output: 8
-Explaination: memory allocated with 4 pages 5, 0, 1,
-3: page fault = 4
-page number 2 is required, replaces LRU 5:
-page fault = 4+1 = 5
-page number 4 is required, replaces LRU 0:
-page fault = 5 + 1 = 6
-page number 1 is required which is already present:
-page fault = 6 + 0 = 6
-page number 0 is required which replaces LRU 3:
-page fault = 6 + 1 = 7
+Explaination:
+
+memory allocated with 4 pages 5, 0, 1,3: page fault = 4
+page number 2 is required, replaces LRU 5:page fault = 4+1 = 5
+page number 4 is required, replaces LRU 0:page fault = 5 + 1 = 6
+page number 1 is required which is already present: page fault = 6 + 0 = 6
+page number 0 is required which replaces LRU 3: page fault = 6 + 1 = 7
 page number 5 is required which replaces LRU 2:
 page fault = 7 + 1  = 8.
 Your Task:

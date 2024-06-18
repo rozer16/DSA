@@ -117,6 +117,8 @@ public class K_Candy {
 
         return sum;
     }
+
+    //Not working below, trying to optimize above sol
     public int candy1(int[] ratings) {
         int n = ratings.length;
         int [] left = new int[n];

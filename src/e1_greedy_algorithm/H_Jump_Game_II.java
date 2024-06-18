@@ -36,12 +36,16 @@ Constraints:
 It's guaranteed that you can reach nums[n - 1].
 
 
+//Bruteforce : Recursive(1-n jums) and memoization
+//Optimal : range based left & right
+
+
 * */
 public class H_Jump_Game_II {
     public static void main(String[] args) {
 
         H_Jump_Game_II sol = new H_Jump_Game_II();
-        System.out.println(sol.getNoOfJumpsRecursive(new int[]{2,3,1,4,1,1,1,2}, 0,0));
+       /* System.out.println(sol.getNoOfJumpsRecursive(new int[]{2,3,1,4,1,1,1,2}, 0,0));
         System.out.println(sol.getNoOfJumpsRecursive(new int[]{2,3,0,1,4}, 0,0));
         System.out.println(sol.getNoOfJumpsRecursive(new int[]{2,3,1,1,4}, 0,0));
 
@@ -64,11 +68,40 @@ public class H_Jump_Game_II {
 
 
         System.out.println(sol.jumpGreedy(new int[]{2,3,1,4,1,1,1,2}));
-        System.out.println(sol.jumpGreedy(new int[]{2,3,0,1,4}));
-        System.out.println(sol.jumpGreedy(new int[]{2,3,1,1,4}));
+        System.out.println(sol.jumpGreedy(new int[]{2,3,0,1,4}));*/
+        System.out.println(sol.jumpGreedy(new int[]{2,3,1,1,4,1}));
     }
 
 
+    //Range based solution
+    /*
+    Start with range 0-0
+    Iterate through array, set left = right+1 and choose right with the one which is farthest
+
+    //TC : O(N)
+    SC : : O(1)
+    * */
+    public int jumpGreedy(int[] nums) {
+        int left = 0;
+        int right = 0;
+        int jumps = 0;
+        int index = 0;
+
+        //Looping untill right becomes n-1(last element)
+        while(right < nums.length-1){
+            //Tracking which index is having higher jump between left & right
+            int maxPosJump = 0;
+            for(int i = left; i<=right; i++){
+                maxPosJump = Math.max(maxPosJump, i+nums[i]);
+            }
+
+            left = right+1;
+            right = maxPosJump;
+            jumps++;
+        }
+
+        return jumps;
+    }
 
     //TC : O(N^N)
     //SC : O(N) Auxiliary stace space
@@ -119,32 +152,6 @@ public class H_Jump_Game_II {
     }
 
 
-    //Range based solution
-    /*
-    Start with range 0-0
-    Iterate through array, set left = right+1 and choose right with the one which is farthest
 
-    //TC : O(N)
-    SC : : O(1)
-    * */
-    public int jumpGreedy(int[] nums) {
-        int left = 0;
-        int right = 0;
-        int jumps = 0;
-        int index = 0;
-
-        while(right < nums.length-2){
-            int farthest = 0;
-            for(int i = left; i<=right; i++){
-                farthest = Math.max(farthest, i+nums[i]);
-            }
-
-            left = right+1;
-            right = farthest;
-            jumps++;
-        }
-
-        return jumps;
-    }
 
 }

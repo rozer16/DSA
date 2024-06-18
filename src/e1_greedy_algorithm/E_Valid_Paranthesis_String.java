@@ -74,6 +74,8 @@ public class E_Valid_Paranthesis_String {
                 max = max+1;
             }
 
+            //Since in brutforce also we have not allowed negative value, in this approach we will make 0 if its negative.
+
             if(min < 0)
                 min = 0;
 
