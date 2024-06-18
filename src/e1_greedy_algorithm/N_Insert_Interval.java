@@ -1,6 +1,7 @@
 package e1_greedy_algorithm;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -41,6 +42,17 @@ newInterval.length == 2
 * */
 public class N_Insert_Interval {
 
+    public static void main(String[] args) {
+        N_Insert_Interval sol = new N_Insert_Interval();
+        int [][] intervals = {
+                {1,2},
+                {3,10},
+                {12,16}
+        }
+
+                ;
+        System.out.println(Arrays.toString(sol.insert(intervals, new int[]{4,8})));
+    }
 
     public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> list = new ArrayList<>(intervals.length);

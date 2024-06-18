@@ -1,6 +1,7 @@
 package e1_greedy_algorithm;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -12,7 +13,8 @@ https://www.youtube.com/watch?v=2JzRBPFYbKE&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaB
 https://leetcode.com/problems/merge-intervals/description/
 
 
-Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals,
+and return an array of the non-overlapping intervals that cover all the intervals in the input.
 
 
 
@@ -36,6 +38,13 @@ intervals[i].length == 2
 * */
 public class O_Merge_Interval {
 
+    public static void main(String[] args) {
+        O_Merge_Interval sol = new O_Merge_Interval();
+        int [][] intervals = {
+                {1,4},{4,5}
+        };
+        System.out.println(Arrays.toString(sol.merge(intervals)));
+    }
     public int[][] merge(int[][] intervals) {
         //Sorting 2D array based on first element
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
