@@ -18,7 +18,7 @@ Example 1:
 Input: N = 9, C = 4
 pages = {5, 0, 1, 3, 2, 4, 1, 0, 5}
 Output: 8
-Explaination:
+Explanation:
 
 memory allocated with 4 pages 5, 0, 1,3: page fault = 4
 page number 2 is required, replaces LRU 5:page fault = 4+1 = 5
