@@ -59,12 +59,16 @@ public class F_Count_No_Of_Nice_Subarray {
         int sum = 0;
 
         while(right < nums.length){
+
             sum += nums[right] %2 == 1 ? 1 : 0;
 
+            //If sum is greater than k that means no of odd elements in subarray are greater than k
             while(sum > k){
                 sum = sum - nums[left] %2 == 1 ? 1 : 0;
                 left++;
             }
+
+            //No of sub array between index i and j : j-i+1
             cnt = cnt + (right-left+1);
 
             right++;

@@ -6,10 +6,12 @@ https://www.youtube.com/watch?v=_eNhaDCr6P0
 https://leetcode.com/problems/longest-repeating-character-replacement/description/
 
 
-You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character.
+You are given a string s and an integer k.
+ You can choose any character of the string and change it to any other uppercase English character.
 You can perform this operation at most k times.
 
-Return the length of the longest substring containing the same letter you can get after performing the above operations.
+Return the length of the longest substring containing the same letter you can get
+    after performing the above operations.
 
 
 
@@ -45,9 +47,10 @@ public class D_Longest_Repeating_Character_Replacement {
             maxFreq = Math.max(charFreq[chars[right]-'A'] , maxFreq);
             while((right-left+1)-maxFreq > k){
                 charFreq[chars[left]-'A']--;
-                maxFreq = 0;
 
-                //Below two lines can be skipped
+
+                //Calculating freq again
+                maxFreq = 0;
                 for(int fre : charFreq)
                     maxFreq = Math.max(maxFreq, fre);
 
@@ -62,6 +65,9 @@ public class D_Longest_Repeating_Character_Replacement {
 
         return maxLen;
     }
+
+    //Intuition : Keep track of max freq for e.g. AAABAA
+    // No of chars to be replaced = (right-left+1)-freq of A = No of non A occurrence
     public int characterReplacementBF(String s, int k) {
         int maxLen = 0;
         char [] chars = s.toCharArray();

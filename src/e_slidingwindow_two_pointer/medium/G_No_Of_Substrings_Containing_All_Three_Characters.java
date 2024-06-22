@@ -17,7 +17,8 @@ Example 1:
 
 Input: s = "abcabc"
 Output: 10
-Explanation: The substrings containing at least one occurrence of the characters a, b and c are "abc", "abca", "abcab", "abcabc", "bca", "bcab", "bcabc", "cab", "cabc" and "abc" (again).
+Explanation: The substrings containing at least one occurrence of the characters a, b and c are
+"abc", "abca", "abcab", "abcabc", "bca", "bcab", "bcabc", "cab", "cabc" and "abc" (again).
 Example 2:
 
 Input: s = "aaacb"
@@ -58,6 +59,9 @@ public class G_No_Of_Substrings_Containing_All_Three_Characters {
 
             if(lastSeen[0] != -1 && lastSeen[1] != -1 && lastSeen[2] != -1){
                 int start = Math.min(lastSeen[0], Math.min(lastSeen[1], lastSeen[2]));
+                //whatever start index we found, we can form substring from 0-max, 1, max....start-max
+                //for e.g. abcab, at 3 index we found a again  so last seen = { 3,1,2} and min is 1
+                //So no of substring we can form are abca, bca 0 -3, 1-3
                 cnt += start+1;
             }
             index++;
@@ -79,6 +83,9 @@ public class G_No_Of_Substrings_Containing_All_Three_Characters {
                 hash[chars[j]-'a'] = 1;
 
                 if(hash[0] + hash[1] + hash[2] == 3){
+                    //If at specific j char, all 3 char found that means
+                    // it can form a new string by adding single char after j also
+                    //So no of substring would be length - j
                     result = result + n - j ;
                     break;
                 }

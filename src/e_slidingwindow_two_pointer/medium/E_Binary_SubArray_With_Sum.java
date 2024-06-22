@@ -1,9 +1,9 @@
 package e_slidingwindow_two_pointer.medium;
 
 
-/*
-https://leetcode.com/problems/binary-subarrays-with-sum/
-https://youtu.be/XnMdNUkX6VM
+    /*
+    https://leetcode.com/problems/binary-subarrays-with-sum/
+    https://youtu.be/XnMdNUkX6VM
 
 Given a binary array nums and an integer goal, return the number of non-empty subarrays with a sum goal.
 
@@ -32,15 +32,32 @@ Constraints:
 nums[i] is either 0 or 1.
 0 <= goal <= nums.length
 
+
+
+
+===============
+arr : 1,0,1,0,1
+No of subarray whose sum <= 2 are  14
+1 10 101 1010 0 01 010 0101 1 10 101 0 01 1
+
+No of subarray whose sum <= 1 = 10
+1  10 0 01 010 1 10 0 01 1
+
+
 * */
 public class E_Binary_SubArray_With_Sum {
 
     public int numSubarraysWithSum(int[] nums, int goal) {
 
-        //Ask : o of subArray where sum = goal
+        //Ask : no of subArray where sum = goal
         //Solution :
         //(No of subArray where sum <= goal) -
         //(No of subArray where sum <= goal-1)
+
+        //Lets say k = 3
+        // No of subarray where sum <= 3 are : 5
+        //No of subarray where sum <= 2 are 3
+        // So no of subarray where sum = 3 are 5-3 = 2
         int n = numSubarraysWithSumLessThanOrEqualToGoal(nums,goal);
         int n1 = numSubarraysWithSumLessThanOrEqualToGoal(nums,goal-1);
         return n-n1;
@@ -55,7 +72,6 @@ public class E_Binary_SubArray_With_Sum {
         int right = 0;
         int cnt=0;
         int sum = 0;
-
         while(right < nums.length){
             sum += nums[right];
 

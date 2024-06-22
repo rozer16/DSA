@@ -58,6 +58,7 @@ public class H_Maximum_Points_You_Can_Obtain_From_Cards {
         int left = k-1;
         int right = cardPoints.length-1;
 
+        //Since constraint is either you can pick up from begining or end
         // Subtracting kth element and adding nth-1 ele and checking if its greater than max.
         while(left >= 0){
             leftSum = leftSum - cardPoints[left];
