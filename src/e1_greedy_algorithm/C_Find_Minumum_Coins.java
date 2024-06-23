@@ -41,7 +41,7 @@ public class C_Find_Minumum_Coins {
             return 0;
 
 
-        //Arrays.sort(coins);
+        Arrays.sort(coins);
         int index = coins.length - 1;
 
 
@@ -67,7 +67,7 @@ public class C_Find_Minumum_Coins {
             return 0;
         List<Integer> ans = new ArrayList<>();
 
-        //Arrays.sort(coins);
+        Arrays.sort(coins);
         int n = coins.length;
         for (int i = n - 1; i >= 0; i--) {
             while (V >= coins[i]) {
