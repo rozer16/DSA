@@ -60,7 +60,7 @@ public class C_Minimum_Window_Substring {
         int n = t.length();
 
         char [] sChars = s.toCharArray();
-        char [] tChars = ct.toCharArray();
+        char [] tChars = t.toCharArray();
 
 
         //Cashing occurrence of t characters
