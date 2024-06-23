@@ -1,8 +1,7 @@
 package e_slidingwindow_two_pointer.hard;
 
 /*
- Given two strings s and t of lengths m and n respectively, return the minimum window
-substring
+ Given two strings s and t of lengths m and n respectively, return the minimum window substring
  of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
 
 The testcases will be generated such that the answer is unique.
@@ -61,24 +60,36 @@ public class C_Minimum_Window_Substring {
         int n = t.length();
 
         char [] sChars = s.toCharArray();
-        char [] tChars = t.toCharArray();
+        char [] tChars = ct.toCharArray();
 
+
+        //Cashing occurrence of t characters
         for(int i = 0; i<n; i++)
             freq[tChars[i]]++;
 
         while(right < m){
+            //If occurrence of any t char found, increase cnt
             if(freq[sChars[right]] > 0)
                 cnt++;
 
+            //Reduce occurrence
+            //while traversing for right, decrease occurrence since we have used it
             freq[sChars[right]]--;
 
+            //we have found all character of t into S for this window from left to right.
+            //Since we want min length, check if we can shrink length i.e increase left pointer
             while(cnt == n){
+                //Before shrinking check if current interval length is min
                 if(right-left+1 < minWin){
                     minWin = right-left+1 ;
                     startInd = left;
                 }
 
+
+                //while traversing for left, increase occurrence since we are removing it to our char list
                 freq[sChars[left]]++;
+
+                //if occurrence is turning into positive, we are removing a character of t from interval of s, so reduce cnt
                 if(freq[sChars[left]] > 0)
                     cnt--;
                 left++;
