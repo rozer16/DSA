@@ -11,4 +11,12 @@ public class Node{
         data = x;
         next = null;
     }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "data=" + data +
+
+                '}';
+    }
 }

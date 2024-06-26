@@ -14,9 +14,9 @@ https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 * Return dummy.next as head
 *
 * */
-public class M_RemoveLastNthNode {
+public class M1_RemoveLastNthNode {
     public static void main(String[] args) {
-        M_RemoveLastNthNode test=  new M_RemoveLastNthNode();
+        M1_RemoveLastNthNode test=  new M1_RemoveLastNthNode();
 
     }
 

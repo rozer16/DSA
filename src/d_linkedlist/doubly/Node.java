@@ -9,4 +9,11 @@ public class Node {
         this.data = data;
         next = prev = null;
     }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "data=" + data +
+                '}';
+    }
 }

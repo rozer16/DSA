@@ -1,8 +1,50 @@
 package d_linkedlist.doubly;
 
 
+import java.util.Stack;
 
 public class B_ReverseDoublyLinkedList {
+
+
+
+    public static Node reverseDLL(Node  head)
+    {
+
+        if(head == null || head.next == null)
+            return head;
+
+
+        Node last = null;
+        Node curr = head;
+
+
+        while(curr != null){
+            last = curr.prev;
+            curr.prev = curr.next;
+            curr.next = last;
+            curr = curr.prev;
+        }
+
+        return last.prev;
+    }
+
+
+    public Node reverseLinkedList1(Node head) {
+
+       Stack<Integer> stack = new Stack<>();
+       Node temp = head;
+       while(temp != null){
+           stack.push(temp.data);
+           temp = temp.next;
+       }
+
+       temp = head;
+       while(temp != null){
+            temp.data = stack.pop();
+            temp = temp.next;
+        }
+       return temp;
+    }
 
     public Node reverseLinkedList(Node head) {
        Node prev = head;
@@ -47,11 +89,11 @@ public class B_ReverseDoublyLinkedList {
 
     public static void main(String[] args) {
         B_ReverseDoublyLinkedList test = new B_ReverseDoublyLinkedList();
-        int[] arr1 = {1,5,2,9};
+        int[] arr1 = {1,2,3,4,5};
         Node head1 = test.createDoublyLinkedList(arr1);
         System.out.println("Before reverse");
         test.displayList(head1);
-        head1 = test.reverseLinkedList(head1);
+        head1 = test.reverseLinkedList1(head1);
         System.out.println("Before reverse");
         test.displayList(head1);
     }

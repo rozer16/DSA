@@ -5,10 +5,10 @@ https://leetcode.com/problems/add-two-numbers/
 *
 * */
 
-public class O_SumTwoLinkedList {
+public class O2_SumTwoLinkedList {
 
     public static void main(String[] args) {
-        O_SumTwoLinkedList test = new O_SumTwoLinkedList();
+        O2_SumTwoLinkedList test = new O2_SumTwoLinkedList();
         int [] arr1= {9,9,9,9,9,9,9};
         Node head1 = Util.createLinkedList(arr1);
         int [] arr2= {9,9,9,9};
