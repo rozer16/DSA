@@ -40,10 +40,10 @@ To make it a bit easier let’s first try to solve without considering the array
  *
  *
 * */
-public class N_NextGreaterElement {
+public class N_NextGreaterElement_In_Array {
     //[7, -1, 2, 6, 7, 5]
     public static void main(String[] args) {
-        N_NextGreaterElement test = new N_NextGreaterElement();
+        N_NextGreaterElement_In_Array test = new N_NextGreaterElement_In_Array();
         int [] arr = {9,7,1,2,6,10};
         System.out.println(Arrays.toString(test.nextGreaterElements(arr)));
     }

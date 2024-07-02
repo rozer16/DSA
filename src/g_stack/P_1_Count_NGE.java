@@ -1,6 +1,6 @@
 package g_stack;
 
-public class P_1_CountNGE {
+public class P_1_Count_NGE {
 
     public static int[] count_NGEs(int N, int arr[], int queries, int indices[]) {
         // code here

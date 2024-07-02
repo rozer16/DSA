@@ -37,10 +37,18 @@ Output:       [18,18,-1,10,-1,-1,-1,-1]
 * Solution 1
 *  [2,4,0,9,6]
 *
-* 1) create one array sortedNum
-* 2) Copy elements from original arrays to sortedNum and sort - SortedNums = [0,2,4,6,9]
-* 3) Create map, iterate through all elements of nums and store element and index of each element
-* 4)
+* 1) create one array sortedNum, Copy elements from original arrays to sortedNum and sort - SortedNums = [0,2,4,6,9]
+* 2) Create map, iterate through all elements of nums and store element and index of each element
+
+*       Map : 2 0
+              4 1
+              0 2
+              9 3
+              6 4
+
+  3) Create another array to track iffound Initialized with -1
+  4) start iterating sortedNum from n-1 index and get index of original array of that element
+     Iterate ifFound from index+1 to len and check if second one exists if exists then set value of element at index of secondExists 1
 * */
 public class P_NextSecondGreaterElement {
 
@@ -80,12 +88,12 @@ public class P_NextSecondGreaterElement {
         return result;
     }
 
-    public int findSecondLargest(int [] originalNum,int [] sortedNum,int index){
+    public int findSecondLargest(int [] originalNum,int [] ifFound,int index){
         int result = -1;
         boolean firstFound = false;
-        for (int i = index+1; i < sortedNum.length; i++) {
+        for (int i = index+1; i < ifFound.length; i++) {
 
-            if(sortedNum[i] == 1){
+            if(ifFound[i] == 1){
                 if(!firstFound){
                     firstFound = true;
                 }else{
@@ -94,7 +102,7 @@ public class P_NextSecondGreaterElement {
                 }
             }
         }
-        sortedNum[index] = 1;
+        ifFound[index] = 1;
         return result;
     }
 

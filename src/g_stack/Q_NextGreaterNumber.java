@@ -55,14 +55,14 @@ IV) Now sort all digits from position next to ‘d’ to the end of number.
 * We get “536479” which is the next greater number for input 534976.
 
 *
-//534976 ==> 4 is no which is less than its next no
-//534976 ==> 6 is smallest no which is greater than 4
-//536974 ==> swap 3 and 4
+//534976 ==> Find ele which is smaller than its next,  4 is no which is less than its next no
+//534976 ==> Find next greater element which is greater than ith but smallest than rest, 6 is smallest no which is greater than 4
+//536974 ==> swap 6 and 4
 //536479 ==> sort all no after 6
 //536479 ==> next greater element after 534976
 *
 * */
-public class Q_NextGreaterElement {
+public class  Q_NextGreaterNumber {
 
 
     //6537421 ==> 3 is no which is less than its next no
@@ -70,7 +70,7 @@ public class Q_NextGreaterElement {
     //6547321 ==> swap 3 and 4
     //6541237 ==> sort all no after 4
     public static void main(String[] args) {
-        Q_NextGreaterElement test = new Q_NextGreaterElement();
+        Q_NextGreaterNumber test = new Q_NextGreaterNumber();
         System.out.println(test.nextGreaterElement(6537421 )); //6541237
     }
 

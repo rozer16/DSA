@@ -4,9 +4,9 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
-public class O_NextSmallerElement {
+public class O_NextSmallerElement_In_Array {
     public static void main(String[] args) {
-        O_NextSmallerElement test = new O_NextSmallerElement();
+        O_NextSmallerElement_In_Array test = new O_NextSmallerElement_In_Array();
         int [] arr = {5,7,1,2,6,0};
         System.out.println(Arrays.toString(test.nextSmallerElements(arr)));
     }

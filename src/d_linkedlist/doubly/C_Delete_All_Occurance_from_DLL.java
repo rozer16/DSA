@@ -36,7 +36,7 @@ Expected Auxiliary Space: O(1).
 public class C_Delete_All_Occurance_from_DLL {
 
     static Node deleteAllOccurOfX(Node head, int x) {
-        Node d = new Node();
+        Node d = new Node(1);
 
         Node curr = head;
         curr.prev = d;
