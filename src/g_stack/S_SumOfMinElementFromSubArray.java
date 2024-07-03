@@ -4,8 +4,8 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /*
-* https://leetcode.com/problems/sum-of-subarray-minimums/
-* https://www.youtube.com/watch?v=Ulb3ixSpE4Y
+https://leetcode.com/problems/sum-of-subarray-minimums/
+https://www.youtube.com/watch?v=Ulb3ixSpE4Y
 *
 * Given an array of integers arr, find the sum of min(b),
 * where b ranges over every (contiguous) subarray of arr.

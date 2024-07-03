@@ -2,6 +2,7 @@ package g_stack;
 
 
 /*
+https://takeuforward.org/data-structure/trapping-rainwater/
 https://leetcode.com/problems/trapping-rain-water/
 https://youtu.be/m18Hntz4go8
 *
@@ -61,8 +62,8 @@ public class R_TrappingRainWater {
     //SC : O(2N) ~= O(N)
 
     //height =    [0,1,0,2,1,0,1,3,2,1,2,1]
-    //leftPrefix =[0,1,1,2,2,2,2,3,3,3,3,3] // start from left to right(0 --> n-1)
-    //rightPrefix=[3,3,3,3,3,3,3,3,2,2,2,1] // start from right to left(n-1 --> 0)
+    //leftPrefix =[0,1,1,2,2,2,2,3,3,3,3,3] // start from left to right(0 --> n-1) and check who is greater, not NGE
+    //rightPrefix=[3,3,3,3,3,3,3,3,2,2,2,1] // start from right to left(n-1 --> 0) and check who is greater, not PGE
         //for i=0 -> n-1, sum += Math.min(leftPrefix[i],rightPrefix[i])-height[i];
     public int prefixSum(int [] height){
         int sum = 0;
