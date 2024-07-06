@@ -9,6 +9,8 @@ import java.util.PriorityQueue;
 /*
 *
 * https://leetcode.com/problems/sliding-window-maximum/
+*https://takeuforward.org/data-structure/sliding-window-maximum/
+* https://youtu.be/CZQGRp93K4k
 *
 * You are given an array of integers nums, there is a sliding window of size k
 * which is moving from the very left of the array to the very right.
@@ -53,26 +55,30 @@ public class Y_SlidingWindow {
 
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
-        int [] r  = new int[n-k+1];
-        int ri=0; //Store index
 
-        Deque<Integer> q = new ArrayDeque<>();
-        for (int i = 0; i < nums.length; i++) {
-            //Remove no out of range k
-            if(!q.isEmpty() && q.peek() == i-k)
-                q.poll();
+        //Deque : DLL elements can be added/removed/accessed from front as well as back
+        //Will be removing elements from front of queue when it has elements which are less than i-k
+        //wiil be removing elements from back of queue when it has elements which are less than k
+        Deque<Integer> queue = new ArrayDeque<>();
+        int ri = 0;
+        int [] result = new int[n-k+1];
+        for(int i = 0; i  < n ; i++){
+            //Removing elements from front of queue if they are out of bound
+            //e.g. if i = 3, k = 3 remove all elements which are less than 1(i-k+1) to consider last 3 elements(1,2,3)
+            while(!queue.isEmpty() && queue.peek() < i-k+1)
+                queue.poll();
 
-            //Remove smaller no in k range as they are smaller
-            while(!q.isEmpty() && nums[q.peekLast()] < nums[i])
-                q.pollLast();
+            //Removing all elements from back of queue which are lesser than ith element
+            while(!queue.isEmpty() && nums[queue.peekLast()] < nums[i])
+                queue.pollLast();
 
-            q.offer(i);
-            if(i>=k-1)
-                r[ri++] = nums[q.peek()];
+            queue.offer(i);
 
+            if(i >= k-1)
+                result[ri++] = nums[queue.peek()];
         }
 
-        return r;
+        return result;
     }
 
     /*

@@ -35,7 +35,7 @@ public class T_AsteroidCollision {
 
     public static void main(String[] args) {
         T_AsteroidCollision test = new T_AsteroidCollision();
-        int [] arr = {-2,-2,1,-1};
+        int [] arr = {2,-2,1,-1};
         System.out.println(Arrays.toString(test.asteroidCollision(arr)));
     }
     public int[] asteroidCollision(int[] asteroids) {

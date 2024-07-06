@@ -5,6 +5,13 @@ import java.util.Deque;
 
 /*
 * https://leetcode.com/problems/maximal-rectangle/
+*
+* This is DP on square problem
+*
+* https://youtu.be/tOylVCugy9k
+* https://takeuforward.org/data-structure/maximum-rectangle-area-with-all-1s-dp-on-rectangles-dp-55/
+*
+*
 * Given a rows x cols binary matrix filled with 0's and 1's,
 *  find the largest rectangle containing only 1's and return its area.
 

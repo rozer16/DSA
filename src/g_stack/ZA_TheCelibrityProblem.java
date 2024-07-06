@@ -1,8 +1,14 @@
 package g_stack;
 
 
+import java.sql.SQLOutput;
+import java.util.Arrays;
+
 /*
 * https://youtu.be/Z5AEc12ieOs?list=PLDdcY4olLQk1bZS0OOFLAysk6keprt00U
+* https://www.geeksforgeeks.org/problems/the-celebrity-problem/1
+* https://leetcode.com/problems/find-the-celebrity/
+*
 *
 In a party of N people, only one person is known to everyone. Such a person may be present at the party,.
  if yes, (s)he doesn’t know anyone at the party. We can only ask questions like “does A know B? “. Find the stranger (celebrity) in the minimum number of questions.
@@ -60,33 +66,61 @@ public class ZA_TheCelibrityProblem {
                 {0, 0, 1, 0}
         };
         System.out.println(test.getCelebrity(MATRIX1)); //-1
+
+
     }
-    public int getCelebrity(int [][] matrix){
-        for (int i = 0; i < matrix.length; i++) {
-            boolean flag = true;
-            for (int j = 0; j < matrix[0].length; j++) {
-                if(matrix[j][i] == 0){
-                    if(i != j){
-                        flag=false;
-                        break;
-                    }
-                }
-
-            }
-            if(flag){
-                for (int j = 0; j < matrix.length; j++) {
-                    if(matrix[i][j] == 1){
-                        flag = false;
-                        break;
-                    }
-
-                }
-                if(flag)
-                    return i;
-            }
 
 
+
+    //TC : O(2n) && SC : O(1)
+    public int getCelebrity(int [][] M){
+        int n = M.length;
+        int celebrity = 0;
+        //Start 0-> 1, 1-> 2, 2-> 3 and so on
+        //If 0 knows 1 then 1 is celebrity
+        //If 1 knows 2 then 2 is celebrity
+        //if 2 doesn't know 2 then then still 2 is celebrity
+        //if 3 knows 2 then 2 is celebrity
+        for (int i = 1; i < n; i++) {
+            if(M[celebrity][i] == 1)
+                celebrity = i;
         }
+
+        //In order to be celebrity it should follow this rule that celebrity doesn't know anyone but everyone know him
+        for (int i = 0; i < n; i++) {
+            if(celebrity != i && (M[celebrity][i] == 1 || M[i][celebrity] != 1))
+                return -1;
+        }
+
+
+        return celebrity;
+
+    }
+
+    //TC : O(n^2)
+    //SC : O(2n)
+    public int getCelebrityBF(int [][] matrix){
+        int n = matrix.length;
+       int in[]  = new int[n];  //ith Person knows how many people
+       int out[] = new int[n];  // How many people knows ith person
+
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if(i != j && matrix[i][j] == 1){
+                    in[i]++;
+                    out[j]++;
+                }
+            }
+        }
+
+        //If there is any person who doesn't know anyone but all other person knows him
+        for (int i = 0; i < n; i++) {
+            if(in[i] == 0 && out[i] == n-1) {
+                return i;
+            }
+        }
+
         return -1;
     }
 }

@@ -1,6 +1,10 @@
 package g_stack;
 
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.function.BiFunction;
 
 /*
 * https://leetcode.com/problems/sum-of-subarray-ranges/
@@ -48,7 +52,135 @@ public class V_SumOfSubArrayRanges {
     public static void main(String[] args) {
         V_SumOfSubArrayRanges test = new V_SumOfSubArrayRanges();
         int [] arr = {1,2,3};
-        System.out.println(test.subArrayRanges(arr));
+        System.out.println(test.subArrayRangesBF(arr));
+    }
+
+
+
+
+    //TODO : Revisit again this logic, why in one loop we are able to achieve
+
+    public long subArrayRanges(int[] nums) {
+        Deque<Integer> dec_stack = new ArrayDeque<>();
+        Deque<Integer> inc_stack = new ArrayDeque<>();
+        long sum = 0;
+        for (int i = 0; i <= nums.length; i++) {
+            sum += pushToStack(dec_stack,nums,i, (a,b) -> a < b) //Element at i is max in no of subarray  * element
+                    - pushToStack(inc_stack, nums, i, (a,b)-> a > b); //Element at i is min in no of subarray  * element
+        }
+        return sum;
+
+    }
+
+
+    private long pushToStack(Deque<Integer> stack, int nums[], int index, BiFunction<Integer,Integer,Boolean> biFunction){
+        long sum = 0;
+
+        while(!stack.isEmpty() && (index == nums.length || biFunction.apply(nums[stack.peek()], nums[index]))) {
+
+            int pop_i = stack.pop();
+            int prev_i = stack.isEmpty() ? -1 : stack.peek();
+            sum += (pop_i - prev_i) * (index - pop_i) * (long)nums[pop_i];
+        }
+        stack.push(index);
+
+        return sum;
+    }
+
+
+    /*TC : 2 * ( O(n) for left array tranversal + O(n) for stack traversal
+                + O(n) for right array tranversal + O(n) for stack traversal
+                + O(n) for calculation of total
+                )
+
+
+    SC : O(2n)
+    */
+
+
+    public long subArrayRangesBetter(int[] nums) {
+        int n = nums.length;
+        int left [] = new int[n];
+        int right [] = new int[n];
+
+
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        //Calculate min
+        for(int i = 0; i<n; i++){
+            while(!stack.isEmpty() && nums[stack.peek()] >= nums[i])
+                stack.pop();
+
+            if(stack.isEmpty()){
+                left[i] = i+1;
+            }else{
+                left[i] = i-stack.peek();
+            }
+            stack.push(i);
+        }
+
+        stack.clear();
+
+        for(int i = n-1; i >= 0; i--){
+
+            while(!stack.isEmpty() && nums[stack.peek()] > nums[i])
+                stack.pop();
+
+            if(stack.isEmpty()){
+                right[i] = n-i;
+            }else{
+                right[i] = stack.peek()-i;
+            }
+            stack.push(i);
+        }
+
+        System.out.println("LeftMin : "+ Arrays.toString(left));
+        System.out.println("RightMin : "+Arrays.toString(right));
+        long minSum = getTotal(nums,left, right);
+        stack.clear();
+
+        //Calculate max
+        left  = new int[n];
+        right  = new int[n];
+
+        for(int i = 0; i<n; i++){
+            while(!stack.isEmpty() && nums[stack.peek()] <= nums[i])
+                stack.pop();
+
+            if(stack.isEmpty()){
+                left[i] = i+1;
+            }else{
+                left[i] = i-stack.peek();
+            }
+            stack.push(i);
+        }
+
+        stack.clear();
+
+        for(int i = n-1; i >= 0; i--){
+
+            while(!stack.isEmpty() && nums[stack.peek()] < nums[i])
+                stack.pop();
+
+            if(stack.isEmpty()){
+                right[i] = n-i;
+            }else{
+                right[i] = stack.peek()-i;
+            }
+            stack.push(i);
+        }
+        System.out.println("LeftMax : "+Arrays.toString(left));
+        System.out.println("RightMax : "+Arrays.toString(right));
+        long maxSum = getTotal(nums,left, right);
+        return maxSum-minSum;
+    }
+
+    public long getTotal(int arr[], int left[], int right[]){
+        long total = 0;
+        for(int i = 0; i< arr.length;i++)
+            total = total + ((long)arr[i]*(long)left[i]*(long)right[i]);
+
+        return total;
     }
 
 
@@ -58,7 +190,7 @@ public class V_SumOfSubArrayRanges {
     SC : O(1)
 
     */
-    public long subArrayRanges(int[] nums) {
+    public long subArrayRangesBF(int[] nums) {
         int len = nums.length;
         long sum = 0;
         for(int i=0;i<len;i++){
@@ -72,4 +204,7 @@ public class V_SumOfSubArrayRanges {
         }
         return sum;
     }
+
+
+
 }

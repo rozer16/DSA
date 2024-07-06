@@ -10,6 +10,12 @@ public class M_InfixToPrefixConversion {
 
 
 
+    //reverse
+    //replace ( to ) AND ( TO )
+    // INFIX TO post fix
+    //  reverse
+    // return
+
     public String infixToPrefix(String infix){
         // Reverse String and replace ( with ) and vice versa Get Postfix Reverse Postfix
         int l = infix.length();

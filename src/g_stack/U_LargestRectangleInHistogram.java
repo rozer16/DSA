@@ -32,56 +32,77 @@ public class U_LargestRectangleInHistogram {
         int [] arr1 = {0,9};
         U_LargestRectangleInHistogram test = new U_LargestRectangleInHistogram();
 
-        System.out.println(test.largestRectangleArea(arr));
+        System.out.println(test.largestRectangleAreaBetter(arr));
+    }
+
+    //TC : O(n) for arr tranversal + O(n) for stack = O(2n)
+    //SC : O(n)
+    public int largestRectangleArea(int[] heights) {
+        int n = heights.length;
+        int max = Integer.MIN_VALUE;
+
+        //In stack we will be storing index so that we can calculate width, height can be accessed by height[stack.peek()]
+        Deque<Integer> stack = new ArrayDeque<>();
+        for(int i = 0; i<=n; i++){
+            //If height[i] is less than val of index at stack.peek() then start calculating max width
+            //since height[i] is  max  right width and left width is one down to stack top so pop it and get it
+            // and calculate area. if area is greater than max then update max.
+
+            while(!stack.isEmpty() && (i == n || (heights[stack.peek()] >= heights[i]))){
+                int height = heights[stack.pop()];
+                int width = 0;
+                if(stack.isEmpty())
+                    width = i;
+                else
+                    width = i-stack.peek()-1;
+
+                max = Math.max(max, height*width);
+            }
+
+            stack.push(i);
+        }
+
+        return max;
     }
 
 
+
+
     /*
-    *
-    * 1. If stack is empty then put leftMinIndex[i] = 0
-    * 2)
-    *    2.1)  for i = 0 -> n-1
-    *       while heights[i] <= heights[stack.peek()] , keep popping from stack
-            since we want to go left until its value is less or equal to current index
-    *   2.2) if stack is empty then set minLeft[i] = 0 else minLeft[i] = stack.peek()+1;
-    *
-    *   leftMinIndex = {0,0,2,3,2,5,0}
-    *
-    * 3) clear the stack
-    *
-    * 4) for i = n-1 --> 0
-    *        while heights[i] <= heights[stack.peek()] , keep popping from stack
-            since we want to go right until its value is less or equal to current index
-    *   2.2) if stack is empty then set minLeft[i] = 0 else minLeft[i] = stack.peek()-1;
-    *
+        //TC : O(n) for traversing left to right + O(n) for stack
+               + O(n) for traversing right to left + O(n) for stack
+               + O(n) for calcularing
+
+               =~ O(3n)
+
+       //SC : O(n)
+
+
+        arr = [2,1,5,6,2,3,1]
+    *   leftMinIndex = {0,0,2,3,2,5,0}    *
     *   rightMinIndex = {0,6,3,3,5,5,6}
-    *
-    *
+
     *   for i = 0 -> n-1
     *       if max > rightMinIndex[i] - leftMinIndex[i] +1 then max = rightMinIndex[i] - leftMinIndex[i] +1
     *
     *   return max
     *
     */
-    public int largestRectangleArea(int[] heights) {
+    public int largestRectangleAreaBetter(int[] heights) {
         Deque<Integer> stack = new ArrayDeque();
-        int [] leftMinIndex = new int[heights.length];
-        int [] rightMinIndex = new int[heights.length];
+        int [] prevSmallerEle = new int[heights.length];
+        int [] nextSmallerEle = new int[heights.length];
 
         //Calculating left min index having less or equal size
         for(int i = 0;i<heights.length;i++){
-            if(heights[i] == 0){
-                leftMinIndex[i] = 0;
-                stack.push(i);
-                continue;
-            }
+
             while(!stack.isEmpty() && heights[stack.peek()] >= heights[i])
                 stack.pop();
 
             if(stack.isEmpty())
-                leftMinIndex[i] = 0;
+                prevSmallerEle[i] = 0;
             else
-                leftMinIndex[i]=stack.peek()+1;
+                prevSmallerEle[i]=stack.peek()+1;
 
             stack.push(i);
         }
@@ -89,51 +110,50 @@ public class U_LargestRectangleInHistogram {
 
         //Calculating right min index having less or equal size
         for(int i = heights.length-1; i>=0 ; i--){
-            if(heights[i] == 0){
-                rightMinIndex[i] = 0;
-                stack.push(i);
-                continue;
-            }
+
             while(!stack.isEmpty() && heights[stack.peek()] >= heights[i])
                 stack.pop();
 
             if(stack.isEmpty())
-                rightMinIndex[i] = heights.length-1;
+                nextSmallerEle[i] = heights.length-1;
             else
-                rightMinIndex[i] = stack.peek()-1;
+                nextSmallerEle[i] = stack.peek()-1;
 
             stack.push(i);
         }
 
         int max = 0;
         for(int k = 0;k<heights.length; k++){
-            if (((rightMinIndex[k]-leftMinIndex[k]+1)*heights[k]) > max)
-                max = ((rightMinIndex[k]-leftMinIndex[k]+1)*heights[k]);
+            if (((nextSmallerEle[k]-prevSmallerEle[k]+1)*heights[k]) > max)
+                max = ((nextSmallerEle[k]-prevSmallerEle[k]+1)*heights[k]);
         }
 
         return max;
 
     }
 
-    //Bruteforce
-    private int getLargestRectangleInHistogram(int[] heights) {
-        int maxRectangle = Integer.MIN_VALUE;
 
-        for (int i = 0; i < heights.length; i++) {
-            int count = 0;
-            int j=i;
-            while(j>=0 && heights[j]>=heights[i]){
-                count++;
-                j--;
+    //SC : O(n^2)
+    //TC : O(1)
+
+
+    public int largestRectangleAreaBruteForce(int[] heights) {
+        int n = heights.length;
+        int largest = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            int min = Integer.MAX_VALUE;
+
+            for (int j = i; j < n; j++) {
+                min = Math.min(min, heights[j]);
+                largest = Math.max(largest, min*(j-i+1));
             }
-            j=i+1;
-            while(j<heights.length && heights[j] >=heights[i]){
-                count++;
-                j++;
-            }
-            if(count*heights[i] > maxRectangle)
-                maxRectangle = count*heights[i];
         }
-        return maxRectangle;
+
+        return largest;
     }
+
+
+
+
+
 }

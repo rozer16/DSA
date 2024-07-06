@@ -30,7 +30,20 @@ Sum is 17.
 *                                                       is less than current ith element,
 *       right[] = Element from i to n-1 : : if specific element from right index of i
 *                                                       is less than current ith element,
- *
+
+
+ arr = 3 1 2 4
+ left= 1 2 1 1
+ right=1 3 2 1
+
+
+ consider left = m, right = n
+ total no of subarray  : (m+n-1)(m+n) /2
+ total no of subarray on left = (m-1)m/2
+ to get no of subarray on right: (n-1)n/2
+
+ total no of sub array = (m+n-1)(m+n) /2 +  (m-1)m/2 +  (n-1)n/2 = mn
+
 * */
 public class S_SumOfMinElementFromSubArray {
 
@@ -78,6 +91,7 @@ public class S_SumOfMinElementFromSubArray {
         for (int i = 0; i < arr.length; i++) {
             //If element has occurred n times then sum of it ele*n
             //Doing modulo m since in question its said :  answer may be large, return the answer modulo 10^9 + 7.
+
             sum = (sum+(long)left[i]*right[i]*arr[i] )% m;
         }
         return (int)sum;

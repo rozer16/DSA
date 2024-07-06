@@ -47,6 +47,10 @@ public class N_NextGreaterElement_In_Array {
         int [] arr = {9,7,1,2,6,10};
         System.out.println(Arrays.toString(test.nextGreaterElements(arr)));
     }
+
+
+    //TC : O(n) for tranversing array + O(n) for tranversing stack
+    //SC : O(n) for stack space
     public  int[] nextGreaterElements(int[] nums) {
         if(nums == null || nums.length <= 1)
             return nums;

@@ -6,13 +6,18 @@ import java.util.stream.Collectors;
 
 public class Test{
 
+    //Deque : DLL elements can be added/removed/accessed from front as well as back
 
+    //Stack : LIFO  push pollLast  peekLast
+    //Queue : FIFO : offer pop/poll peek/peekFirst
     public static void main(String[] args) throws InterruptedException {
-        int [] nums = {3,30,34,5,9};
+      Deque<Integer> deque = new ArrayDeque<>();
+      deque.offer(1);
+        deque.offer(2);
+        deque.offer(3);
 
-        List<Integer> list = Arrays.stream(nums).sorted().boxed().collect(Collectors.toList());
 
-        System.out.println(list);
+        deque.push(5);
     }
 
     static Node deleteAllOccurOfX(Node head, int x) {
