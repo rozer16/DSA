@@ -1,4 +1,4 @@
-package b_array;
+package b_array.other;
 
 public class G_Max_Sum_SubArray {
 

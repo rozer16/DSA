@@ -1,4 +1,4 @@
-package b_array;
+package b_array.other;
 
 public class A_FrequenceArray {
 

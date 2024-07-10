@@ -1,4 +1,4 @@
-package b_array;
+package b_array.other;
 
 public class M_ElementAtIthIndex {
 	public static void main(String[] args) {

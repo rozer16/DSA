@@ -1,4 +1,4 @@
-package b_array;
+package b_array.other;
 import java.util.*;
 
 public class I_CostToReachLastRowIn2D {
