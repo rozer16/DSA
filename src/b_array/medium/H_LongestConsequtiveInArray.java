@@ -1,6 +1,7 @@
 package b_array.medium;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /*
 * https://leetcode.com/problems/longest-consecutive-sequence/description/
@@ -48,7 +49,7 @@ public class H_LongestConsequtiveInArray {
     * */
     public int getLongestConsequtiveNos(int [] arr){
         int max = 0;
-
+        Set<Integer> set = Arrays.stream(arr).boxed().collect(Collectors.toSet());
         Set<Integer> nos = new HashSet();
 
         for (int i = 0; i < arr.length; i++) {
@@ -59,13 +60,12 @@ public class H_LongestConsequtiveInArray {
         while(i1.hasNext()){
             int no = i1.next();
             if(!nos.contains(no-1)){
-                int current = 1;
+
                 int counter = 1;
                 while(nos.contains(no+counter)){
-                    current++;
                     counter++;
                 }
-                max= Math.max(current,max);
+                max= Math.max(counter,max);
 
             }
         }

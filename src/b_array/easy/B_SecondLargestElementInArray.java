@@ -1,7 +1,8 @@
 package b_array.easy;
 
 /*
-
+https://youtu.be/37E9ckMDdTk
+https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/
 *
 * https://practice.geeksforgeeks.org/problems/second-largest3735/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=second-largest
 https://youtu.be/37E9ckMDdTk

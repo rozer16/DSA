@@ -3,10 +3,12 @@ package b_array.easy;
 import java.util.ArrayList;
 
 /*
+https://takeuforward.org/data-structure/union-of-two-sorted-arrays/
+
 * https://practice.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=union-of-two-sorted-arrays
 *
-* nion of two arrays can be defined as the common and distinct elements in the two arrays.
-Given two sorted arrays of size n and m respectively, find their union.
+* Given two sorted arrays of size n and m respectively, find their union.
+ The Union of two arrays can be defined as the common and distinct elements in the two arrays. Return the elements in sorted order.
 
 
 Example 1:

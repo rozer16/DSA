@@ -51,7 +51,15 @@ public class L_FindMissingNumberInArray {
 
     }
 
-    /*XOR doesnt work for negative */
+    /*XOR doesnt work for negative
+    xor of any no with itself will be 0	2^2= 0
+    XOR of any no with 0 will be no itself	2^0=2
+
+
+
+     if we perform the XOR of the numbers 1 to N(xor1) with the XOR of the array elements(xor2), we will be left with the missing number.
+     xor1 ^ xor2 = (1^1)^(2^2)^........^(missing Number)^.....^(N^N)
+    *  */
     public int missingNumber1(int[] nums,int n) {
         int xor2 = 0;
         int xor1 = 0;

@@ -1,24 +1,28 @@
 package b_array.easy;
 
 import java.util.Arrays;
+/*
+https://takeuforward.org/data-structure/rotate-array-by-k-elements/
+https://youtu.be/wvcQg43_V8U
+https://leetcode.com/problems/rotate-array/description/
 
+
+* */
 public class G_LeftRotateArrayByK {
 
     public static void main(String[] args) {
-        int arr [] = {1,2,3,4,5};
+        int arr [] = {1,2,3,4,5}; //[3, 4, 5, 1, 2]
         G_LeftRotateArrayByK test = new G_LeftRotateArrayByK();
         test.leftRotateArray(arr,2);
         System.out.println(Arrays.toString(arr));
-
-
 
     }
 
 
     public void leftRotateArray(int [] arr,int k){
+        reverseArray(arr,0,k-1);
+        reverseArray(arr,k,arr.length-1);
         reverseArray(arr,0,arr.length-1);
-        reverseArray(arr,0,arr.length-k-1);
-        reverseArray(arr,arr.length-k,arr.length-1);
 
     }
 

@@ -1,6 +1,9 @@
 package b_array.medium;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 
 /*
 * https://takeuforward.org/data-structure/leaders-in-an-array/
@@ -18,10 +21,32 @@ public class G_LeadersInArray {
 
     public static void main(String[] args) {
         G_LeadersInArray test = new G_LeadersInArray();
-        int [] nums = {20,22,12,3,0,6};
-        System.out.println(Arrays.toString(test.leadersInArray(nums)));
+        int [] nums = {16 ,17 ,4 ,3 ,5, 2};
+       // System.out.println(Arrays.toString(test.leadersInArray(nums)));
+        System.out.println(test.leaders(nums.length, nums));
     }
 
+
+
+     ArrayList<Integer> leaders(int n, int arr[]) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        ArrayList<Integer> result = new ArrayList<>();
+        int index = n-1;
+        while(index >= 0){
+            while(!stack.isEmpty() && stack.peek() <= arr[index])
+                stack.pop();
+
+                if(stack.isEmpty())
+                    result.add(arr[index]);
+
+                stack.push(arr[index]);
+                index--;
+
+
+        }
+
+        return result;
+    }
     /*
     * Optimal
     * SC : O(n)

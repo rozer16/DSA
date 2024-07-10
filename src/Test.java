@@ -9,13 +9,13 @@ public class Test {
 // [[2],[1,1],[2,2],[1],[3,3],[2],[3],[4,4],[1],[3],[4]]
 
     public static void main(String[] args) throws InterruptedException {
-         LFUCache obj = new LFUCache(1);
 
-        obj.put(2,1);
-        int param_1 = obj.get(2);
-        obj.put(3,2);
-        int param_2 = obj.get(2);
-        int param_3 = obj.get(3);
+        Deque<Integer> deque = new ArrayDeque<>();
+        deque.push(1);
+        deque.push(2);
+        deque.push(3);
+        deque.push(4);
+
 
 
 

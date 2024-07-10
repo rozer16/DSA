@@ -25,11 +25,11 @@ Row 6  1   5  10  10  5   1
 *
 *
 */
-public class B_PrintNthRowFromPascalTriangle {
+public class A3_PrintNthRowFromPascalTriangle {
 
 
     public static void main(String[] args) {
-        B_PrintNthRowFromPascalTriangle test = new B_PrintNthRowFromPascalTriangle();
+        A3_PrintNthRowFromPascalTriangle test = new A3_PrintNthRowFromPascalTriangle();
         int [] arr = test.getNthRowFromPascalTriangle(6);
         System.out.println(Arrays.toString(arr));
     }

@@ -49,7 +49,7 @@ public class Y_SlidingWindow {
     public static void main(String[] args) {
         Y_SlidingWindow test = new Y_SlidingWindow();
         int [] arr = {1,3,-1,-3,5,3,6,7};
-        System.out.println(Arrays.toString(test.maxSlidingWindowPQ(arr,3)));
+        System.out.println(Arrays.toString(test.maxSlidingWindow(arr,3)));
 
     }
 

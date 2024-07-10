@@ -139,15 +139,21 @@ public class K_SpiralMatrix {
             }
             right--;
 
+            // For most inner spiral this condition is required.
             //left
-            if(top <= bottom) { // Need to add if condition in case there is only one row otherwise it will print  right to left of same row
+            if(top <= bottom) {
                 for (int i = right; i >= left; i--) {
                     spiral.add(matrix[bottom][i]);
                 }
                 bottom--;
             }
+
+            //// Need to add if condition in case there is only one row otherwise it will print  right to left of same row
+            //If we dont add below if condition then input [[7],[9],[6]]
+            // o/p :  [7,9,6,9]
+            //Expected : [7 9 6]
             //top
-            if(left <= right) { // For most inner spiral this condition is required.
+            if(left <= right) {
                 for (int i = bottom; i >= top; i--) {
                     spiral.add(matrix[i][left]);
                 }

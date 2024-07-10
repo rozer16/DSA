@@ -90,8 +90,8 @@ public class U_LargestRectangleInHistogram {
     */
     public int largestRectangleAreaBetter(int[] heights) {
         Deque<Integer> stack = new ArrayDeque();
-        int [] prevSmallerEle = new int[heights.length];
-        int [] nextSmallerEle = new int[heights.length];
+        int [] prevSmallerIndex = new int[heights.length];
+        int [] nextSmallerIndex = new int[heights.length];
 
         //Calculating left min index having less or equal size
         for(int i = 0;i<heights.length;i++){
@@ -100,9 +100,9 @@ public class U_LargestRectangleInHistogram {
                 stack.pop();
 
             if(stack.isEmpty())
-                prevSmallerEle[i] = 0;
+                prevSmallerIndex[i] = 0;
             else
-                prevSmallerEle[i]=stack.peek()+1;
+                prevSmallerIndex[i]=stack.peek()+1;
 
             stack.push(i);
         }
@@ -115,17 +115,17 @@ public class U_LargestRectangleInHistogram {
                 stack.pop();
 
             if(stack.isEmpty())
-                nextSmallerEle[i] = heights.length-1;
+                nextSmallerIndex[i] = heights.length-1;
             else
-                nextSmallerEle[i] = stack.peek()-1;
+                nextSmallerIndex[i] = stack.peek()-1;
 
             stack.push(i);
         }
 
         int max = 0;
         for(int k = 0;k<heights.length; k++){
-            if (((nextSmallerEle[k]-prevSmallerEle[k]+1)*heights[k]) > max)
-                max = ((nextSmallerEle[k]-prevSmallerEle[k]+1)*heights[k]);
+            if (((nextSmallerIndex[k]-prevSmallerIndex[k]+1)*heights[k]) > max)
+                max = ((nextSmallerIndex[k]-prevSmallerIndex[k]+1)*heights[k]);
         }
 
         return max;

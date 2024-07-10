@@ -27,7 +27,7 @@ Output: [0,0,9,0,0]
 public class M_ProductOfArrayExceptSelf {
 
     public static void main(String[] args) {
-        int arr [] = {-1,1,0,-3,3};
+        int arr [] = {1,2,3,4};
         M_ProductOfArrayExceptSelf solution = new M_ProductOfArrayExceptSelf();
         System.out.println(Arrays.toString(solution.productOfArrayExceptSelf(arr)));
     }

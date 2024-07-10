@@ -67,7 +67,7 @@ public class B_SortColors_Seperate_0_1_2 {
     }
 
     private void sortColors(int[] arr) {
-        int low = 0, mid = 0;
+        int low =   0, mid = 0;
         int high = arr.length-1;
 
         while(mid <= high){

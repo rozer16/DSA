@@ -24,7 +24,7 @@ rotate 2 steps to the right: [3,99,-1,-100]
 * */
 public class H_RightRotateArrayByK {
     public static void main(String[] args) {
-        int arr [] = {1,2,3,4,5};
+        int arr [] = {1,2,3,4,5}; //[4, 5, 1, 2, 3]
         H_RightRotateArrayByK test = new H_RightRotateArrayByK();
         System.out.println(Arrays.toString(test.rightRotateArrayByK(arr,2)));
     }
