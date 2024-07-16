@@ -10,6 +10,7 @@ https://takeuforward.org/data-structure/aggressive-cows-detailed-solution/
 https://www.youtube.com/watch?v=R_Mfw4ew-Vo
 
 
+
 https://www.spoj.com/problems/AGGRCOW/
 https://www.naukri.com/code360/problems/aggressive-cows_1082559?leftPanelTabValue=SUBMISSION
 https://www.geeksforgeeks.org/problems/aggressive-cows/0
