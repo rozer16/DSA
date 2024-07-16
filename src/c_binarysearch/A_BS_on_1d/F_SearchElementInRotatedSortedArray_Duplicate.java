@@ -55,7 +55,7 @@ public class F_SearchElementInRotatedSortedArray_Duplicate {
                 return true;
 
 
-            //6 7 1 2 3 4 4 5 --> Works since we can check if left is sorted or half is sorted : 6<2 false so left is unsorted
+            //6 7 1 2 3 4 4 5 --> searching 2 : Works since we can check if left is sorted or half is sorted : 6<2 false so left is unsorted
             //6 7 1 2 3 3 4 4 4 --> Works since we can check if left is sorted or half is sorted : 6<2 false so left is unsorted
             // 3 1 2 3 3 3 3 --> This doesnt work for finding which one is sorted so we will have to shring from left and right.
             // if we are trying to find exact that element then it will be found from middle.
@@ -70,7 +70,7 @@ public class F_SearchElementInRotatedSortedArray_Duplicate {
             //Check if left is sorted
             if(arr[low] <= arr[mid]){
                 if(arr[low] <= target && target <= arr[mid]){
-                    //element might exists in left half:
+                    //element might exists in    left half:
                     high = mid-1;
                 }else{
                     //element might exists right half:

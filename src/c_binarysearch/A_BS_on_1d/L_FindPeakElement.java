@@ -4,7 +4,7 @@ package c_binarysearch.A_BS_on_1d;
 /*
 *
 *
-* https://takeuforward.org/data-structure/peak-element-in-array/
+* https://takeuforward.dF ox   rg/data-structure/peak-element-in-array/
 * https://www.youtube.com/watch?v=cXxmbemS6XM
 * https://leetcode.com/problems/find-peak-element/description/
 *
@@ -28,7 +28,8 @@ Example 2:
 
 Input: nums = [1,2,1,3,5,6,4]
 Output: 5
-Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
+Explanation: Your function can return either index number 1 where the peak element is 2,
+or index number 5 where the peak element is 6.
 
 
 Constraints:

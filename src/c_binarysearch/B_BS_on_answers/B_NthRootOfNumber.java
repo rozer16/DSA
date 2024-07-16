@@ -7,8 +7,9 @@ https://www.youtube.com/watch?v=rjEJeYCasHs
 https://www.geeksforgeeks.org/problems/find-nth-root-of-m5843/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=find-nth-root-of-m
 
 
-You are given 2 numbers (n , m); the task is to find n√m (nth root of m).
-
+Given two numbers N and M, find the Nth root of M.
+The nth root of a number M is defined as a number X when raised to the power N equals M.
+ If the 'nth root is not an integer, return -1.
 
 Example 1:
 
@@ -72,7 +73,6 @@ public class B_NthRootOfNumber {
 
     public int getPower1(int mid, int n, int m){
         long ans = 1;
-        long power = n;
 
 
         for (int i = 0; i < n; i++) {

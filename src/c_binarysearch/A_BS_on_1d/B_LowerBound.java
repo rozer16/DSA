@@ -4,9 +4,12 @@ package c_binarysearch.A_BS_on_1d;
 * Given a non decreasing array of int and another variable x, find the index of x's lower bound
 * in the array if there is none then return -1
 *
-* The lower bound is the first element that is greater than or equal to x
-* The upper bound is the first element that is greater than x
-*
+* The lower bound is the smallest index, ind, where arr[ind] >= x. But if any such index is not found,
+        the lower bound algorithm returns n i.e. size of the given array.
+* The upper bound is the smallest index, ind, where arr[ind] > x.
+
+
+ *
 *
 * 3 5 8 15 19
 *

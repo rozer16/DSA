@@ -53,7 +53,7 @@ Reason: We are applying binary search on our answers that are in the range of [1
     * */
     public int smallestDivisor(int[] nums, int threshold) {
         int [] minmax = findMinMax(nums);
-        int low = 1;  //Staring from 1 in case all no are not divisible by each other so in that case smallest divisor is 1 , e.g : 21212,10101,12121 , thresold : 1000000
+        int low = 1;  //Staring from 1 in case all no are not divisible by each other so in that case smallest divisor is 1 , e.g : 21212,10101,12121 , threshold : 1000000
         int high = minmax[1];
         int ans = 1;
 

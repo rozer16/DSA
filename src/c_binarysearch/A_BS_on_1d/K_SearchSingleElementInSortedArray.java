@@ -35,7 +35,7 @@ Constraints:
 E O E O E O E O E O E
 
 
-Observatoin :
+Observation :
 
 1) Left half of single element(Index 0-5)
 
@@ -82,7 +82,7 @@ public class K_SearchSingleElementInSortedArray {
             return nums[length-1];
         }
 
-        //To avoid extra edge case check do binary search betwenn 1 to n-2
+        //To avoid extra edge case check do binary search between 1 to n-2
         int low = 1;
         int high = length-2;
 
@@ -94,7 +94,7 @@ public class K_SearchSingleElementInSortedArray {
                 return nums[mid];
 
 
-            //check if single element is in left half or right half accodingly upate low/high
+            //check if single element is in left half or right half accordingly update low/high
 
             //If mid is at odd index and arr[mid] == arr[mid-1]
             if(mid%2 == 1 && nums[mid] == nums[mid-1]

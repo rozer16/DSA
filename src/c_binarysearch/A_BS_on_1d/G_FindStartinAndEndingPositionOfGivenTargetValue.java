@@ -2,6 +2,12 @@ package c_binarysearch.A_BS_on_1d;
 
 import java.util.Arrays;
 
+
+/*
+https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+https://takeuforward.org/data-structure/last-occurrence-in-a-sorted-array/
+https://youtu.be/hjR1IYVx9lY
+* */
 public class G_FindStartinAndEndingPositionOfGivenTargetValue {
 
 

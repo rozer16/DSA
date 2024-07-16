@@ -81,7 +81,7 @@ public class E_SearchElementInRotatedArray_Unique {
             If arr[low] <= arr[mid]: This condition ensures that the left part is sorted.
                      If arr[low] <= target && target <= arr[mid]: It signifies that the target is in this sorted half.
                             So, we will eliminate the right half (high = mid-1).
-                     Otherwise, the target does not exist in the sorted half.
+                     Otherwise, the target does not exist in the left sorted half.
                      So, we will eliminate this left half by doing low = mid+1.
         5.2)
 
