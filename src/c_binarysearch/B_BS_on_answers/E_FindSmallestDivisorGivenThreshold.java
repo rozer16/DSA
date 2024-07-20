@@ -44,7 +44,6 @@ public class E_FindSmallestDivisorGivenThreshold {
         System.out.println(sol.smallestDivisor(new int[]{44,22,33,11,1},5)); //44
         System.out.println(sol.smallestDivisor(new int[]{21212,10101,12121},1000000));  //1
 
-
     }
 
     /*

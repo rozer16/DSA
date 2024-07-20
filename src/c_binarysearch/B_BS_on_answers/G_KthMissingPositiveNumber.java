@@ -115,7 +115,7 @@ public class G_KthMissingPositiveNumber {
             }
         }
         //1.  the number of missing numbers at high index = arr[high] - (high+1).  //At index 3 , 3 nos are missing
-        //2.  more_missing_numbers = k - (arr[high] - (high+1)). //More missing no k=5, 5-3=2
+        //2.  more_missing_numbers at high index = k - (arr[high] - (high+1)). //More missing no k=5, 5-3=2
         //3.  kth missing number = arr[high] + more //why arr[high]  ???
         //                       = arr[high] + k - (arr[high] - (high+1))
         //                       = arr[high] + k - arr[high] + high + 1

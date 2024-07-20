@@ -56,7 +56,7 @@ public class I_BookAllocationProblem {
         if (m > n)
             return -1;
 
-        int [] maxSum = findMaxSum(bookPages);
+        int [] maxSum = find_MaxEle_Sum(bookPages);
         int low = maxSum[0];
         int high = maxSum[1];
         int ans = -1;
@@ -64,10 +64,10 @@ public class I_BookAllocationProblem {
        while(low <= high){
            int mid = low + (high-low)/2;
 
-           if(canAssignPPagesToSStudent(bookPages,mid) > m){
-              low = mid+1;
+           if(canAssignPPagesToSStudent(bookPages,mid) <= m){
+              low = mid-1;
            }else{
-               high = mid-1;
+               high = mid+1;
            }
        }
 
@@ -78,7 +78,7 @@ public class I_BookAllocationProblem {
         if (m > n)
             return -1;
 
-        int [] maxSum = findMaxSum(arr);
+        int [] maxSum = find_MaxEle_Sum(arr);
         int low = maxSum[0];
         int high = maxSum[1];
 
@@ -111,7 +111,7 @@ public class I_BookAllocationProblem {
 
         return noOfStudent;
     }
-    public int[] findMaxSum(List<Integer> pages){
+    public int[] find_MaxEle_Sum(List<Integer> pages){
         int maxSum [] = new int[2];
         int sum = 0;
         int max = Integer.MIN_VALUE;

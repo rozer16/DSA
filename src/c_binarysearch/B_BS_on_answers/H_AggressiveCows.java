@@ -44,7 +44,7 @@ Sample Input 1 :
 
 
 Sample Output 1 :
-3
+3[
 
 
 Explanation to Sample Input 1 :

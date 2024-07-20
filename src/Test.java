@@ -15,10 +15,21 @@ public class Test {
         deque.push(2);
         deque.push(3);
         deque.push(4);
+    }
+
+    public long kthElement( int arr1[], int arr2[], int len1, int len2, int k) {
+
+        if(len1 > len2)
+                return kthElement(arr2,arr1, len2, len1, k);
 
 
 
 
+        int noOfLeft = k;
+        int low = Math.min(0, )
+
+
+        return -1;
     }
 
 }
