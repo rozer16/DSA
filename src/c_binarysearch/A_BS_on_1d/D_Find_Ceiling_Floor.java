@@ -4,6 +4,9 @@ package c_binarysearch.A_BS_on_1d;
 import java.util.Arrays;
 
 /*
+https://takeuforward.org/arrays/floor-and-ceil-in-sorted-array/
+https://youtu.be/6zhGS79oQ4k
+https://www.naukri.com/code360/problems/ceiling-in-a-sorted-array_1825401
 You're given a sorted array 'a' of 'n' integers and an integer 'x'.
 
 

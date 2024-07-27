@@ -1,14 +1,24 @@
 package c_binarysearch.A_BS_on_1d;
 /*
-*
-* Given a non decreasing array of int and another variable x, find the index of x's lower bound
-* in the array if there is none then return -1
-*
-* The lower bound is the smallest index, ind, where arr[ind] >= x. But if any such index is not found,
-        the lower bound algorithm returns n i.e. size of the given array.
-* The upper bound is the smallest index, ind, where arr[ind] > x.
+https://takeuforward.org/arrays/implement-lower-bound-bs-2/
+https://takeuforward.org/arrays/implement-upper-bound/
+
+* Given a non decreasing array of int and another variable x, find the index of x's lower bound in the array if there is none then return -1
+
+ The lower bound is the smallest index, ind, where arr[ind] >= x. But if any such index is notfound, the lower bound algorithm returns n i.e. size of the given array.
+arr[] = {1,2,2,3}, x = 2 , lower bound : 1
 
 
+
+
+The upper bound algorithm finds the first or the smallest index in a sorted array where the value at that index is greater than the given key i.e. x.
+The upper bound is the smallest index, ind, where arr[ind] > x.
+arr[] = {3,5,8,9,15,19}, x = 9, Upper bound : 4
+
+
+
+The primary objective of the Binary Search algorithm is to efficiently determine the appropriate half to eliminate,
+thereby reducing the search space by half. It does this by determining a specific condition that ensures that the target is not present in that half.
  *
 *
 * 3 5 8 15 19

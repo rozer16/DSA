@@ -50,8 +50,8 @@ public class L_MinimizeGasStationDistance {
             double distance;
             int index;
 
-            public Pair(double station, int index) {
-                this.distance = station;
+            public Pair(double distance, int index) {
+                this.distance = distance;
                 this.index = index;
             }
 
