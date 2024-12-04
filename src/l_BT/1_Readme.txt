@@ -77,13 +77,13 @@ Children
 
 Traversing Technique
 
-BFS :
+DFS :
     Breath First Search :
         Preorder : Root Left Right
         Inorder : Left Root Right
         PostOrder : Left Right Root
 
-DFS :
+BFS :
     Depth First Search
         Traversing all nodes of tree level by level.
 
