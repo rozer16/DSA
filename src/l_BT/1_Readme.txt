@@ -88,5 +88,42 @@ DFS :
         Traversing all nodes of tree level by level.
 
 
+======
 
+
+Here’s a simple breakdown to remember the concepts of Full, Complete, Perfect, and Balanced binary trees:
+
+1. Full Binary Tree
+
+	•	Every node has 0 or 2 children.
+	•	No node has only one child.
+	•	Tip: Think of it as “all or nothing” for child nodes.
+
+2. Complete Binary Tree
+
+	•	All levels are completely filled except possibly the last.
+	•	Nodes in the last level are filled from left to right.
+	•	Tip: Visualize a tree filling up like water in a glass, level by level.
+
+3. Perfect Binary Tree
+
+	•	Every level of the tree is completely filled.
+	•	Number of nodes = 2^{h+1} - 1, where h is the height.
+	•	Tip: Perfect symmetry—no gaps at any level.
+
+4. Balanced Binary Tree
+
+	•	The height difference between the left and right subtrees of any node is at most 1.
+	•	Focus is on maintaining efficient operations (like searching).
+	•	Tip: Think of balance as keeping the tree from becoming skewed.
+
+Summary Table:
+
+Type	Key Rule	Tip
+Full	Every node has 0 or 2 children	All or nothing
+Complete	All levels filled except the last (left to right)	Filling a glass
+Perfect	All levels fully filled	Perfect symmetry
+Balanced	Height difference ≤ 1 at any node	Avoid skewness
+
+Keep this table handy for quick recollection!
 
