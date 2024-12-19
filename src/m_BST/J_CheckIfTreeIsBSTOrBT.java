@@ -51,46 +51,22 @@ public class J_CheckIfTreeIsBSTOrBT {
         Node root1 =new Node(-2147483648);
         root.right = new Node(2147483647);
 
-        boolean bst = isValidBST(root1);
+        boolean bst = isValidBST(root1,Integer.MIN_VALUE,Integer.MAX_VALUE);
+
         if(bst)
             System.out.println("Its BST");
         else
             System.out.println("Its BT");
     }
 
-    public static boolean isValidBST(Node root) {
-        if(root == null)
+    private static boolean isValidBST(Node root1, long minValue, long maxValue) {
+        if(root1 == null)
             return true;
 
-        //Start with INT min range and Int max range
-        return isValidBSTHelper(root, Long.MIN_VALUE,Long.MAX_VALUE);
-    }
-    public static boolean isValidBSTHelper(Node root,long leftRange, long rightRange) {
-        /*
-        *   1. if node value is null then true
-        *   2. left is null OR if left node is not null and leftRange < root.left.data < root.data ===> return true
-        *   3. right is null OR if right node is not null and root.data < root.right.data < rightRange ===> return true
-        *
-        * */
-        if(!isValidBSTNode(root,leftRange,rightRange))
+        if(root1.data <= minValue || root1.data >= maxValue)
             return false;
 
-        boolean left = root == null || isValidBSTHelper(root.left, leftRange, root.data);
-        if(!left)
-            return false;
-        return root == null || isValidBSTHelper(root.right, root.data, rightRange);
-
-
-    }
-    public static boolean isValidBSTNode(Node node, long leftR,long rightR){
-        if(node == null)
-            return true;
-        if(node.left != null && ((node.left.data >= node.data ) || (node.left.data <=  leftR)))
-            return false;
-        if(node.right != null && ( (node.right.data <= node.data) || (node.right.data >= rightR)))
-            return false;
-
-        return true;
+        return isValidBST(root1.left, minValue, root1.data) && isValidBST(root1.right,root1.data, maxValue);
     }
 
 

@@ -51,7 +51,12 @@ public class G_KthMissingPositiveNumber {
         Up to index 2: Only 1 number i.e. 1 is missing in the given array.
         Up to index 3: 3 numbers i.e. 1, 5, and 6 are missing.
         Up to index 4: 6 numbers i.e. 1, 5, 6, 8, 9, and 10 are missing.
-        For a given value of k as 5, we can determine that the answer falls within the range of 7 to 11. Since there are only 3 missing numbers up to index 3, the 5th missing number cannot be before vec[3], which is 7. Therefore, it must be located somewhere to the right of 7. Our actual answer i.e. 9 also supports this theory. So, by following this process we can find the closest neighbors (i.e. Present in the array) for the kth missing number. In our example, the closest neighbors of the 5th missing number are 7 and 11.
+        For a given value of k as 5, we can determine that the answer falls within the range of 7 to 11.
+        Since there are only 3 missing numbers up to index 3, the 5th missing number cannot be before vec[3],
+        which is 7. Therefore, it must be located somewhere to the right of 7.
+        Our actual answer i.e. 9 also supports this theory.
+        So, by following this process we can find the closest neighbors (i.e. Present in the array) for the kth missing number.
+        In our example, the closest neighbors of the 5th missing number are 7 and 11.
 
         How to calculate the number of missing numbers for any index i?
 

@@ -59,10 +59,11 @@ public class C_MajorityElement_N_By_2 {
     *
     * */
     public static void main(String[] args) {
-        int [] arr = {3,2,3};
-        int [] arr1 = {7,7,5,7,5,1,5,7,5,5,7,7,5,5,5,5};
+       // int [] arr = {3,2,3};
+        //int [] arr1 = {7,7,5,7,5,1,5,7,5,5,7,7,5,5,5,5};
+        int [] arr2 = {2,2,1,1,1,2,2};
         C_MajorityElement_N_By_2 test = new C_MajorityElement_N_By_2();
-        System.out.println(test.majorityElement(arr1));
+        System.out.println(test.majorityElement(arr2));
     }
 
     /*
