@@ -49,7 +49,34 @@ public class D_DetectCycleInUndirectedGraphUsingDFS {
         adj.get(5).add(3);
         adj.get(5).add(4);
 
-        System.out.println(detectCycle(0,adj));
+        //System.out.println(isCycle(0,adj));
+
+
+        ArrayList <List< Integer >> adj1 = new ArrayList < > (7);
+        for (int i = 0; i <= 4; i++) {
+            adj.add(new ArrayList < > ());
+        }
+
+        adj = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            adj.add(new ArrayList<>());
+        }
+        adj.get(0).add(1);
+        adj.get(1).add(0);
+        adj.get(1).add(2);
+        adj.get(2).add(1);
+        adj.get(2).add(3);
+        adj.get(3).add(2);
+        adj.get(3).add(4);
+        adj.get(4).add(3);
+
+        adj.get(4).add(5);
+        adj.get(5).add(4);
+
+        adj.get(6).add(5);
+        adj.get(5).add(6);
+
+        System.out.println(isCycle(0,adj));
 
     }
 
@@ -79,6 +106,39 @@ public class D_DetectCycleInUndirectedGraphUsingDFS {
             }else if (neigh != parent) {
                 return true;
             }
+        }
+
+        return false;
+    }
+
+
+
+    public static boolean isCycle(int a,List<List<Integer>> adj) {
+        boolean visited[] = new boolean[adj.size()];
+
+        for(int i = 0; i< adj.size(); i++){
+            if(!visited[i]){
+                if(dfs(i, -1, adj, visited))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+
+    public static boolean dfs(int node, int parent, List<List<Integer>> adj, boolean [] visited){
+        visited[node] = true;
+        for(int adjNode : adj.get(node)){
+           if(adjNode != parent){
+               if(visited[adjNode]){
+                   return true;
+               }
+
+               if (dfs(adjNode, node, adj, visited))
+                    return true;
+           }
+
         }
 
         return false;
