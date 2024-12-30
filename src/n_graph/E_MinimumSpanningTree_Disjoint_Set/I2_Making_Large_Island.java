@@ -6,6 +6,8 @@ import java.util.Set;
 public class I2_Making_Large_Island {
 
     public static void main(String[] args) {
+        HashSet<Integer> set = new HashSet<>();
+
         int[][] grid = {
                 {1, 1, 0, 1, 1, 0},
                 {1, 1, 0, 1, 1, 0},
