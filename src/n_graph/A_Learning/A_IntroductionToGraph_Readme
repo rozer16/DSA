@@ -30,3 +30,46 @@ Topological Sort BFS :
     Space Complexity: O(2N) + O(N) ~ O(2N): O(2N) for the visited array
                         and the stack carried during DFS calls and O(N) for recursive stack space,
                             where N = no. of nodes.
+
+
+Kahn's algorithm : Topo sort(Indegree array, queue with 0 indegree)
+Dijkstra's algorithm : Shortest path(Heap(PriorityQueue), visited array and/or  distance array)
+Bellman Ford algorithm : Shortest path(Nodes, Edges, distance array with 1e9, loop with V-1 times and relax edges)
+Floyd Warshall algorithm : Shortest path(
+                            new matrix with Integer.MAX_VALUE if row != col and 0 if row == col,
+                            loop with V times which denotes via vertex, i, j
+                                            and relax edges)
+
+                            for (int k = 0; k < n; k++) {
+                                for (int i = 0; i < n; i++) {
+                                    for (int j = 0; j < n; j++) {
+                                        matrix[i][j] = Math.min(matrix[i][j],
+                                                matrix[i][k] + matrix[k][j]);
+                                    }
+                                }
+                            }
+
+MST(Minimal spanning Tree :
+            * A spanning tree is a tree in which we have N nodes(i.e. All the nodes present in the original graph)
+              and N-1 edges and all nodes are reachable from each other.
+            * Among all possible spanning trees of a graph, the minimum spanning tree is the one for which the sum of all the edge weights is the minimum.
+            * there are two ways to find the minimum spanning tree for a given weighted and undirected graph.
+                Prim’s algorithm.
+                Kruskal's Algorithm
+
+Prim’s algorithm : MST(Heap(PriorityQueue), visited array, distance array, parent array)
+                    1) Start PQ with (0,0,0)
+                    2) while queue is not empty keep popping nodes
+                    3) If popped node is not visited,
+                           // mark it visited
+                           // add its weight to sum
+                           // add pair to MST list
+                           //Traverse all its non visited adj and push it to queue.
+                    4) Return sum & MST List.
+
+Krushkal's Algo :
+    1) Extract edge information from adjacency list in the format of Edge(wt, u, v) and prepare list
+    2) Sort the list in ascending order of weights
+    3) Apply DisjoinSet findUPar() and Union operation for each edge
+        3.1) If ultimate parents are same, continue
+        3.2) If ultimate parents are different, add weight to mstWt and apply union operation
