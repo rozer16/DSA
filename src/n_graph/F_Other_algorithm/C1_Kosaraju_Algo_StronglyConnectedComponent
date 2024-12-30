@@ -19,9 +19,13 @@ A component is called a Strongly Connected Component(SCC) only if for every poss
 In the following directed graph, the SCCs have been marked:
 
 
-If we take 1st SCC in the above graph, we can observe that each node is reachable from any of the other nodes. For example, if take the pair (0, 1) from the 1st SCC, we can see that 0 is reachable from 1 and 1 is also reachable from 0. Similarly, this is true for all other pairs of nodes in the SCC like (0,2), and (1,2). But if we take node 3 with the component, we can notice that for pair (2,3) 3 is reachable from 3 but 2 is not reachable from 3. So, the first SCC only includes vertices 0, 1, and 2.
+If we take 1st SCC in the above graph, we can observe that each node is reachable from any of the other nodes. For example, if take the pair (0, 1) from the 1st SCC, we can see that 0 is reachable from 1 and 1 is also reachable from 0.]
+Similarly, this is true for all other pairs of nodes in the SCC like (0,2), and (1,2).
+ But if we take node 3 with the component, we can notice that for pair (2,3) 3 is reachable from 3 but 2 is not reachable from 3.
+ So, the first SCC only includes vertices 0, 1, and 2.
 
-By definition, a component containing a single vertex is always a strongly connected component. For that vertex 3 in the above graph is itself a strongly connected component.
+By definition, a component containing a single vertex is always a strongly connected component.
+ For that vertex 3 in the above graph is itself a strongly connected component.
 
 By applying this logic, we can conclude that the above graph contains 4 strongly connected components like (0,1,2), (3), (4,5,6), and (7).
 
