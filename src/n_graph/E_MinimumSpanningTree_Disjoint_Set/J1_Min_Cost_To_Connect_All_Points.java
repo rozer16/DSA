@@ -45,11 +45,51 @@ public class J1_Min_Cost_To_Connect_All_Points {
         System.out.println("Min cost to connect all points : "+new J1_Min_Cost_To_Connect_All_Points().minCostConnectPoints(points)); //20
     }
 
+    /*
+        Sure, let's analyze the time and space complexity of the `minCostConnectPoints` method in the `J1_Min_Cost_To_Connect_All_Points` class.
+
+        ### Time Complexity
+
+        1. **Edge Preparation (Lines 53-57):**
+        - The nested loops iterate over all pairs of points to calculate the Manhattan distance.
+        - This takes \(O(N^2)\) time, where \(N\) is the number of points.
+
+        2. **Sorting Edges (Line 61):**
+        - Sorting the list of edges takes \(O(E \log E)\) time, where \(E\) is the number of edges.
+        - Since \(E = \frac{N(N-1)}{2}\), sorting takes \(O(N^2 \log N)\) time.
+
+        3. **Union-Find Operations (Lines 65-73):**
+        - Each union and find operation takes nearly constant time, \(O(\alpha(N))\), where \(\alpha\) is the inverse Ackermann function.
+        - In the worst case, we perform \(O(E)\) union-find operations, which is \(O(N^2)\).
+
+        Combining these, the overall time complexity is:
+        \[ O(N^2) + O(N^2 \log N) + O(N^2) = O(N^2 \log N) \]
+
+        ### Space Complexity
+
+        1. **Edge List (Line 51):**
+        - Storing all edges requires \(O(E)\) space, which is \(O(N^2)\).
+
+        2. **Disjoint Set (Lines 64-145):**
+        - The disjoint set data structure requires \(O(N)\) space for the parent and size arrays.
+
+        3. **Other Variables:**
+        - Other variables and lists used in the method require \(O(N)\) space.
+
+        Combining these, the overall space complexity is:
+        \[ O(N^2) \]
+
+        ### Summary
+
+        - **Time Complexity:** \(O(N^2 \log N)\)
+        - **Space Complexity:** \(O(N^2)\)
+    * */
     public int minCostConnectPoints(int[][] p) {
         int points = p.length;
 
         List<Edge> edges = new ArrayList();
         //1 prepare edges
+        //- This takes \(O(N^2)\) time, where \(N\) is the number of points.
         for(int i = 0; i< points; i++){
             for(int j = i+1; j<points;j++){
                 int distance = Math.abs(p[j][0]-p[i][0]) + Math.abs(p[j][1]-p[i][1]);

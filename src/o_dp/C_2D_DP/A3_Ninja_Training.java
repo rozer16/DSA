@@ -18,6 +18,7 @@ public class A3_Ninja_Training {
         A3_Ninja_Training solution = new A3_Ninja_Training();
         System.out.println("Max Merit Points Ninja can earn for given points using recursion :  "+solution.ninjaTrainingMemoization(points));
         System.out.println("Max Merit Points Ninja can earn for given points using tabulation :  "+solution.ninjaTrainingTabulation(points));
+        System.out.println("Max Merit Points Ninja can earn for given points using space optimization :  "+solution.ninjaTrainingSpaceOptimization(points));
     }
 
 
@@ -121,4 +122,40 @@ public class A3_Ninja_Training {
         // Return the maximum points achievable after all days (last activity is 3)
         return dp[n - 1][3];
     }
+
+    public int ninjaTrainingSpaceOptimization(int [][] points){
+        int n = points.length;
+
+        //dp [i][j] = On day i, best score  we get can if j task is not performed
+        //this can be used for i+1th day for performing jth task for i+1th day
+        int[] prev = new int[4];
+
+        // Initialize the first day's maximum points based on the available choices
+        prev[0] = Math.max(points[0][1], points[0][2]);
+        prev[1] = Math.max(points[0][0], points[0][2]);
+        prev[2] = Math.max(points[0][0], points[0][1]);
+        prev[3] = Math.max(points[0][0], Math.max(points[0][1], points[0][2]));
+
+        // Iterate through each day and each activity
+        for (int CurrentDay = 1; CurrentDay < n; CurrentDay++) {
+            int [] curr = new int[4];
+            for (int lastDayTask = 0; lastDayTask < 4; lastDayTask++) {
+                curr[lastDayTask] = 0; // Initialize the maximum points for the current day and last activity
+                // Consider each possible task for the current day
+                for (int todayTask = 0; todayTask <= 2; todayTask++) {
+                    if (todayTask != lastDayTask) { // Ensure that the current task is different from the last
+                        // Calculate the points for the current activity and add it to the maximum points from the previous day
+                        int activity = points[CurrentDay][todayTask] + prev[todayTask];
+                        // Update the maximum points for the current day and last activity
+                        curr[lastDayTask] = Math.max(curr[lastDayTask], activity);
+                    }
+                }
+            }
+        }
+
+        // Return the maximum points achievable after all days (last activity is 3)
+        return prev[3];
+    }
+
+
 }
