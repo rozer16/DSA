@@ -7,7 +7,9 @@ import java.util.List;
 public class C2_LIS_BinarySearch {
 
     public static void main(String[] args) {
-
+        int [] arr = {5, 8, 3, 7, 9, 1};
+        C2_LIS_BinarySearch solution = new C2_LIS_BinarySearch();
+        System.out.println(solution.longestIncreasingSubsequence(arr, arr.length));
     }
 
     /*
@@ -45,7 +47,7 @@ public class C2_LIS_BinarySearch {
                 temp.set(ind, arr[i]);
             }
         }
-            return 0;
+        return temp.size();
     }
 
     //The lower bound is the first element that is greater than or equal to x

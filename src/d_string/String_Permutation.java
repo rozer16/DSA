@@ -24,14 +24,14 @@ public class String_Permutation {
         if(left == right){
             System.out.println(str);
         }
-        else{
-        for (int i = left; i <= right; i++) {
+            else{
+            for (int i = left; i <= right; i++) {
 
-            str = swap(str, left, i);
-            permutation(str, left + 1, right);
-            str = swap(str, left, i);
-        }
-        }
+                str = swap(str, left, i);
+                permutation(str, left + 1, right);
+                str = swap(str, left, i);
+            }
+            }
     }
 
     private static  String swap(String str,int i,int j){
