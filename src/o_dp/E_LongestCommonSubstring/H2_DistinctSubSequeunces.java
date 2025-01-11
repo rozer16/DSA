@@ -2,7 +2,7 @@ package o_dp.E_LongestCommonSubstring;
 
 import java.util.Arrays;
 
-public class H2_DistinctSubSequeunces {
+public class    H2_DistinctSubSequeunces {
     public static void main(String[] args) {
             String str1 = "rabbbit";
             String str2 = "rabbit";
@@ -21,7 +21,7 @@ public class H2_DistinctSubSequeunces {
     }
 
     public int numDistinctRecursion(int ind1, int ind2, String str1, String str2) {
-        if(ind2 == 0)
+        if(ind2 == 0)  //Always we need to put this test case first, if we put ind1  == 0 first then it will compare and wont give right result.
             return 1;
         if(ind1 == 0)
             return 0;

@@ -28,7 +28,7 @@ public class A_TopoSort_Using_DFS {
         adj.get(5).add(2);
 
         List<Integer> result = topoSort(V,adj);
-        System.out.println(result);
+        System.out.println(result); //[5, 4, 2, 3, 1, 0]
 
     }
 

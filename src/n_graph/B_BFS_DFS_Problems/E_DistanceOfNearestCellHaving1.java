@@ -1,13 +1,20 @@
 package n_graph.B_BFS_DFS_Problems;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class E_DistanceOfNearestCellHaving1 {
 
 
     public static void main(String[] args) {
+
+        List<List<String>> result = new ArrayList<>();
+        int min = Integer.MAX_VALUE;
+        for(List<String> str : result)
+            min = Math.min(min, str.size());
+
+        int finalMin = min;
+        result.parallelStream().filter(x -> x.size() == finalMin).collect(Collectors.toList());
         int [][] matrix = new int[3][3];
 
         matrix[0] = new int[]{0, 0, 0};

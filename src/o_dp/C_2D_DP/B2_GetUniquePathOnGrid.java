@@ -13,7 +13,7 @@ public class B2_GetUniquePathOnGrid {
         System.out.println("Unique ways to go from (0,0) to (m,n) Using memoization: " + solution.getUniquePathOnGridMemoization(m - 1, n - 1));
         System.out.println("Unique ways to go from (0,0) to (m,n) Using tabulation: " + solution.getUniquePathOnGridTabulation(m, n));
         System.out.println("Unique ways to go from (0,0) to (m,n) Using space optimazation: " + solution.getUniquePathOnGridTabulation(m, n));
-        System.out.println("Unique ways to go from (0,0) to (m,n) Using Combination formula: " + solution.getUniquePathOnGridUsingCombination(m, n));
+        System.out.println("Unique ways to go from (0,0) to (m,n) Using Combination formula: " + solution.findNcR(m, n));
 
     }
 
@@ -112,17 +112,74 @@ public class B2_GetUniquePathOnGrid {
     }
 
 
-    public int getUniquePathOnGridUsingCombination(int m, int n) {
-        int N = m+n-2;
-        int C = m < n ? n-1 : m-1;
+    /*
+    The problem can be visualized as finding the number of unique permutations of a sequence of moves:
+	•	To get from the top-left corner to the bottom-right corner of the grid, the robot needs to make m-1 down moves and n-1 right moves.
+	•	This is a classic combinatorics problem, where the total number of unique paths is the number of ways to arrange m-1 “down” moves
+        and n-1 “right” moves in a sequence of m+n-2 moves.
 
-        double result = 1;
-        for (int i = 1; i <= C; i++) {
-            result = result*(N-C+i)/i;
+        The formula to calculate this is:
+
+        Unique Paths = m+n-2/m-1 =(m+n-2)!/(m-1)!(n-1)!
+
+
+        You have a grid with m rows and n columns. To move from the top-left corner (0,0) to the bottom-right corner (m-1, n-1):
+        1.	The robot can only move right or down.
+        2.	The robot needs to make exactly:
+        •	m-1 down moves to traverse m rows, and
+        •	n-1 right moves to traverse n columns.
+
+        Thus, the robot makes a total of:
+
+        T = (m-1) + (n-1) = m + n - 2
+
+        moves.
+
+        Now the question becomes:
+        •	Out of these T = m+n-2 total moves, in how many ways can we choose m-1 moves to be “down” (or equivalently n-1 moves to be “right”)?
+
+
+        Combinatorial Approach
+
+        This is a classic combinatorics problem of arranging T items into two categories:
+            •	m-1 “down” moves, and
+            •	n-1 “right” moves.
+
+        The total number of unique arrangements is given by the binomial coefficient:
+
+        \binom{T}{m-1} = \frac{T!}{(m-1)! \cdot (n-1)!}
+
+        Where:
+            •	T! = (m+n-2)!: Factorial of the total number of moves.
+            •	(m-1)!: Factorial of the “down” moves.
+            •	(n-1)!: Factorial of the “right” moves.
+
+        This formula counts all distinct ways to arrange T moves, considering that m-1 moves are identical (all “down”) and n-1 moves are identical (all “right”).
+
+        Example
+
+        Grid Size: 3 \times 7
+            •	Total moves: T = m + n - 2 = 3 + 7 - 2 = 8
+            •	Down moves: m-1 = 3-1 = 2
+            •	Right moves: n-1 = 7-1 = 6
+
+        The total number of unique paths is:
+
+        8/2 = frac{8!}{2! 6!} = frac{8 * 7 * 6!}{2! * 6!} = frac{8 * 7}{2} = 28
+
+     */
+
+    public int findNcR(int rows,int cols){
+
+        int N = rows+cols-2;
+        int R = rows > cols ? cols-1 : rows-1;
+
+
+        int result = 1;
+        for (int i = 0; i < R; i++) {
+            result = result * (N-i);
+            result = result / (i+1);
         }
-
-
-        return (int)result;
-
+        return result;
     }
 }

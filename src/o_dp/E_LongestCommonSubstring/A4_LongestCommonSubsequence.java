@@ -171,18 +171,18 @@ public class A4_LongestCommonSubsequence {
         }
 
         // Fill the dp array using dynamic programming
-        for (int ind11 = 1; ind11 <=n ; ind11++) {
-            for (int ind22 = 1; ind22 <= m ; ind22++) {
+        for (int index1 = 1; index1 <=n ; index1++) {
+            for (int index2 = 1; index2 <= m ; index2++) {
 
                 // If the characters at the current indices are the same, increment the LCS length
-                if(str1.charAt(ind11-1) == str2.charAt(ind22-1))
-                    dp[ind11][ind22] =  1+ dp[ind11-1][ ind22-1];
+                if(str1.charAt(index1-1) == str2.charAt(index2-1))
+                    dp[index1][index2] =  1+ dp[index1-1][ index2-1];
                 else
                     // If the characters are different, choose the maximum LCS length by either
                     // excluding a character in s1 or excluding a character in s2
-                    dp[ind11][ind22] = Math.max(
-                        dp[ind11-1][ ind22],
-                        dp[ind11] [ind22-1]
+                    dp[index1][index2] = Math.max(
+                        dp[index1-1][ index2],
+                        dp[index1] [index2-1]
                     );
 
             }

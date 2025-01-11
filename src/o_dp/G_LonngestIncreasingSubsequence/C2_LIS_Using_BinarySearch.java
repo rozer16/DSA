@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class C2_LIS_BinarySearch {
+public class C2_LIS_Using_BinarySearch {
 
     public static void main(String[] args) {
         int [] arr = {5, 8, 3, 7, 9, 1};
-        C2_LIS_BinarySearch solution = new C2_LIS_BinarySearch();
+        C2_LIS_Using_BinarySearch solution = new C2_LIS_Using_BinarySearch();
         System.out.println(solution.longestIncreasingSubsequence(arr, arr.length));
     }
 

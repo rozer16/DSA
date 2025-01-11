@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Queue;
 
 /*
+
+https://leetcode.com/problems/course-schedule/
+
+
 Problem Statement I (Course Schedule): There are a total of n tasks you have to pick, labeled from 0 to n-1.
 Some tasks may have prerequisites tasks, for example, to pick task 0 you have to first finish tasks 1, which is expressed as a pair: [0, 1]
 
@@ -22,6 +26,34 @@ Given the total number of tasks N and a list of prerequisite pairs P, find if it
 Note: These two questions are linked. The second question asks if it is possible to finish all the tasks and the first question states to return the ordering of the tasks if it is possible to perform all the tasks, otherwise return an empty array.
 
 
+Example 1:
+
+Input: numCourses = 2, prerequisites = [[1,0]]
+Output: true
+Explanation: There are a total of 2 courses to take.
+To take course 1 you should have finished course 0. So it is possible.
+Example 2:
+
+Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
+Output: false
+Explanation: There are a total of 2 courses to take.
+To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
+
+
+Example 1:
+Input: N = 4, P = 3,  array[] = {{1,0},{2,1},{3,2}}
+Output: Yes
+Explanation: It is possible to finish all the tasks in the order : 3 2 1 0.
+First, we will finish task 3. Then we will finish task 2, task 1, and task 0.
+
+Example 2:
+Input: N = 4, P = 4,  array[] = {{1,2},{4,3},{2,4},{4,1}}
+Output: No
+Explanation: It is impossible to finish all the tasks. Let’s analyze the pairs:
+For pair {1, 2} -> we need to finish task 1 first and then task 2. (order : 1 2).
+For pair{4, 3} -> we need to finish task 4 first and then task 3. (order: 4 3).
+For pair {2, 4} -> we need to finish task 2 first and then task 4. (order: 1 2 4 3).
+But for pair {4, 1} -> we need to finish task 4 first and then task 1 but this pair contradicts the previous pair. So, it is not possible to finish all the tasks.
 * */
 public class D_CourceSchedule_I {
 

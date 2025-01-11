@@ -56,39 +56,39 @@ public class D2_Minimum_No_Of_Coins {
 
     // Function to find the minimum number of coins needed
     // to make a target value
-    public int minCoinsMameization(int[] coins, int m, int V)
+    public int minCoinsMameization(int[] coins, int targetSUM)
     {
         // Create a DP table to store results of subproblems
-        int[] dp = new int[V + 1];
+        int[] dp = new int[targetSUM + 1];
         Arrays.fill(dp, -1); // Initialize DP table with -1
 
         // Call the utility function to solve the problem
-        return minCoinsUtil(coins, m, V, dp);
+        return minCoinsUtil(coins, targetSUM, dp);
     }
 
-    public static int minCoinsUtil(int[] coins, int m,
-                                   int V, int[] dp)
+    public static int minCoinsUtil(int[] coins, int targetSum, int[] dp)
     {
-        // Base case: If target value V is 0, no coins are
+
+        // Base case: If target value targetSum is 0, no coins are
         // needed
-        if (V == 0)
+        if (targetSum == 0)
             return 0;
 
         // If subproblem is already solved, return the
         // result from DP table
-        if (dp[V] != -1)
-            return dp[V];
+        if (dp[targetSum] != -1)
+            return dp[targetSum];
 
         int res = Integer.MAX_VALUE;
 
         // Iterate over all coins and recursively solve for
         // subproblems
-        for (int i = 0; i < m; i++) {
-            if (coins[i] <= V) {
+        for (int i = 0; i < coins.length; i++) {
+            if (coins[i] <= targetSum) {
                 // Recursive call to solve for remaining
-                // value V - coins[i]
+                // value targetSum - coins[i]
                 int sub_res = minCoinsUtil(
-                        coins, m, V - coins[i], dp);
+                        coins,  targetSum - coins[i], dp);
 
                 // If the subproblem has a valid solution
                 // and the total number of coins is smaller
@@ -101,7 +101,7 @@ public class D2_Minimum_No_Of_Coins {
         }
 
         // Save the result in the DP table
-        dp[V] = res;
+        dp[targetSum] = res;
 
         return res;
     }

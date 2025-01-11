@@ -1,5 +1,7 @@
 package o_dp.E_LongestCommonSubstring;
 
+import java.util.*;
+
 public class B2_PrintLongestCommonSubsequence {
 
     public static void main(String[] args) {
@@ -56,5 +58,69 @@ public class B2_PrintLongestCommonSubsequence {
         }
 
        return new String(ans);
+    }
+
+    //Method to find all LCS
+
+    public List<String> all_longest_common_subsequences_interative(String s, String t) {
+        int n = s.length();
+        int m = t.length();
+
+        int [][] dp = new int[n+1][m+1];
+
+        for(int index1 = 1; index1 <= n; index1++){
+            for(int index2 = 1; index2 <= m; index2++){
+                if(s.charAt(index1-1) == t.charAt(index2-1)){
+                    dp[index1][index2] = 1 + dp[index1-1][ index2-1];
+
+                }else{
+                    dp[index1][index2] =  Math.max(dp[index1-1][index2], dp[index1][ index2-1]);
+                }
+            }
+        }
+
+        Set<String> set = new HashSet();
+        //backTrack(dp, n,m, s,t,set, new StringBuilder());
+        backtrack(dp,s,t,n,m,new StringBuilder(), set);
+        List<String> result = new ArrayList(set);
+        Collections.sort(result);
+        return result;
+    }
+
+
+        private void backtrack(int[][] dp, String s, String t, int i, int j, StringBuilder current, Set<String> result) {
+            if (i == 0 || j == 0) {
+                // Base case: add the current LCS to the result set
+                result.add(current.reverse().toString());
+                current.reverse(); // Undo the reversal for further backtracking
+                return;
+            }
+
+            if (s.charAt(i - 1) == t.charAt(j - 1)) {
+                // Characters match, include them in the current LCS
+                current.append(s.charAt(i - 1));
+                backtrack(dp, s, t, i - 1, j - 1, current, result);
+                current.deleteCharAt(current.length() - 1); // Backtrack
+            } else {
+                // Explore both possible paths (if they yield the same LCS length)
+                if (dp[i - 1][j] == dp[i][j]) {
+                    backtrack(dp, s, t, i - 1, j, current, result);
+                }
+                if (dp[i][j - 1] == dp[i][j]) {
+                    backtrack(dp, s, t, i, j - 1, current, result);
+                }
+            }
+        }
+}
+
+// Helper class to track the state
+class LCSState {
+    int i, j;
+    StringBuilder current;
+
+    LCSState(int i, int j, StringBuilder current) {
+        this.i = i;
+        this.j = j;
+        this.current = current;
     }
 }

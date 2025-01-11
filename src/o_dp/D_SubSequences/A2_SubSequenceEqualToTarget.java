@@ -1,6 +1,8 @@
 package o_dp.D_SubSequences;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class A2_SubSequenceEqualToTarget {
 
@@ -129,5 +131,110 @@ public class A2_SubSequenceEqualToTarget {
             prev = curr;
         }
         return prev[k];
+    }
+
+    //All above implementations are for only checking if there is any subsequence having sum k with positive integers.
+    //For negative no, please follow below implementation
+
+    static Boolean isSubsetSumWithNegatives(int arr[], int target) {
+        int n = arr.length;
+
+        // Calculate the range of possible sums
+        int minSum = 0, maxSum = 0;
+        for (int num : arr) {
+            if (num > 0) maxSum += num;
+            else minSum += num;
+        }
+
+        // If target is outside the range of possible sums, return false
+        if (target < minSum || target > maxSum) return false;
+
+        // Use a map to store DP states
+        Map<String, Boolean> dp = new HashMap<>();
+
+        return isSubsetSumRecursion(arr, target, n - 1, dp);
+    }
+
+    static Boolean isSubsetSumRecursion(int arr[], int target, int i, Map<String, Boolean> dp) {
+        // Construct the key for the current state
+        String key = i + ":" + target;
+
+        // Base case: when target is zero
+        if (target == 0) return true;
+
+        // Base case: when only one element is considered
+        if (i == 0) return arr[0] == target;
+
+        // Check if result is already computed
+        if (dp.containsKey(key)) {
+            return dp.get(key);
+        }
+
+        // Recursive cases: not take or take the current element
+        boolean notTake = isSubsetSumRecursion(arr, target, i - 1, dp);
+        boolean take = false;
+        if (arr[i] <= target) {
+            take = isSubsetSumRecursion(arr, target - arr[i], i - 1, dp);
+        }
+
+        // Store the result in the Map
+        dp.put(key, notTake || take);
+        return notTake || take;
+    }
+
+
+    //Below implementation is with shifting of index
+
+
+    static Boolean isSubsetSumWithNegativesWithShiftingIndex(int arr[], int target) {
+        int n = arr.length;
+
+        // Calculate the range of possible sums
+        int minSum = 0, maxSum = 0;
+        for (int num : arr) {
+            if (num > 0) maxSum += num;
+            else minSum += num;
+        }
+
+        // If target is outside the range of possible sums, return false
+        if (target < minSum || target > maxSum) return false;
+
+        // Offset to convert negative indices to non-negative
+        int offset = -minSum;
+        int[][] dp = new int[n][maxSum - minSum + 1];
+
+        // Initialize DP array
+        for (int[] row : dp) {
+            Arrays.fill(row, -1);
+        }
+
+        return isSubsetSumRecursion(arr, target, n - 1, dp, offset);
+    }
+
+    static Boolean isSubsetSumRecursion(int arr[], int target, int i, int[][] dp, int offset) {
+        // Adjust target with offset to map it to non-negative indices
+        int adjustedTarget = target + offset;
+
+        // Base case: when target is zero
+        if (target == 0) return true;
+
+        // Base case: when only one element is considered
+        if (i == 0) return arr[0] == target;
+
+        // Check if result is already computed
+        if (dp[i][adjustedTarget] != -1) {
+            return dp[i][adjustedTarget] == 1;
+        }
+
+        // Recursive cases: not take or take the current element
+        boolean notTake = isSubsetSumRecursion(arr, target, i - 1, dp, offset);
+        boolean take = false;
+        if (arr[i] <= target) {
+            take = isSubsetSumRecursion(arr, target - arr[i], i - 1, dp, offset);
+        }
+
+        // Store the result in DP table
+        dp[i][adjustedTarget] = (notTake || take) ? 1 : 0;
+        return notTake || take;
     }
 }

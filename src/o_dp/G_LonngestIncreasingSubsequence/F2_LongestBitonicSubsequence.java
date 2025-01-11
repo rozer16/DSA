@@ -41,7 +41,8 @@ public class F2_LongestBitonicSubsequence {
 
         int maxi = 0;
         for (int i = 0; i < n; i++) {
-            maxi = Math.max(maxi, dp1[i]+dp2[i]-1);
+            if(dp1[i] > 1 || dp2[i] > 1) //  A strictly increasing or a strictly decreasing sequence should not be considered as a bitonic sequence
+                maxi = Math.max(maxi, dp1[i]+dp2[i]-1);
         }
 
         return maxi;

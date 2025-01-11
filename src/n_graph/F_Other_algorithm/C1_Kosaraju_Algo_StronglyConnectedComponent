@@ -1,3 +1,5 @@
+https://takeuforward.org/graph/strongly-connected-components-kosarajus-algorithm-g-54/
+
 Problem Statement: Given a Directed Graph with V vertices (Numbered from 0 to V-1) and E edges, Find the number of strongly connected components in the graph.
 
 Pre-requisite: DFS algorithm
