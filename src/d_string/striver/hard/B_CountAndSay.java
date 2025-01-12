@@ -62,8 +62,11 @@ public class B_CountAndSay {
 
     public static void main(String[] args) {
         B_CountAndSay obj = new B_CountAndSay();
-        System.out.println(obj.countAndSay(4));//1211
         System.out.println(obj.countAndSay(1));//1
+        System.out.println(obj.countAndSay(2));//11
+        System.out.println(obj.countAndSay(3));//21
+        System.out.println(obj.countAndSay(4));//1211
+        System.out.println(obj.countAndSay(5));//11121
     }
 
     public String countAndSay(int n) {

@@ -11,9 +11,9 @@ public class C_Rabin_Karp_Algo {
 
     public static void main(String[] args) {
         C_Rabin_Karp_Algo obj = new C_Rabin_Karp_Algo();
-        System.out.println(obj.search("hello", "ll"));//2
-        System.out.println(obj.search("aaaaa", "bba"));//-1
-        System.out.println(obj.search("", ""));//0
+        System.out.println(obj.rabinKarp1("helloll", "ll"));//2,5
+        System.out.println(obj.rabinKarp1("aaaaa", "aaa"));//0,1,2
+        System.out.println(obj.rabinKarp1("", ""));//[]
     }
 
     public List<Integer> search(String pattern, String text) {
@@ -44,57 +44,105 @@ public class C_Rabin_Karp_Algo {
 
     /*
 
-    The time complexity of the rabinKarp method is (O(n + m)), where (n) is the length of the source string and (m) is the length of the target string.
+    The time complexity of the rabinKarp method is (O(n + m)),
+    where (n) is the length of the source string and (m) is the length of the target string.
     This is because:
         Computing the power of 31 modulo BASE takes (O(m)) time.
         Computing the hash code of the target string takes (O(m)) time.
         The sliding window over the source string takes (O(n)) time, as each character is processed once.
     Thus, the overall time complexity is (O(n + m)).
+
+        The space required to store the input strings text and pattern.
+        The space required for the integer variables BASE, patternLen, power, patternHash, and textHash.
+        Since the method uses a constant amount of extra space
+        (i.e., it does not use any additional data structures that grow with the input size),
+        the space complexity of the rabinKarp method is O(1).
     * */
 
-    public int rabinKarp(String text, String pattern) {
-        if (pattern.length() > text.length()) return -1; // Pattern longer than text
-        if (text.equals(pattern)) return 0; // Exact match
-
-        int MOD = 100000; // Large prime to prevent overflow
-        int PRIME = 31;   // Prime multiplier for hash
+    private int rabinKarp(String text, String pattern) {
+        int BASE = 31;
+        if (text.isEmpty() || pattern.isEmpty()) return -1;
 
         int patternLen = pattern.length();
-        int textLen = text.length();
         int power = 1;
 
-        // Compute PRIME^(patternLen-1) % MOD
-        for (int i = 0; i < patternLen - 1; i++) {
-            power = (power * PRIME) % MOD;
-        }
-
-        // Compute the hash of the pattern
-        int patternHashCode = 0;
+        // Compute 31^m % BASE
         for (int i = 0; i < patternLen; i++) {
-            patternHashCode = (patternHashCode * PRIME + pattern.charAt(i)) % MOD;
+            power = (power * 31) % BASE;
         }
 
-        // Compute the hash for the first window of the text
-        int textHashCode = 0;
-        for (int i = 0; i < textLen; i++) {
-            textHashCode = (textHashCode * PRIME + text.charAt(i)) % MOD;
+        // Compute hash of the target
+        int patternHash = 0;
+        for (int i = 0; i < patternLen; i++) {
+            patternHash = (patternHash * 31 + pattern.charAt(i)) % BASE;
+        }
 
-            // Adjust the hash when the window size exceeds patternLen
+        // Compute rolling hash for the source
+        int textHash = 0;
+        for (int i = 0; i < text.length(); i++) {
+            textHash = (textHash * 31 + text.charAt(i)) % BASE;
+
+            // Skip until we have the first m characters
+            if (i < patternLen - 1) continue;
+
+            // Remove the contribution of the character sliding out of the window
+            //WWhenever we are subtracting, no might go negative so always add base whenever we are subtracting
             if (i >= patternLen) {
-                textHashCode = (textHashCode - (text.charAt(i - patternLen) * power)%MOD) % MOD;
-                if (textHashCode < 0) textHashCode += MOD; // Ensure non-negative hash
+                textHash = (textHash - (text.charAt(i - patternLen) * power) % BASE + BASE) % BASE;
             }
 
-            // Check for hash match and confirm with actual string comparison
-            if (i >= patternLen - 1) {
-                if (textHashCode == patternHashCode) {
-                    if (text.substring(i - patternLen + 1, i + 1).equals(pattern)) {
-                        return i - patternLen + 1; // Return starting index
-                    }
+            // If hash codes match, verify the actual substring
+            if (textHash == patternHash) {
+                if (text.substring(i - patternLen + 1, i + 1).equals(pattern)) {
+                    return i - patternLen + 1;
                 }
             }
         }
 
-        return -1; // Pattern not found
+        return -1;
+    }
+
+    private List<Integer> rabinKarp1(String text, String pattern) {
+        List<Integer> res = new ArrayList<>();
+        int BASE = 31;
+        if (text.isEmpty() || pattern.isEmpty()) return res;
+
+        int patternLen = pattern.length();
+        int power = 1;
+
+        // Compute 31^m % BASE
+        for (int i = 0; i < patternLen; i++) {
+            power = (power * 31) % BASE;
+        }
+
+        // Compute hash of the target
+        int patternHash = 0;
+        for (int i = 0; i < patternLen; i++) {
+            patternHash = (patternHash * 31 + pattern.charAt(i)) % BASE;
+        }
+
+        // Compute rolling hash for the source
+        int textHash = 0;
+        for (int i = 0; i < text.length(); i++) {
+            textHash = (textHash * 31 + text.charAt(i)) % BASE;
+
+            // Skip until we have the first m characters
+            if (i < patternLen - 1) continue;
+
+            // Remove the contribution of the character sliding out of the window
+            //WWhenever we are subtracting, no might go negative so always add base whenever we are subtracting
+            if (i >= patternLen) {
+                textHash = (textHash - (text.charAt(i - patternLen) * power) % BASE + BASE) % BASE;
+            }
+
+            // If hash codes match, verify the actual substring
+            if (textHash == patternHash) {
+                if (text.substring(i - patternLen + 1, i + 1).equals(pattern)) {
+                    res.add( i - patternLen + 1);
+                }
+            }
+        }
+
+        return res;
     }
 }

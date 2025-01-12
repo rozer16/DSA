@@ -74,7 +74,7 @@ public class D_Repeted_String_Match {
         int patternLen = pattern.length();
         int power = 1;
 
-        // Compute 31^(m-1) % BASE
+        // Compute 31^(m) % BASE
         for (int i = 0; i < patternLen; i++) {
             power = (power * 31) % BASE;
         }
