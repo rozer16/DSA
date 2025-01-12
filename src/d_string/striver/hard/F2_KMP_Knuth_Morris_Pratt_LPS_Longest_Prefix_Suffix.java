@@ -11,7 +11,7 @@ public class F2_KMP_Knuth_Morris_Pratt_LPS_Longest_Prefix_Suffix {
         System.out.println(Arrays.toString(obj.computeLPSBrute("aaaa")));//[0, 0, 1, 2]
         System.out.println(Arrays.toString(obj.computeLPSBrute("abc"))); //[0, 0, 0]
 
-        System.out.println(Arrays.toString(obj.computeLPSArray("abaabaababaab")));//[0, 0, 1, 0, 1, 2, 3, 2]
+        System.out.println(Arrays.toString(obj.computeLPSArray("leetcode@abcdleetcode")));//[0, 0, 1, 0, 1, 2, 3, 2]
     }
 
 
